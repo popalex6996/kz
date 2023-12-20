@@ -1,0 +1,32 @@
+.lang-switch-wrapper {
+  position: relative;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.lang-btn:hover {
+  color: #c60f0f;
+}
+
+.active-lang-btn {
+  color: white !important;
+  font-weight: bold;
+}
+
+.border {
+  position: absolute;
+  border-left: 1px solid white;
+  width: 2px;
+  height: 20px;
+}

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./index.css";
 import Spacer from "../Spacer";
+import { useTranslation } from "react-i18next";
 
 interface SignUpProps {}
 
 const SignUp: React.FC<SignUpProps> = () => {
+  const { t } = useTranslation();
   const [isLoginTab, setLoginTab] = useState(true);
 
   const onSignIn = () => {};
@@ -14,78 +16,98 @@ const SignUp: React.FC<SignUpProps> = () => {
     <div className="signup-wrapper">
       <div className="tabs">
         <div
-          className={`tab-name ${isLoginTab && "active"}`}
+          className={`tab-name ${isLoginTab && "active-tab"}`}
           onClick={() => setLoginTab(true)}
         >
-          Вхід
+          {t("login")}
         </div>
         <div
-          className={`tab-name ${!isLoginTab && "active"}`}
+          className={`tab-name ${!isLoginTab && "active-tab"}`}
           onClick={() => setLoginTab(false)}
         >
-          Реєстрація
+          {t("signup")}
         </div>
       </div>
       <Spacer height={50} />
       {isLoginTab ? (
         <form id="signin" className="signup-form" onSubmit={onSignIn}>
-          <input className="auth-input" type="email" placeholder="Ел. пошта" />
-          <Spacer height={20} />
-          <input className="auth-input" type="password" placeholder="Пароль" />
-          <Spacer height={10} />
-          <div className="reset-pass-wrapper">
-            <button className="reset-pass-btn">Забули пароль?</button>
-          </div>
-          <Spacer height={50} />
-          <button className="submit-btn" type="submit">
-            Увійти
-          </button>
-          <Spacer height={20} />
-          <span>або</span>
-          <Spacer height={20} />
-        </form>
-      ) : (
-        <form id="signup" className="signup-form" onSubmit={onSignUp}>
-          <input className="auth-input" type="text" placeholder="Ім'я" />
-          <Spacer height={20} />
-          <input className="auth-input" type="text" placeholder="Прізвище" />
-          <Spacer height={20} />
           <input
             className="auth-input"
-            type="text"
-            placeholder="Номер телефону"
+            type="email"
+            placeholder={t("emailPlaceholder")}
           />
-          <Spacer height={20} />
-          <input className="auth-input" type="email" placeholder="Ел. пошта" />
           <Spacer height={20} />
           <input
             className="auth-input"
             type="password"
-            placeholder="Придумайте пароль"
+            placeholder={t("passwordPlaceholder")}
+          />
+          <Spacer height={10} />
+          <div className="reset-pass-wrapper">
+            <button className="reset-pass-btn">{t("forgetPassword")}</button>
+          </div>
+          <Spacer height={50} />
+          <button className="submit-btn" type="submit">
+            {t("loginSubmitBtn")}
+          </button>
+          <Spacer height={20} />
+          <span>{t("or")}</span>
+          <Spacer height={20} />
+        </form>
+      ) : (
+        <form id="signup" className="signup-form" onSubmit={onSignUp}>
+          <input
+            className="auth-input"
+            type="text"
+            placeholder={t("namePlaceholder")}
+          />
+          <Spacer height={20} />
+          <input
+            className="auth-input"
+            type="text"
+            placeholder={t("lastNamePlaceholder")}
+          />
+          <Spacer height={20} />
+          <input
+            className="auth-input"
+            type="text"
+            placeholder={t("phonePlaceholder")}
+          />
+          <Spacer height={20} />
+          <input
+            className="auth-input"
+            type="email"
+            placeholder={t("emailPlaceholder")}
+          />
+          <Spacer height={20} />
+          <input
+            className="auth-input"
+            type="password"
+            placeholder={t("passwordPlaceholder")}
           />
           <Spacer height={20} />
           <div className="reset-pass-wrapper">
             <span className="terms">
-              Реєструючись, ви погоджуєтеся з умовами{" "}
+              {t("terms")}{" "}
               <a href="/privacy" target="_blank" className="terms-link">
-                положення про обробку і захист персональних даних
+                {t("terms2")}
               </a>{" "}
-              та{" "}
+              {t("terms3")}{" "}
               <a href="/terms" target="_blank" className="terms-link">
-                угодою користувача
+                {t("terms4")}
               </a>
             </span>
           </div>
           <Spacer height={30} />
           <button className="submit-btn" type="submit">
-            Зареєструватись
+            {t("signup")}
           </button>
           <Spacer height={10} />
           <button className="already-signed" onClick={() => setLoginTab(true)}>
-            Я вже зареєстрований
+            {t("alreadyExists")}
           </button>
           <Spacer height={20} />
-          <span>або</span>
+          <span> {t("or")}</span>
           <Spacer height={20} />
         </form>
       )}

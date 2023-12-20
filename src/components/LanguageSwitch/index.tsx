@@ -7,14 +7,14 @@ const LanguageSwitch = () => {
   return (
     <div className="lang-switch-wrapper">
       <button
-        className={i18n.language ? "lang-btn active" : "lang-btn"}
+        className={`lang-btn ${i18n.language === "ua" && " active-lang-btn"}`}
         onClick={() => i18n.changeLanguage("ua")}
       >
         UA
       </button>
-      <span>|</span>
+      <div className="border" />
       <button
-        className={i18n.language ? "lang-btn active" : "lang-btn"}
+        className={`lang-btn ${i18n.language === "en" && " active-lang-btn"}`}
         onClick={() => i18n.changeLanguage("en")}
       >
         EN

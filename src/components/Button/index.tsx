@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../Icon/Icon";
+import Index from "../Icon";
 import "./index.css";
 
 interface ButtonProps {
@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
   <button onClick={onClick} disabled={disabled} className={`btn ${className}`}>
     {label && <span> {label}</span>}
     {type && (
-      <Icon
+      <Index
         name={type}
         height={sizeTable[type].height}
         width={sizeTable[type].width}

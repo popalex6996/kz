@@ -1,5 +1,5 @@
 import React from "react";
-import Spacer from "../../components/Spacer/Spacer";
+import Spacer from "../../components/Spacer";
 import "./index.css";
 
 const Terms = () => {

@@ -1,6 +1,6 @@
 import "./index.css";
 import { useState } from "react";
-import Button from "../Button/Button";
+import Button from "../Button";
 
 const Cart = () => {
   const [isOpen, setCartOpen] = useState(false);

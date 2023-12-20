@@ -1,10 +1,11 @@
 import React from "react";
-import Hamburger from "../Hamburger/Hamburger";
+import Hamburger from "../Hamburger";
 import "./index.css";
-import SearchBar from "../SearchBar/SearchBar";
-import Cart from "../Cart/Cart";
-import Account from "../Account/Account";
-import Spacer from "../Spacer/Spacer";
+import SearchBar from "../SearchBar";
+import Cart from "../Cart";
+import Index from "../Account";
+import Spacer from "../Spacer";
+import LanguageSwitch from "../LanguageSwitch";
 
 const Header: React.FC = () => {
   return (
@@ -13,13 +14,11 @@ const Header: React.FC = () => {
         <Hamburger />
         <SearchBar />
         <div className="settings-bar">
-          <button>
-            <span>UA</span> |<span>EN</span>
-          </button>
+          <LanguageSwitch />
           <Spacer width={15} />
           <Cart />
           <Spacer width={15} />
-          <Account />
+          <Index />
         </div>
       </div>
     </div>

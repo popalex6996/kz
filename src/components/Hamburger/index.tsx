@@ -1,6 +1,6 @@
 import "./index.css";
 import { useState } from "react";
-import Button from "../Button/Button";
+import Index from "../Button";
 
 const links = [
   { text: "Головна", link: "1", id: "1" },
@@ -28,10 +28,10 @@ const Hamburger = () => {
 
   return (
     <div className="hamburger-wrapper">
-      <Button type="hamburger" onClick={onOpen} />
+      <Index type="hamburger" onClick={onOpen} />
       <div className={` ${isOpen && "hamburger-shadow"}`} onClick={onClose}>
         <div id="hamburger-menu" className="hamburger-menu">
-          <Button
+          <Index
             className="hamburger-close"
             type="hamburger"
             onClick={onClose}

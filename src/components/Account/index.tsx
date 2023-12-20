@@ -1,9 +1,9 @@
 import "./index.css";
 
 import { useState } from "react";
-import Button from "../Button/Button";
-import Modal from "../Modal/Modal";
-import SignUp from "../SignUp/SignUp";
+import Modal from "../Modal";
+import SignUp from "../SignUp";
+import Button from "../Button";
 
 type User = {
   img: string;

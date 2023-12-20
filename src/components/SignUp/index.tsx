@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./index.css";
-import Spacer from "../Spacer/Spacer";
+import Spacer from "../Spacer";
 
 interface SignUpProps {}
 

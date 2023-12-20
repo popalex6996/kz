@@ -1,9 +1,12 @@
 import "./index.css";
-import Icon from "../Icon/Icon";
-import { useState } from "react";
-import Button from "../Button/Button";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import Button from "../Button";
+import Icon from "../Icon";
 
 const SearchBar = () => {
+  const { t } = useTranslation();
+
   const [searchInput, setSearchInput] = useState("");
 
   const handleChange = (e: any) => {
@@ -28,13 +31,13 @@ const SearchBar = () => {
       <input
         type="search"
         className="search-input"
-        placeholder="Я шукаю..."
+        placeholder={t("searchPlaceholder")}
         value={searchInput}
         onChange={handleChange}
         onKeyUp={onKeyUp}
       />
       <Button
-        label="Знайти"
+        label={t("searchBtn")}
         className="search-btn"
         disabled={!searchInput}
         onClick={onClick}

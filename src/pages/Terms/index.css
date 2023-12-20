@@ -1,0 +1,8 @@
+.terms-wrapper {
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+}

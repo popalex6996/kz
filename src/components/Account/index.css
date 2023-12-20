@@ -1,0 +1,32 @@
+.account-btn-wrapper {
+  cursor: pointer;
+}
+.account-btn {
+  padding: 0;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.account-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  object-fit: cover;
+}
+
+.initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #c60f0f;
+  border: 1px solid white;
+}

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./index.css";
 import Spacer from "../Spacer";
 import { useTranslation } from "react-i18next";
+import Socials from "../Socials";
 
-interface SignUpProps {}
+interface SignUpProps {
+  loginTabActive?: boolean;
+}
 
-const SignUp: React.FC<SignUpProps> = () => {
+const SignUp: React.FC<SignUpProps> = ({ loginTabActive = true }) => {
   const { t } = useTranslation();
-  const [isLoginTab, setLoginTab] = useState(true);
+  const [isLoginTab, setLoginTab] = useState(loginTabActive);
 
   const onSignIn = () => {};
   const onSignUp = () => {};
@@ -48,11 +51,12 @@ const SignUp: React.FC<SignUpProps> = () => {
           </div>
           <Spacer height={50} />
           <button className="submit-btn" type="submit">
-            {t("loginSubmitBtn")}
+            {t("login")}
           </button>
           <Spacer height={20} />
           <span>{t("or")}</span>
           <Spacer height={20} />
+          <Socials />
         </form>
       ) : (
         <form id="signup" className="signup-form" onSubmit={onSignUp}>
@@ -109,6 +113,7 @@ const SignUp: React.FC<SignUpProps> = () => {
           <Spacer height={20} />
           <span> {t("or")}</span>
           <Spacer height={20} />
+          <Socials />
         </form>
       )}
     </div>

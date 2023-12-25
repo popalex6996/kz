@@ -5,6 +5,7 @@ import store from "./store";
 import Header from "./components/Header";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <div id="modal-root" />
         <Header />
         <RouterProvider router={router} />
+        <Footer />
       </div>
     </Provider>
   );

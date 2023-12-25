@@ -12,6 +12,12 @@ const resources = {
       terms4: "угодою користувача",
       alreadyExists: "Я вже зареєстрований",
 
+      //footer
+      platform: "Платформа",
+      store: "Каталог товарів",
+      copyright: " Copyright © 2023-2023 Kozinburg Inc. All Rights Reserved.",
+      userAgreement: "Угода користувача",
+
       //Placeholders
       searchPlaceholder: "Я шукаю...",
       emailPlaceholder: "Ел. пошта",
@@ -22,7 +28,6 @@ const resources = {
 
       //Buttons labels
       searchBtn: "Знайти",
-      loginSubmitBtn: "Увійти",
     },
   },
   en: {
@@ -38,6 +43,12 @@ const resources = {
       terms4: "the user agreement",
       alreadyExists: "Account already exists",
 
+      //footer
+      platform: "Platform",
+      store: "Store",
+      copyright: " Copyright © 2023-2023 Kozinburg Inc. All Rights Reserved.",
+      userAgreement: "User Agreement",
+
       //Placeholders
       searchPlaceholder: "Type here...",
       emailPlaceholder: "Email Address",
@@ -48,7 +59,6 @@ const resources = {
 
       //Buttons labels
       searchBtn: "Search",
-      loginSubmitBtn: "Log In",
     },
   },
 };

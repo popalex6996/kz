@@ -2,7 +2,6 @@ import React from "react";
 import "./index.css";
 import { useTranslation } from "react-i18next";
 import Spacer from "../../components/Spacer";
-import { Link } from "react-router-dom";
 import ScrollToTop from "../../components/ScrollToTop";
 import images from "../../assets/images";
 import Button from "../../components/Button";

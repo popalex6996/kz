@@ -2,7 +2,6 @@ import React from "react";
 import Hamburger from "../Hamburger";
 import "./index.css";
 import SearchBar from "../SearchBar";
-import Index from "../Account";
 import Spacer from "../Spacer";
 import LanguageSwitch from "../LanguageSwitch";
 import CartButton from "../CartButton";

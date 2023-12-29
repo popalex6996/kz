@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./index.css";
 import { useTranslation } from "react-i18next";
 import LanguageSwitch from "../LanguageSwitch";
-import Button from "../Button";
 import Spacer from "../Spacer";
 import Modal from "../Modal";
 import SignUp from "../SignUp";

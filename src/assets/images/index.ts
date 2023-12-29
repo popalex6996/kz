@@ -1,11 +1,11 @@
-export const facebook = require("./facebook.png");
-export const google = require("./google.png");
-export const platformBackground = require("./platform-background.png");
-export const platformFeature_1 = require("./platform-feature-1.png");
-export const platformFeature_2 = require("./platform-feature-2.png");
-export const platformFeature_3 = require("./platform-feature-3.png");
+const facebook = require("./facebook.png");
+const google = require("./google.png");
+const platformBackground = require("./platform-background.png");
+const platformFeature_1 = require("./platform-feature-1.png");
+const platformFeature_2 = require("./platform-feature-2.png");
+const platformFeature_3 = require("./platform-feature-3.png");
 
-//Remove later
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   facebook,
   google,

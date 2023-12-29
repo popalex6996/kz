@@ -1,14 +1,18 @@
 import React from "react";
-import Button from "../Button";
 import "./index.css";
+import images from "../../assets/images";
 
 const Socials: React.FC = () => {
   const onClick = () => {};
 
   return (
     <div className="socials-wrapper">
-      <Button onClick={onClick} type="facebook" className="socials-btn" />
-      <Button onClick={onClick} type="google" className="socials-btn" />
+      <button onClick={onClick} className="socials-btn">
+        <img src={images.facebook} alt="facebook sign up" />
+      </button>
+      <button onClick={onClick} className="socials-btn">
+        <img src={images.google} alt="google sign up" />
+      </button>
     </div>
   );
 };

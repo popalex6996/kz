@@ -1,8 +1,144 @@
-.privacy-wrapper {
-  padding: 20px;
+.platform-wrapper {
+  width: 100%;
+}
+
+.platform-wrapper-background {
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f1f1;
+}
+
+.platform-background {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
+    url("../../assets/images/platform-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.name-block {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   flex-direction: column;
-  background-color: white;
+}
+
+.platform-name {
+  margin: 0;
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 70px;
+  font-weight: 600;
+  color: white;
+}
+
+.platform-description {
+  text-align: center;
+  width: 50%;
+  display: block;
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+}
+
+.catalog-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 250px;
+  height: 60px;
+  border-radius: 8px;
+  background: #c60f0f;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+}
+
+.catalog-btn:hover {
+  color: #c60f0f;
+  background: white;
+}
+
+.about-platform-wrapper {
+  padding: 0 120px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #f2f1f1;
+}
+
+.platform-features-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.platform-features {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.platform-feature {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.platform-feature-icon-wrapper {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-feature-description {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.about-platform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*position: relative;*/
+}
+
+.about-platform-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.about-platform-text-wrpper {
+  width: 50%;
+}
+
+.about-platform-logo-wrapper {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-platform-logo {
+  width: 150px;
+  height: 150px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

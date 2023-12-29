@@ -1,54 +1,15 @@
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0;
   border: none;
   background-color: transparent;
-  width: 29px;
-  height: 16px;
   cursor: pointer;
+  border-radius: 0;
+  padding: 0;
 }
 
-.rounded {
-  border-radius: 20px;
+.fa-solid {
+  font-size: 20px;
 }
 
-.s {
-  width: 50px;
-  height: 20px;
-}
-
-.m {
-  width: 100px;
-  height: 50px;
-}
-
-.m {
-  width: 150px;
-  height: 50px;
-}
-
-.transparent {
-  background-color: transparent;
-}
-
-.bordered {
-  border-width: 1px;
-  border-style: solid;
-}
-
-.yellow {
-  background-color: yellow;
-  color: white;
-}
-
-.red {
-  background-color: red;
-  color: white;
-}
-
-.black {
-  background-color: black;
-  color: white;
+.fa-solid:hover {
+  color: #c60f0f!important;
 }

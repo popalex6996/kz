@@ -12,7 +12,6 @@
 }
 
 .hamburger-menu {
-  width: 250px;
   transition: margin-left 0.5s;
   margin-left: -335px;
   position: absolute;
@@ -23,7 +22,6 @@
   left: 0;
   top: 0;
   border-bottom-right-radius: 32px;
-  padding: 20px;
 }
 
 .hamburger-open {
@@ -38,12 +36,77 @@
   top: 20px;
 }
 
+.hamburger-link-icon-wrapper {
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .link {
-  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 1px 0;
+  padding: 5px 20px 5px 10px;
   cursor: pointer;
+  text-decoration: none;
+  color: #711d1d;
+  font-size: 16px;
+  border: 2px solid #f2f1f1;
+}
+
+.link-btn {
+  background-color: #f2f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .link:hover {
-  background: #711d1d;
-  color: white;
+  background-color: #711d1d;
+  color: #f2f1f1;
+}
+
+.hamburger-active-link {
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #711d1d;
+}
+
+.border-line {
+  margin: 0 20px 0 10px;
+  width: 85%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #711d1d;
+}
+
+.social-links-label {
+  margin: 0 20px 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #711d1d;
+}
+
+.hamburger-social-links {
+  margin: 5px 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hamburger-social-link {
+  margin-right: 20px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.hamburger-social-brand {
+  color: #711d1d !important;
 }

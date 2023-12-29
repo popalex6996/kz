@@ -2,7 +2,6 @@ import "./index.css";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "../Button";
-import Icon from "../Icon";
 
 const SearchBar = () => {
   const { t } = useTranslation();
@@ -26,7 +25,7 @@ const SearchBar = () => {
   return (
     <div className="search-wrapper">
       <div className="search-icon">
-        <Icon name="search" width={16} height={16} />
+        <i className="fa-solid fa-magnifying-glass" />
       </div>
       <input
         type="search"
@@ -36,12 +35,7 @@ const SearchBar = () => {
         onChange={handleChange}
         onKeyUp={onKeyUp}
       />
-      <Button
-        label={t("searchBtn")}
-        className="search-btn"
-        disabled={!searchInput}
-        onClick={onClick}
-      />
+      <Button label={t("searchBtn")} className="search-btn" onClick={onClick} />
     </div>
   );
 };

@@ -12,6 +12,11 @@
   padding: 10px 0;
 }
 
+.menu-catalog {
+  display: flex;
+  align-items: center;
+}
+
 .settings-bar {
   display: flex;
   align-items: center;

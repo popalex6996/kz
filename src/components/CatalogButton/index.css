@@ -1,0 +1,119 @@
+.catalog-shadow {
+  visibility: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.catalog-shadow-visible {
+  visibility: visible;
+}
+
+.catalog-wrapper {
+}
+
+.catalog {
+  width: -webkit-fill-available;
+  transition: margin-top 0.5s;
+  margin-top: -620px;
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #f2f1f1;
+  left: 0;
+  top: 0;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  padding: 20px;
+}
+
+.catalog-open {
+  margin-top: 0;
+  transition: margin-top 0.5s;
+}
+
+.catalog-close {
+  padding: 5px 5px 0 0;
+  position: absolute;
+  left: -45px;
+  top: 20px;
+}
+
+.catalog-button {
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  border: 2px solid white;
+  padding: 5px 10px;
+  width: 180px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+}
+
+.catalog-button:hover {
+  color: #c60f0f;
+  border-color: #c60f0f;
+}
+
+.catalog-menu {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.catalog-menu-button {
+  margin: 1px;
+  width: 400px;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: transparent;
+  outline: none;
+  color: #711d1d;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+.catalog-menu-button:hover {
+  border: 2px solid #711d1d;
+}
+
+.catalog-menu-active-button {
+  background-color: #711d1d;
+  border: 2px solid transparent;
+  color: white;
+  width: 400px;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  outline: none;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 8px;
+}
+
+.icon-wrapper {
+  width: 20px;
+  height: 20px;
+}
+
+.category-name {
+  font-size: 16px;
+  font-weight: 500;
+}

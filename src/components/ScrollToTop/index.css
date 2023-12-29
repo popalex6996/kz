@@ -1,0 +1,18 @@
+.scroll-to-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 2px solid #711d1d;
+  cursor: pointer;
+}
+
+.scroll-to-top:hover {
+  border: 2px solid #c60f0f;
+}
+
+.fa-chevron-up {
+  color: #711d1d !important;
+}

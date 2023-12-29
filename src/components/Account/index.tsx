@@ -39,7 +39,7 @@ const Account = () => {
         </button>
       ) : (
         <>
-          <Button onClick={toggleLoginModal} type="user" />
+          <Button onClick={toggleLoginModal} icon="user" />
           <Modal
             onBackdropClick={toggleLoginModal}
             isVisible={isLoginModalVisible}

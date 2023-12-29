@@ -23,6 +23,14 @@ const Footer: React.FC = () => {
     setIsLoginModalVisible((isVisible) => !isVisible);
   };
 
+  const onCatalogOpen = () => {
+    // @ts-ignore
+    const catalogShadow = document.getElementById("catalog-shadow");
+    catalogShadow?.classList.toggle("catalog-shadow-visible");
+    const cart = document.getElementById("catalog");
+    cart?.classList.toggle("catalog-open");
+  };
+
   return (
     <div className="footer-wrapper">
       <div className="footer-links">
@@ -41,32 +49,25 @@ const Footer: React.FC = () => {
           </a>
         </div>
         <div className="nav-links">
-          {" "}
           <div className="nav-links">
-            <a className="nav-link" href="/store">
+            <button onClick={onCatalogOpen} className="nav-link">
               {t("store")}
-            </a>
+            </button>
           </div>
         </div>
         <div className="lang-socials-wrapper">
           <LanguageSwitch />
           <Spacer height={15} />
           <div className="social-links">
-            <Button
-              type="facebookLink"
-              onClick={() => {}}
-              className="social-link"
-            />
-            <Button
-              type="instagramLink"
-              onClick={() => {}}
-              className="social-link"
-            />
-            <Button
-              type="youtubeLink"
-              onClick={() => {}}
-              className="social-link"
-            />
+            <button onClick={() => {}} className="social-link">
+              <i className="fa-brands fa-facebook" />
+            </button>
+            <button onClick={() => {}} className="social-link">
+              <i className="fa-brands fa-instagram" />
+            </button>
+            <button onClick={() => {}} className="social-link">
+              <i className="fa-brands fa-youtube" />
+            </button>
           </div>
         </div>
       </div>

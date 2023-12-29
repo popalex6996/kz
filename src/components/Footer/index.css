@@ -30,6 +30,9 @@
 }
 
 .nav-link {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   text-decoration: none;
   display: flex;
@@ -73,8 +76,16 @@
 }
 
 .social-link {
-  width: 30px;
-  height: 30px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.fa-brands {
+  color: white;
+  font-size: 30px;
 }
 
 .copyright {

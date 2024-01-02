@@ -20,7 +20,7 @@ const initialUser: User = {
 };
 
 const Account = () => {
-  const [user, setUser] = useState<User>(initialUser);
+  // const [user, setUser] = useState<User>(initialUser);
   const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
 
   const toggleLoginModal = () => {
@@ -29,12 +29,14 @@ const Account = () => {
 
   return (
     <div className="account-btn-wrapper">
-      {user.id ? (
+      {initialUser.id ? (
         <button className="account-btn">
-          {user.img ? (
-            <img className="account-img" src={user.img} alt="user" />
+          {initialUser.img ? (
+            <img className="account-img" src={initialUser.img} alt="user" />
           ) : (
-            <div className="initials">{user.name[0] + user.secondName[0]}</div>
+            <div className="initials">
+              {initialUser.name[0] + initialUser.secondName[0]}
+            </div>
           )}
         </button>
       ) : (

@@ -26,7 +26,7 @@ const Hamburger = () => {
 
   const location = useLocation();
 
-  const [user, setUser] = useState<User>(initialUser);
+  // const [user, setUser] = useState<User>(initialUser);
 
   const [isOpen, setMenuOpen] = useState(false);
 
@@ -96,7 +96,7 @@ const Hamburger = () => {
                 <div className="hamburger-active-link" />
               )}
             </a>
-            {user.id && (
+            {initialUser.id && (
               <a href="/profile" className="link">
                 <div className="hamburger-link-icon-wrapper">
                   <i className="fa-solid fa-user" />
@@ -109,7 +109,7 @@ const Hamburger = () => {
                 )}
               </a>
             )}
-            {!user.id && (
+            {!initialUser.id && (
               <button onClick={toggleLoginTab(true)} className="link link-btn">
                 <div className="hamburger-link-icon-wrapper">
                   <i className="fa-solid fa-right-to-bracket" />
@@ -118,7 +118,7 @@ const Hamburger = () => {
                 {t("login")}
               </button>
             )}
-            {!user.id && (
+            {!initialUser.id && (
               <button onClick={toggleLoginTab(false)} className="link link-btn">
                 <div className="hamburger-link-icon-wrapper">
                   <i className="fa-solid fa-user-plus"></i>

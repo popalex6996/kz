@@ -13,7 +13,7 @@ const resources = {
       alreadyExists: "Я вже зареєстрований",
 
       //tooltip
-      scrollToTop: "Прогорнути до  гори",
+      scrollToTop: "Прогорнути до гори",
 
       //hamburger
       home: "Головна",

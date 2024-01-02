@@ -92,7 +92,7 @@ const Hamburger = () => {
               <Spacer width={5} />
               {t("home")}
               <Spacer width={10} />
-              {location.pathname === "/home" && (
+              {(location.pathname === "/home" || location.pathname === "/") && (
                 <div className="hamburger-active-link" />
               )}
             </a>
@@ -169,7 +169,7 @@ const Hamburger = () => {
             <a href="/exchange" className="link">
               {t("exchange")}
               <Spacer width={10} />
-              {location.pathname === "exchange" && (
+              {location.pathname === "/exchange" && (
                 <div className="hamburger-active-link" />
               )}
             </a>
@@ -183,7 +183,9 @@ const Hamburger = () => {
             <Spacer height={10} />
             <div className="border-line" />
             <Spacer height={10} />
-            <span className="social-links-label">Ми в соціальних мережах:</span>
+            <span className="social-links-label">
+              {t("socialNetworksLabel")}:
+            </span>
             <Spacer height={10} />
             <div className="hamburger-social-links">
               <button onClick={() => {}} className="hamburger-social-link">

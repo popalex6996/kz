@@ -9,7 +9,7 @@ import Payment from "../pages/Payment";
 import Exchange from "../pages/Exchange";
 import Cart from "../pages/Cart";
 import Contacts from "../pages/Contacts";
-import Layout from "../Layout";
+import Layout from "../layouts";
 
 const router = createBrowserRouter([
   {

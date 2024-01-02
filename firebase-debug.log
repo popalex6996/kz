@@ -1,0 +1,48 @@
+[debug] [2024-01-02T19:41:41.456Z] ----------------------------------------------------------------------
+[debug] [2024-01-02T19:41:41.457Z] Command:       /usr/local/bin/node /Volumes/Pop Drive 1/Projects/kz/node_modules/.bin/firebase init hosting
+[debug] [2024-01-02T19:41:41.457Z] CLI Version:   13.0.2
+[debug] [2024-01-02T19:41:41.457Z] Platform:      darwin
+[debug] [2024-01-02T19:41:41.457Z] Node Version:  v18.18.1
+[debug] [2024-01-02T19:41:41.458Z] Time:          Tue Jan 02 2024 21:41:41 GMT+0200 (Eastern European Standard Time)
+[debug] [2024-01-02T19:41:41.458Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-01-02T19:41:41.491Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-01-02T19:41:41.491Z] > authorizing via signed-in user (sashapopovlutshevseh@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Volumes/Pop Drive 1/Projects/kz
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-01-02T19:41:41.493Z] Using project from CLI flag: kz-platform-da8aa
+[debug] [2024-01-02T19:41:41.495Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kz-platform-da8aa [none]
+[debug] [2024-01-02T19:41:41.937Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kz-platform-da8aa 200
+[debug] [2024-01-02T19:41:41.937Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kz-platform-da8aa {"projectId":"kz-platform-da8aa","projectNumber":"34303278216","displayName":"KZ platform","name":"projects/kz-platform-da8aa","resources":{"hostingSite":"kz-platform-da8aa"},"state":"ACTIVE","etag":"1_57742359-2833-4601-b8e7-70db7ec82650"}
+[info] i  Using project kz-platform-da8aa (KZ platform) 
+[info] 
+=== Hosting Setup
+[debug] [2024-01-02T19:41:41.961Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kz-platform-da8aa [none]
+[debug] [2024-01-02T19:41:42.225Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kz-platform-da8aa 200
+[debug] [2024-01-02T19:41:42.225Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kz-platform-da8aa {"projectId":"kz-platform-da8aa","projectNumber":"34303278216","displayName":"KZ platform","name":"projects/kz-platform-da8aa","resources":{"hostingSite":"kz-platform-da8aa"},"state":"ACTIVE","etag":"1_57742359-2833-4601-b8e7-70db7ec82650"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

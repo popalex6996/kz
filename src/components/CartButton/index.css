@@ -53,14 +53,13 @@
 
 .cart-button-content-products {
   overflow-y: scroll;
-  max-height: 50vw;
+  max-height: 30vw;
 }
 
 .cart-button-product-card {
   height: 50px;
   padding: 5px 20px;
   margin: 5px 0;
-  /*width: 100%;*/
   display: flex;
   align-items: center;
   justify-content: space-between;

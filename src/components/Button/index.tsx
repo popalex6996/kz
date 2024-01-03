@@ -4,7 +4,14 @@ import Spacer from "../Spacer";
 
 interface ButtonProps {
   label?: string;
-  icon?: "user" | "cart-shopping" | "bars" | "chevron-up";
+  icon?:
+    | "user"
+    | "cart-shopping"
+    | "bars"
+    | "chevron-up"
+    | "trash"
+    | "plus"
+    | "minus";
   color?: string;
   iconLeft?: boolean;
   className?: string;

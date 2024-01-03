@@ -203,6 +203,7 @@ const CartButton = () => {
                             icon="plus"
                             color="#711d1d"
                             className="cart-button-amount-button"
+                            iconClassName="cart-button-amount-button-icon"
                           />
                           <Spacer width={5} />
                           <span className="cart-button-amount">
@@ -215,6 +216,7 @@ const CartButton = () => {
                             icon="minus"
                             color="#711d1d"
                             className="cart-button-amount-button"
+                            iconClassName="cart-button-amount-button-icon"
                           />
                         </div>
                       </div>

@@ -92,10 +92,8 @@
   justify-content: center;
 }
 
-.cart-button-amount-button {
-  i {
-    font-size: 15px;
-  }
+.cart-button-amount-button-icon {
+  font-size: 15px;
 }
 
 .total-wrapper {

@@ -10,6 +10,9 @@ import Exchange from "../pages/Exchange";
 import Cart from "../pages/Cart";
 import Contacts from "../pages/Contacts";
 import Layout from "../layouts";
+import Category from "../pages/Category";
+import Product from "../pages/Product";
+import SubCategory from "../pages/SubCategory";
 
 const router = createBrowserRouter([
   {
@@ -20,44 +23,60 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/home",
+        path: "home",
         element: <Home />,
       },
       {
-        path: "/payment",
+        path: "payment",
         element: <Payment />,
       },
       {
-        path: "/exchange",
+        path: "exchange",
         element: <Exchange />,
       },
       {
-        path: "/cart",
+        path: "cart",
         element: <Cart />,
       },
       {
-        path: "/contacts",
+        path: "contacts",
         element: <Contacts />,
       },
       {
-        path: "/privacy",
+        path: "privacy",
         element: <Privacy />,
       },
       {
-        path: "/terms",
+        path: "terms",
         element: <Terms />,
       },
       {
-        path: "/profile",
+        path: "profile",
         element: <Profile />,
       },
       {
-        path: "/platform",
+        path: "platform",
         element: <Platform />,
       },
       {
-        path: "/store",
+        path: "store",
         element: <Store />,
+      },
+      {
+        path: "category/:category",
+        element: <Category />,
+        children: [
+          {
+            path: "/category/:category/sub-category/:subCategory",
+            element: <SubCategory />,
+            children: [
+              {
+                path: "/category/:category/sub-category/:subCategory/product/:productId",
+                element: <Product />,
+              },
+            ],
+          },
+        ],
       },
     ],
   },

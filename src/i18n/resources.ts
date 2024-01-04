@@ -12,10 +12,30 @@ const resources = {
       terms4: "угодою користувача",
       alreadyExists: "Я вже зареєстрований",
 
-      //tooltip
+      //Header
+      allProducts: "Всі продукти",
+
+      //Footer
+      platform: "Платформа",
+      store: "Каталог товарів",
+      copyright: " Copyright © 2023-2023 Kozinburg Inc. All Rights Reserved.",
+      userAgreement: "Угода користувача",
+
+      //Tooltip
       scrollToTop: "Прогорнути до гори",
 
-      //hamburger
+      //Placeholders
+      searchPlaceholder: "Я шукаю...",
+      emailPlaceholder: "Ел. пошта",
+      passwordPlaceholder: "Пароль",
+      namePlaceholder: "Ім'я",
+      lastNamePlaceholder: "Прізвище",
+      phonePlaceholder: "Телефон",
+
+      //Buttons labels
+      searchBtn: "Знайти",
+
+      //Hamburger btn
       home: "Головна",
       profile: "Профіль",
       cart: "Кошик",
@@ -24,10 +44,9 @@ const resources = {
       contacts: "Контакти",
       socialNetworksLabel: "Ми в соціальних мережах",
 
-      //header
-      allProducts: "Всі продукти",
-
-      //catalog
+      //Hamburger btn catalog
+      "fruits-vegetables-pickles": "Фрукти, овочі та соління",
+      fish: "Риба",
       apples: "Яблука",
       pears: "Груші",
       grape: "Виноград",
@@ -73,9 +92,9 @@ const resources = {
       "black tea": "Чорний Чай",
       "green tea": "Зелений Чай",
       "herbage tea": "Трав'яний Чай",
-      camisole: "Компот",
+      compote: "Компот",
       lemonade: "Лимонад",
-      juices: "Соки",
+      juice: "Соки",
       kvass: "Квас",
       flowers: "Квіти",
       "flower pots": "Квіткові Горщики",
@@ -83,23 +102,60 @@ const resources = {
       "indoor plants": "Домашні Квіти",
       honey: "Медок",
       jams: "Варення",
-
-      //footer
-      platform: "Платформа",
-      store: "Каталог товарів",
-      copyright: " Copyright © 2023-2023 Kozinburg Inc. All Rights Reserved.",
-      userAgreement: "Угода користувача",
-
-      //Placeholders
-      searchPlaceholder: "Я шукаю...",
-      emailPlaceholder: "Ел. пошта",
-      passwordPlaceholder: "Пароль",
-      namePlaceholder: "Ім'я",
-      lastNamePlaceholder: "Прізвище",
-      phonePlaceholder: "Телефон",
-
-      //Buttons labels
-      searchBtn: "Знайти",
+      fruits: "Фрукти",
+      vegetables: "Овочі",
+      pickles: "Соління",
+      "dried fruits": "Сушені фрукти",
+      mushrooms: "Гриби",
+      meat: "Мнясо",
+      nuts: "Горішки",
+      cheese: "Сири",
+      "bakery-products": "Хліб та хлібобулочні вироби",
+      "milk-eggs": "Молочні продукти та яйця",
+      grocery: "Бакалія",
+      "sauces-canned": "Консерви, соуси і приправи",
+      tea: "Чай",
+      drinks: "Напої",
+      garden: "Квіти, товари для саду та городу",
+      "poultry meat": "М'ясо птиці",
+      "beef and veal": "Яловичина та телятина",
+      salo: "Сало",
+      rabbit: "Кролятина",
+      offal: "Субпродукти",
+      "fresh fish": "Свіжа риба",
+      "smoked fish": "Копчена риба",
+      cancers: "Раки",
+      cheeses: "Сири",
+      "semi-hard cheeses": "Сири напівтверді",
+      "brined cheeses": "Сири розсільні",
+      "soft cheeses": "М'які сири",
+      "processed cheeses": "Сири плавлені",
+      "hard cheeses": "Сири тверді",
+      buns: "Булочки та здобні вироби",
+      "croissant puffs": "Круасани та слойки",
+      "pita cakes and blanks": "Лаваші, коржі та заготовки",
+      "drying and breadcrumbs": "Сушка та сухарі",
+      "milk cream": "Молоко та вершки",
+      "yogurts desserts": "Йогурти та десерти",
+      "sour cream": "Сметана",
+      "butter margarine": "Масло, маргарин та спред",
+      groats: "Крупи",
+      pasta: "Макарони",
+      oil: "Олія",
+      sugar: "Сахар",
+      salt: "Сіль",
+      flour: "Борошно",
+      sauces: "Соуси",
+      "seasonings spices": "Приправи та спеції",
+      "jams preserves": "Варення та джеми",
+      "canned meat": "Консервоване м'ясо",
+      "canned fruits": "Консервовані фрукти",
+      herbs: "Трави",
+      "herbal tea compositions": "Трав'яні чайні композиції",
+      bouquets: "Букети",
+      seed: "Насіння",
+      saplings: "Саджанці",
+      lookAtAll: "Дивитися все",
 
       //Platform page
       platformName: "Козіївський ярмарок",
@@ -116,20 +172,6 @@ const resources = {
         "Відповідальність за якість продукції та доброчесність несуть самі виробники.",
       aboutPlatformText3:
         "Сайт є простим та зручним у використанні. Ми віримо, що всі будуть задоволені при використанню цього сайту.",
-
-      //Catalog
-      fruits: "Фрукти",
-      vegetables: "Овочі",
-      pickles: "Соління, Мед та Варення",
-      meat: "Мнясо",
-      nuts: "Горішки",
-      cheese: "Сири",
-      "bakery products": "Хліб та хлібобулочні вироби",
-      "milk-eggs": "Молочні продукти та яйця",
-      sauces: "Консерви, соуси і приправи",
-      tea: "Чай",
-      drinks: "Напої",
-      garden: "Квіти, товари для саду та городу",
     },
   },
   en: {
@@ -145,10 +187,30 @@ const resources = {
       terms4: "the user agreement",
       alreadyExists: "Account already exists",
 
-      //tooltip
+      //Header
+      allProducts: "All products",
+
+      //Footer
+      platform: "Platform",
+      store: "Store",
+      copyright: " Copyright © 2023-2023 Kozinburg Inc. All Rights Reserved.",
+      userAgreement: "User Agreement",
+
+      //Tooltip
       scrollToTop: "Scroll to top",
 
-      //hamburger
+      //Placeholders
+      searchPlaceholder: "Type here...",
+      emailPlaceholder: "Email Address",
+      passwordPlaceholder: "Password",
+      namePlaceholder: "Name",
+      lastNamePlaceholder: "Last name",
+      phonePlaceholder: "Phone",
+
+      //Buttons labels
+      searchBtn: "Search",
+
+      //Hamburger btn
       home: "Home",
       profile: "Profile",
       cart: "Cart",
@@ -157,10 +219,9 @@ const resources = {
       contacts: "Contacts",
       socialNetworksLabel: "Social networks",
 
-      //header
-      allProducts: "All products",
-
-      //catalog
+      //Hamburger btn catalog
+      "fruits-vegetables-pickles": "Fruits, vegetables and pickles",
+      fish: "fish",
       apples: "Apples",
       pears: "Pears",
       grape: "Grape",
@@ -206,9 +267,9 @@ const resources = {
       "black tea": "Black Tea",
       "green tea": "Green Tea",
       "herbage tea": "Herbage Tea",
-      camisole: "Camisole",
+      compote: "Compote",
       lemonade: "Lemonade",
-      juices: "Juices",
+      juice: "Juice",
       kvass: "Kvass",
       flowers: "Flowers",
       "flower pots": "Flower pots",
@@ -217,23 +278,60 @@ const resources = {
       "indoor plants": "Indoor Plants",
       honey: "Honey",
       jams: "Jams",
-
-      //footer
-      platform: "Platform",
-      store: "Store",
-      copyright: " Copyright © 2023-2023 Kozinburg Inc. All Rights Reserved.",
-      userAgreement: "User Agreement",
-
-      //Placeholders
-      searchPlaceholder: "Type here...",
-      emailPlaceholder: "Email Address",
-      passwordPlaceholder: "Password",
-      namePlaceholder: "Name",
-      lastNamePlaceholder: "Last name",
-      phonePlaceholder: "Phone",
-
-      //Buttons labels
-      searchBtn: "Search",
+      fruits: "Fruits",
+      vegetables: "Vegetables",
+      pickles: "Pickles",
+      "dried fruits": "Dried fruits",
+      mushrooms: "Mushrooms",
+      meat: "Meat",
+      nuts: "Nuts",
+      cheese: "Cheese",
+      "bakery-products": "Bread and bakery products",
+      "milk-eggs": "Dairy products and eggs",
+      grocery: "Grocery",
+      "sauces-canned": "Canned food, sauce and condiments",
+      tea: "Tea",
+      drinks: "Drinks",
+      garden: "Flowers, garden and garden products",
+      "poultry meat": "Poultry meat",
+      "beef and veal": "Beef and veal",
+      salo: "Salo",
+      rabbit: "Rabbit",
+      offal: "Offal",
+      "fresh fish": "Fresh fish",
+      "smoked fish": "Smoked fish",
+      cancers: "Cancers",
+      cheeses: "Cheese",
+      "semi-hard cheeses": "Semi-hard cheeses",
+      "brined cheeses": "Brined cheeses",
+      "soft cheeses": "Soft cheeses",
+      "processed cheeses": "Processed cheeses",
+      "hard cheeses": "hard cheeses",
+      buns: "Buns",
+      "croissant puffs": "Croissant and puffs",
+      "pita cakes and blanks": "Pita, cakes and blanks",
+      "drying and breadcrumbs": "Drying and breadcrumbs",
+      "milk cream": "Milk and cream",
+      "yogurts desserts": "Yogurts and desserts",
+      "sour cream": "Sour cream",
+      "butter margarine": "Butter and margarine",
+      groats: "Groats",
+      pasta: "Pasta",
+      oil: "Oil",
+      sugar: "Sugar",
+      salt: "Salt",
+      flour: "Flour",
+      sauces: "Sauces",
+      "seasonings spices": "Seasonings and spices",
+      "jams preserves": "Jams and preserves",
+      "canned meat": "Canned meat",
+      "canned fruits": "Canned fruits",
+      herbs: "Herbs",
+      "herbal tea compositions": "Herbal tea compositions",
+      bouquets: "Bouquets",
+      seed: "Seed",
+      saplings: "Saplings",
+      lookAtAll: "Take a look at everything",
 
       //Platform page
       platformName: "Koziyivka Fair",
@@ -251,20 +349,6 @@ const resources = {
         "Manufacturers themselves are responsible for product quality and integrity.",
       aboutPlatformText3:
         "The site is simple and easy to use. We believe that everyone will be satisfied when using this site.",
-
-      //Catalog
-      fruits: "Fruits",
-      vegetables: "Vegetables",
-      pickles: "Pickles, Honey and Jams",
-      meat: "Meat",
-      nuts: "Nuts",
-      cheese: "Cheese",
-      "bakery products": "Bread and bakery products",
-      "milk-eggs": "Dairy products and eggs",
-      sauces: "Canned food, sauce and condiments",
-      tea: "Tea",
-      drinks: "Drinks",
-      garden: "Flowers, garden and garden products",
     },
   },
 };

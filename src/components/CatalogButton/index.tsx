@@ -1,368 +1,492 @@
-import "./index.css";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import Spacer from "../Spacer";
+import "./index.css";
 
-const catalogMenu = [
+const categories = [
   {
-    name: "fruits",
+    title: "fruits-vegetables-pickles",
     icon: "apple-whole",
-    id: "1",
+    category: "fruits-vegetables-pickles",
+    available: true,
   },
   {
-    name: "vegetables",
-    icon: "carrot",
-    id: "2",
-  },
-  {
-    name: "pickles",
-    icon: "jar",
-    id: "3",
-  },
-  {
-    name: "meat",
+    title: "meat",
     icon: "drumstick-bite",
-    id: "4",
+    category: "meat",
+    available: true,
   },
   {
-    name: "nuts",
-    icon: "bowl-rice",
-    id: "5",
+    title: "fish",
+    icon: "fish",
+    category: "fish",
+    available: true,
   },
   {
-    name: "cheese",
+    title: "cheeses",
     icon: "cheese",
-    id: "6",
+    category: "cheeses",
+    available: true,
   },
   {
-    name: "bakery products",
+    title: "bakery-products",
     icon: "bread-slice",
-    id: "7",
+    category: "bakery-products",
+    available: true,
   },
   {
-    name: "milk-eggs",
+    title: "milk-eggs",
     icon: "egg",
-    id: "8",
+    category: "milk-eggs",
+    available: true,
   },
   {
-    name: "sauces",
-    icon: "bottle-droplet",
-    id: "9",
-  },
-  {
-    name: "tea",
+    title: "grocery",
     icon: "seedling",
-    id: "10",
+    category: "grocery",
+    available: true,
   },
   {
-    name: "drinks",
+    title: "sauces-canned",
+    icon: "bottle-droplet",
+    category: "sauces-canned",
+    available: true,
+  },
+  {
+    title: "tea",
+    icon: "mug-hot",
+    category: "tea",
+    available: true,
+  },
+  {
+    title: "drinks",
     icon: "bottle-water",
-    id: "11",
+    category: "drinks",
+    available: true,
   },
   {
-    name: "garden",
+    title: "garden",
     icon: "leaf",
-    id: "12",
+    category: "garden",
+    available: true,
   },
 ];
-const catalog = {
-  fruits: [
+const subCategories = {
+  "fruits-vegetables-pickles": [
     {
-      title: "apples",
+      title: "fruits",
       img: "",
-      availability: true,
+      category: "fruits-vegetables-pickles",
+      subCategory: "fruits",
+      available: true,
     },
     {
-      title: "pears",
+      title: "vegetables",
       img: "",
-      availability: true,
+      category: "fruits-vegetables-pickles",
+      subCategory: "vegetables",
+      available: true,
     },
     {
-      title: "grape",
+      title: "pickles",
       img: "",
-      availability: true,
+      category: "fruits-vegetables-pickles",
+      subCategory: "pickles",
+      available: true,
     },
     {
-      title: "apricots",
+      title: "dried fruits",
       img: "",
-      availability: true,
+      category: "fruits-vegetables-pickles",
+      subCategory: "dried-fruits",
+      available: true,
     },
     {
-      title: "peaches",
+      title: "mushrooms",
       img: "",
-      availability: true,
+      category: "fruits-vegetables-pickles",
+      subCategory: "mushrooms",
+      available: true,
     },
     {
-      title: "strawberry",
+      title: "nuts",
       img: "",
-      availability: true,
-    },
-    {
-      title: "raspberry",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "plums",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "hawthorn",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "mountain ash",
-      img: "",
-      availability: true,
-    },
-  ],
-  vegetables: [
-    {
-      title: "tomatoes",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "cucumbers",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "cabbage",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "potatoes",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "beets",
-      img: "",
-      availability: true,
-    },
-  ],
-  pickles: [
-    {
-      title: "pickled cucumber",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "honey",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "jams",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "pickled tomato",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "pickled cabbage",
-      img: "",
-      availability: true,
+      category: "fruits-vegetables-pickles",
+      subCategory: "nuts",
+      available: true,
     },
   ],
   meat: [
     {
-      title: "chicken",
+      title: "poultry meat",
       img: "",
-      availability: true,
+      category: "meat",
+      subCategory: "poultry-meat",
+      available: true,
     },
     {
       title: "pork",
       img: "",
-      availability: true,
+      category: "meat",
+      subCategory: "pork",
+      available: true,
     },
     {
-      title: "veal",
+      title: "beef and veal",
       img: "",
-      availability: true,
+      category: "meat",
+      subCategory: "beef-veal",
+      available: true,
     },
     {
-      title: "beef",
+      title: "salo",
       img: "",
-      availability: true,
+      category: "meat",
+      subCategory: "salo",
+      available: true,
+    },
+    {
+      title: "rabbit",
+      img: "",
+      category: "meat",
+      subCategory: "rabbit",
+      available: true,
     },
     {
       title: "lamb",
       img: "",
-      availability: true,
+      category: "meat",
+      subCategory: "lamb",
+      available: true,
+    },
+    {
+      title: "offal",
+      img: "",
+      category: "meat",
+      subCategory: "offal",
+      available: true,
     },
   ],
-  nuts: [
+  fish: [
     {
-      title: "walnut",
+      title: "fresh fish",
       img: "",
-      availability: true,
+      category: "fish",
+      subCategory: "fresh-fish",
+      available: true,
     },
     {
-      title: "hazelnut",
+      title: "smoked fish",
       img: "",
-      availability: true,
+      category: "fish",
+      subCategory: "smoked-fish",
+      available: true,
     },
     {
-      title: "chickpeas",
+      title: "cancers",
       img: "",
-      availability: true,
-    },
-  ],
-  cheese: [
-    {
-      title: "parmesan",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "cheddar",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "mozzarella",
-      img: "",
-      availability: true,
+      category: "fish",
+      subCategory: "cancers",
+      available: true,
     },
   ],
-  "bakery products": [
+  cheeses: [
+    {
+      title: "semi-hard cheeses",
+      img: "",
+      category: "cheeses",
+      subCategory: "semi-hard-cheeses",
+      available: true,
+    },
+    {
+      title: "brined cheeses",
+      img: "",
+      category: "cheeses",
+      subCategory: "brined-cheeses",
+      available: true,
+    },
+    {
+      title: "soft cheeses",
+      img: "",
+      category: "cheeses",
+      subCategory: "soft-cheeses",
+      available: true,
+    },
+    {
+      title: "processed cheeses",
+      img: "",
+      category: "cheeses",
+      subCategory: "processed-cheeses",
+      available: true,
+    },
+    {
+      title: "hard cheeses",
+      img: "",
+      category: "cheeses",
+      subCategory: "hard-cheeses",
+      available: true,
+    },
+  ],
+  "bakery-products": [
     {
       title: "bread",
       img: "",
-      availability: true,
+      category: "bakery-products",
+      subCategory: "bread",
+      available: true,
     },
     {
-      title: "cupcake",
+      title: "buns",
       img: "",
-      availability: true,
+      category: "bakery-products",
+      subCategory: "buns",
+      available: true,
     },
     {
-      title: "loaf",
+      title: "croissant puffs",
       img: "",
-      availability: true,
+      category: "bakery-products",
+      subCategory: "croissant-puffs",
+      available: true,
     },
     {
-      title: "baguette",
+      title: "pita cakes and blanks",
       img: "",
-      availability: true,
+      category: "bakery-products",
+      subCategory: "pita-cakes-blanks",
+      available: true,
     },
     {
-      title: "biscuits",
+      title: "drying and breadcrumbs",
       img: "",
-      availability: true,
+      category: "bakery-products",
+      subCategory: "drying-breadcrumbs",
+      available: true,
     },
   ],
   "milk-eggs": [
     {
-      title: "eggs",
+      title: "milk cream",
       img: "",
-      availability: true,
+      category: "milk-eggs",
+      subCategory: "milk-cream",
+      available: true,
     },
     {
-      title: "milk",
+      title: "yogurts desserts",
       img: "",
-      availability: true,
+      category: "milk-eggs",
+      subCategory: "yogurts-desserts",
+      available: true,
+    },
+    {
+      title: "eggs",
+      img: "",
+      category: "milk-eggs",
+      subCategory: "eggs",
+      available: true,
     },
     {
       title: "cottage cheese",
       img: "",
-      availability: true,
+      category: "milk-eggs",
+      subCategory: "cottage-cheese",
+      available: true,
     },
     {
-      title: "yogurt",
+      title: "sour cream",
       img: "",
-      availability: true,
+      category: "milk-eggs",
+      subCategory: "sour-cream",
+      available: true,
+    },
+    {
+      title: "butter margarine",
+      img: "",
+      category: "milk-eggs",
+      subCategory: "butter-margarine",
+      available: true,
     },
   ],
-  sauces: [
+  grocery: [
     {
-      title: "tkemali",
+      title: "groats",
       img: "",
-      availability: true,
+      category: "grocery",
+      subCategory: "groats",
+      available: true,
     },
     {
-      title: "ketchup",
+      title: "pasta",
       img: "",
-      availability: true,
+      category: "grocery",
+      subCategory: "pasta",
+      available: true,
     },
     {
-      title: "mayonnaise",
+      title: "oil",
       img: "",
-      availability: true,
+      category: "grocery",
+      subCategory: "oil",
+      available: true,
     },
     {
-      title: "adjika",
+      title: "sugar",
       img: "",
-      availability: true,
+      category: "grocery",
+      subCategory: "sugar",
+      available: true,
+    },
+    {
+      title: "salt",
+      img: "",
+      category: "grocery",
+      subCategory: "salt",
+      available: true,
+    },
+    {
+      title: "flour",
+      img: "",
+      category: "grocery",
+      subCategory: "flour",
+      available: true,
+    },
+  ],
+  "sauces-canned": [
+    {
+      title: "sauces",
+      img: "",
+      category: "sauces-canned",
+      subCategory: "sauces",
+      available: true,
+    },
+    {
+      title: "seasonings spices",
+      img: "",
+      category: "sauces-canned",
+      subCategory: "seasonings-spices",
+      available: true,
+    },
+    {
+      title: "jams preserves",
+      img: "",
+      category: "sauces-canned",
+      subCategory: "jams-preserves",
+      available: true,
+    },
+    {
+      title: "canned meat",
+      img: "",
+      category: "sauces-canned",
+      subCategory: "canned-meat",
+      available: true,
+    },
+    {
+      title: "canned fruits",
+      img: "",
+      category: "sauces-canned",
+      subCategory: "canned-fruits",
+      available: true,
+    },
+    {
+      title: "honey",
+      img: "",
+      category: "sauces-canned",
+      subCategory: "honey",
+      available: true,
     },
   ],
   tea: [
     {
-      title: "black tea",
+      title: "herbal tea compositions",
       img: "",
-      availability: true,
+      category: "tea",
+      subCategory: "herbal-tea-compositions",
+      available: true,
     },
     {
-      title: "green tea",
+      title: "herbs",
       img: "",
-      availability: true,
-    },
-    {
-      title: "herbage tea",
-      img: "",
-      availability: true,
+      category: "tea",
+      subCategory: "herbs",
+      available: true,
     },
   ],
   drinks: [
     {
-      title: "camisole",
+      title: "juice",
       img: "",
-      availability: true,
-    },
-    {
-      title: "lemonade",
-      img: "",
-      availability: true,
-    },
-    {
-      title: "juices",
-      img: "",
-      availability: true,
+      category: "drinks",
+      subCategory: "juice",
+      available: true,
     },
     {
       title: "kvass",
       img: "",
-      availability: true,
+      category: "drinks",
+      subCategory: "kvass",
+      available: true,
+    },
+    {
+      title: "compote",
+      img: "",
+      category: "drinks",
+      subCategory: "compote",
+      available: true,
     },
   ],
   garden: [
-    { title: "flowers", img: "", availability: true },
-    { title: "flower pots", img: "", availability: true },
     {
-      title: "goods for garden and vegetable garden",
+      title: "flowers",
       img: "",
-      availability: true,
+      category: "garden",
+      subCategory: "flowers",
+      available: true,
     },
     {
       title: "indoor plants",
       img: "",
-      availability: true,
+      category: "garden",
+      subCategory: "indoor-plants",
+      available: true,
+    },
+    {
+      title: "bouquets",
+      img: "",
+      category: "garden",
+      subCategory: "bouquets",
+      available: true,
+    },
+    {
+      title: "seed",
+      img: "",
+      category: "garden",
+      subCategory: "seed",
+      available: true,
+    },
+    {
+      title: "saplings",
+      img: "",
+      category: "garden",
+      subCategory: "saplings",
+      available: true,
+    },
+    {
+      title: "flower pots",
+      img: "",
+      category: "garden",
+      subCategory: "flower-pots",
+      available: true,
     },
   ],
 };
 
 const CatalogButton = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const [category, setCategory] = useState("fruits");
+  const [category, setCategory] = useState("fruits-vegetables-pickles");
 
   const onOpen = () => {
     const catalogShadow = document.getElementById("catalog-shadow");
@@ -394,12 +518,12 @@ const CatalogButton = () => {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="catalog-menu">
-            {catalogMenu.map((p) => (
+            {categories.map((p) => (
               <button
-                key={p.id}
-                onClick={() => setCategory(p.name)}
+                key={p.category}
+                onClick={() => setCategory(p.category)}
                 className={
-                  category === p.name
+                  category === p.category
                     ? "catalog-menu-active-button"
                     : "catalog-menu-button"
                 }
@@ -408,7 +532,7 @@ const CatalogButton = () => {
                   <i className={`fa-solid fa-${p.icon}`} />
                 </div>
                 <Spacer width={5} />
-                <span className="category-name">{t(p.name)}</span>
+                <span className="category-name">{t(p.title)}</span>
               </button>
             ))}
           </div>
@@ -416,11 +540,26 @@ const CatalogButton = () => {
             <div className="category-name-title">{t(category)}</div>
             <Spacer height={10} />
             <div className="product-variety-cards">
-              {catalog[category as keyof typeof catalog].map((cp) => (
-                <div className="product-variety-card">
-                  <span>{t(cp.title)}</span>
-                </div>
-              ))}
+              {subCategories[category as keyof typeof subCategories].map(
+                (cp) => (
+                  <div
+                    className="product-variety-card"
+                    onClick={() =>
+                      navigate(
+                        `category/${cp.category}/sub-category/:${cp.subCategory}`,
+                      )
+                    }
+                  >
+                    <span>{t(cp.title)}</span>
+                  </div>
+                ),
+              )}
+              <div
+                className="product-variety-card"
+                onClick={() => navigate(`category/${category}`)}
+              >
+                <span>{t("lookAtAll")}</span>
+              </div>
             </div>
           </div>
         </div>

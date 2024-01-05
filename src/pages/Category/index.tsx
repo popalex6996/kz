@@ -445,7 +445,7 @@ const Category = () => {
     to: MAX,
   });
   const [category, setCategory] = useState<string>();
-  const [subCategory, setSubCategory] = useState<string>();
+  //@typescript-eslint
   const [checked, setChecked] = useState<string[]>([]);
 
   useEffect(() => {
@@ -454,7 +454,6 @@ const Category = () => {
       setChecked([]);
     }
     if (subCategoryId) {
-      setSubCategory(subCategoryId);
       setChecked([subCategoryId]);
     }
   }, [categoryId, subCategoryId]);

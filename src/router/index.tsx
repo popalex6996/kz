@@ -12,7 +12,6 @@ import Contacts from "../pages/Contacts";
 import Layout from "../layouts";
 import Category from "../pages/Category";
 import Product from "../pages/Product";
-import SubCategory from "../pages/SubCategory";
 
 const router = createBrowserRouter([
   {

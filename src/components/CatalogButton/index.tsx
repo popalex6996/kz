@@ -521,7 +521,14 @@ const CatalogButton = () => {
             {categories.map((p) => (
               <button
                 key={p.category}
-                onClick={() => setCategory(p.category)}
+                onClick={() => {
+                  if (category === p.category) {
+                    onClose();
+                    navigate(`category/${category}`);
+                  } else {
+                    setCategory(p.category);
+                  }
+                }}
                 className={
                   category === p.category
                     ? "catalog-menu-active-button"
@@ -543,12 +550,14 @@ const CatalogButton = () => {
               {subCategories[category as keyof typeof subCategories].map(
                 (cp) => (
                   <div
+                    key={cp.subCategory}
                     className="product-variety-card"
-                    onClick={() =>
+                    onClick={() => {
+                      onClose();
                       navigate(
-                        `category/${cp.category}/sub-category/:${cp.subCategory}`,
-                      )
-                    }
+                        `category/${cp.category}/sub-category/${cp.subCategory}`,
+                      );
+                    }}
                   >
                     <span>{t(cp.title)}</span>
                   </div>
@@ -556,7 +565,10 @@ const CatalogButton = () => {
               )}
               <div
                 className="product-variety-card"
-                onClick={() => navigate(`category/${category}`)}
+                onClick={() => {
+                  onClose();
+                  navigate(`category/${category}`);
+                }}
               >
                 <span>{t("lookAtAll")}</span>
               </div>

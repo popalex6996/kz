@@ -157,6 +157,12 @@ const resources = {
       saplings: "Саджанці",
       lookAtAll: "Дивитися все",
 
+      //Category page
+      "sort price asc": "Дешевше",
+      "sort price desc": "Дорожче",
+      "sort rate": "За рейтингом",
+      price: "Ціна",
+
       //Platform page
       platformName: "Козіївський ярмарок",
       platformDescription:
@@ -221,7 +227,7 @@ const resources = {
 
       //Hamburger btn catalog
       "fruits-vegetables-pickles": "Fruits, vegetables and pickles",
-      fish: "fish",
+      fish: "Fish",
       apples: "Apples",
       pears: "Pears",
       grape: "Grape",
@@ -306,7 +312,7 @@ const resources = {
       "brined cheeses": "Brined cheeses",
       "soft cheeses": "Soft cheeses",
       "processed cheeses": "Processed cheeses",
-      "hard cheeses": "hard cheeses",
+      "hard cheeses": "Hard cheeses",
       buns: "Buns",
       "croissant puffs": "Croissant and puffs",
       "pita cakes and blanks": "Pita, cakes and blanks",
@@ -331,7 +337,13 @@ const resources = {
       bouquets: "Bouquets",
       seed: "Seed",
       saplings: "Saplings",
-      lookAtAll: "Take a look at everything",
+      lookAtAll: "Look at all",
+
+      //Category page
+      "sort price asc": "Price low to high",
+      "sort price desc": "Price high to low",
+      "sort rate": "Best seller",
+      price: "Price",
 
       //Platform page
       platformName: "Koziyivka Fair",

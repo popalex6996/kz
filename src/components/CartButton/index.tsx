@@ -48,111 +48,6 @@ const cart: Product[] = [
     img: "",
     measurement: "gramme",
   },
-  {
-    name: "Semerinka",
-    price: 20,
-    amount: 4,
-    img: "",
-    measurement: "kg",
-  },
-  {
-    name: "Cherry",
-    price: 30,
-    amount: 1.4,
-    img: "",
-    measurement: "kg",
-  },
-  {
-    name: "Milk",
-    price: 10,
-    amount: 1,
-    img: "",
-    measurement: "litres",
-  },
-  {
-    name: "Pickled cucumber",
-    price: 15,
-    amount: 1,
-    img: "",
-    measurement: "piece",
-  },
-  {
-    name: "Hazelnut",
-    price: 40,
-    amount: 0.1,
-    img: "",
-    measurement: "gramme",
-  },
-  {
-    name: "Semerinka",
-    price: 20,
-    amount: 4,
-    img: "",
-    measurement: "kg",
-  },
-  {
-    name: "Cherry",
-    price: 30,
-    amount: 1.4,
-    img: "",
-    measurement: "kg",
-  },
-  {
-    name: "Milk",
-    price: 10,
-    amount: 1,
-    img: "",
-    measurement: "litres",
-  },
-  {
-    name: "Pickled cucumber",
-    price: 15,
-    amount: 1,
-    img: "",
-    measurement: "piece",
-  },
-  {
-    name: "Hazelnut",
-    price: 40,
-    amount: 0.1,
-    img: "",
-    measurement: "gramme",
-  },
-  {
-    name: "Semerinka",
-    price: 20,
-    amount: 4,
-    img: "",
-    measurement: "kg",
-  },
-  {
-    name: "Cherry",
-    price: 30,
-    amount: 1.4,
-    img: "",
-    measurement: "kg",
-  },
-  {
-    name: "Milk",
-    price: 10,
-    amount: 1,
-    img: "",
-    measurement: "litres",
-  },
-  {
-    name: "Pickled cucumber",
-    price: 15,
-    amount: 1,
-    img: "",
-    measurement: "piece",
-  },
-  {
-    name: "Hazelnut",
-    price: 40,
-    amount: 0.1,
-    img: "",
-    measurement: "gramme",
-  },
 ];
 
 const CartButton = () => {
@@ -189,7 +84,7 @@ const CartButton = () => {
             <div className="cart-button-content-products">
               {cart.map((p) => {
                 return (
-                  <div className="cart-button-product-card">
+                  <div className="cart-button-product-card" key={p.name}>
                     <div className="cart-button-product-details-wrapper">
                       <span>img</span>
                       <Spacer width={15} />

@@ -40,6 +40,13 @@
   border: 1px solid #711d1d;
   border-radius: 3px;
   padding: 5px 10px;
+  outline: none;
+}
+
+.slider__left-value:hover,
+.slider__right-value:hover {
+  border: 1px solid #c60f0f;
+  color: #c60f0f;
 }
 
 .slider__left-value {
@@ -62,6 +69,10 @@
   height: 0;
   width: 150px;
   outline: none;
+}
+
+.thumb::-webkit-slider-thumb:hover {
+  background-color: #c60f0f;
 }
 
 .thumb--left {

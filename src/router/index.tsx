@@ -63,15 +63,15 @@ const router = createBrowserRouter([
         element: <Store />,
       },
       {
-        path: "category/:category",
+        path: "category/:categoryId",
         element: <Category />,
       },
       {
-        path: "/category/:category/sub-category/:subCategory",
-        element: <SubCategory />,
+        path: "/category/:categoryId/sub-category/:subCategoryId",
+        element: <Category />,
       },
       {
-        path: "/category/:category/sub-category/:subCategory/product/:productId",
+        path: "/category/:categoryId/sub-category/:subCategoryId/product/:productId",
         element: <Product />,
       },
     ],

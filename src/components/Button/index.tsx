@@ -7,6 +7,7 @@ interface ButtonProps {
   icon?:
     | "user"
     | "cart-shopping"
+    | "cart-plus"
     | "bars"
     | "chevron-up"
     | "trash"
@@ -30,13 +31,19 @@ const Button: React.FC<ButtonProps> = ({
 }) => (
   <button className={`btn ${className}`} onClick={onClick}>
     {iconLeft && icon && (
-      <i className={`fa-solid fa-${icon} ${iconClassName}`} style={{ color }} />
+      <i
+        className={`fa-solid fa-${icon} ${iconClassName} btn-icon`}
+        style={{ color }}
+      />
     )}
     {iconLeft && icon && label && <Spacer width={5} />}
     {label && <span> {label}</span>}
     {!iconLeft && icon && label && <Spacer width={5} />}
     {!iconLeft && icon && (
-      <i className={`fa-solid fa-${icon} ${iconClassName}`} style={{ color }} />
+      <i
+        className={`fa-solid fa-${icon} ${iconClassName} btn-icon`}
+        style={{ color }}
+      />
     )}
   </button>
 );

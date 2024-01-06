@@ -4,6 +4,7 @@ import Spacer from "../../components/Spacer";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import MultiRangeSlider from "../../components/MultiRangeSlider";
+import Button from "../../components/Button";
 
 const subCategories = {
   "fruits-vegetables-pickles": [
@@ -432,6 +433,247 @@ const sortOptions: { title: string; value: SortOption }[] = [
   },
 ];
 
+const products = [
+  {
+    title: "Apple",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 10,
+    quantity: 20,
+    rate: 4,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 20,
+    quantity: 30,
+    rate: 3,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    name: "Hazelnut",
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "nuts",
+    price: 20,
+    quantity: 30,
+    rate: 1,
+    measurement: "gramme",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Apple",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 10,
+    quantity: 20,
+    rate: 4,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 20,
+    quantity: 30,
+    rate: 3,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    name: "Hazelnut",
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "nuts",
+    price: 20,
+    quantity: 30,
+    rate: 1,
+    measurement: "gramme",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Apple",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 10,
+    quantity: 20,
+    rate: 4,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 20,
+    quantity: 30,
+    rate: 3,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    name: "Hazelnut",
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "nuts",
+    price: 20,
+    quantity: 30,
+    rate: 1,
+    measurement: "gramme",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Apple",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 10,
+    quantity: 20,
+    rate: 4,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 20,
+    quantity: 30,
+    rate: 3,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    name: "Hazelnut",
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "nuts",
+    price: 20,
+    quantity: 30,
+    rate: 1,
+    measurement: "gramme",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Apple",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 10,
+    quantity: 20,
+    rate: 4,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 20,
+    quantity: 30,
+    rate: 3,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    name: "Hazelnut",
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "nuts",
+    price: 20,
+    quantity: 30,
+    rate: 1,
+    measurement: "gramme",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Apple",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 10,
+    quantity: 20,
+    rate: 4,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 20,
+    quantity: 30,
+    rate: 3,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    name: "Hazelnut",
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "nuts",
+    price: 20,
+    quantity: 30,
+    rate: 1,
+    measurement: "gramme",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Apple",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 10,
+    quantity: 20,
+    rate: 4,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "fruits",
+    price: 20,
+    quantity: 30,
+    rate: 3,
+    measurement: "kg",
+    img: "",
+    isAvailable: true,
+  },
+  {
+    name: "Hazelnut",
+    title: "Cherry",
+    category: "fruits-vegetables-pickles",
+    subCategory: "nuts",
+    price: 20,
+    quantity: 30,
+    rate: 1,
+    measurement: "gramme",
+    img: "",
+    isAvailable: true,
+  },
+];
+
 const MIN = 0;
 const MAX = 1000;
 
@@ -536,7 +778,49 @@ const Category = () => {
             ))}
           </div>
           <Spacer height={30} />
-          {range.from} || {range.to}
+          <div className="content-wrapper">
+            {products.map((p) => {
+              return (
+                <div className="content-product-wrapper">
+                  <div className="content-product-img">[image]</div>
+                  {/* <img
+                    src={p.img}
+                    alt={p.title}
+                    className="content-product-img"
+                  />*/}
+                  <div className="stars-rate-wrapper">
+                    {[...Array(5)].map((s, index) => {
+                      return (
+                        <div
+                          className={
+                            p.rate >= index + 1 ? "star active-star" : "star"
+                          }
+                        >
+                          <i className="fa-solid fa-star" />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <Spacer height={15} />
+                  <div className="content-product-title">{p.title}</div>
+                  <Spacer height={15} />
+                  <div className="content-product-price-buy">
+                    <div className="content-product-price">
+                      {p.price}
+                      {t("grn")}
+                    </div>
+                    <Button
+                      onClick={() => {}}
+                      icon="cart-plus"
+                      color="#711d1d"
+                      label={t("buy")}
+                      className="content-product-buy-btn"
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
       <Spacer height={30} />

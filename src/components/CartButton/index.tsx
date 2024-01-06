@@ -118,7 +118,8 @@ const CartButton = () => {
                     </div>
                     <div className="cart-button-product-details2">
                       <span className="cart-button-product-name">
-                        {p.price * p.amount}grn
+                        {p.price * p.amount}
+                        {t("grn")}
                       </span>
                       <Spacer width={10} />
                       <Button onClick={() => {}} icon="trash" color="#711d1d" />
@@ -131,7 +132,7 @@ const CartButton = () => {
             <div className="total-wrapper">
               <span className="total">
                 {cart.reduce((sum, i) => sum + i.price * i.amount, 0)}
-                grn
+                {t("grn")}
               </span>
               <Spacer width={20} />
               <Button

@@ -31,9 +31,11 @@ const resources = {
       namePlaceholder: "Ім'я",
       lastNamePlaceholder: "Прізвище",
       phonePlaceholder: "Телефон",
+      grn: "грн",
 
       //Buttons labels
       searchBtn: "Знайти",
+      buy: "Купити",
 
       //Hamburger btn
       home: "Головна",
@@ -212,9 +214,11 @@ const resources = {
       namePlaceholder: "Name",
       lastNamePlaceholder: "Last name",
       phonePlaceholder: "Phone",
+      grn: "UAH",
 
       //Buttons labels
       searchBtn: "Search",
+      buy: "Buy",
 
       //Hamburger btn
       home: "Home",

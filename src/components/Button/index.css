@@ -13,6 +13,14 @@
   color: #c60f0f !important;
 }
 
+.btn:hover .fa-regular {
+  color: #c60f0f !important;
+}
+
 .fa-solid {
+  font-size: 20px;
+}
+
+.fa-regular {
   font-size: 20px;
 }

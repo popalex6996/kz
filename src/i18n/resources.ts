@@ -32,6 +32,8 @@ const resources = {
       lastNamePlaceholder: "Прізвище",
       phonePlaceholder: "Телефон",
       grn: "грн",
+      seller: "Продавець",
+      "product-details": "Про товар",
 
       //Buttons labels
       searchBtn: "Знайти",
@@ -215,6 +217,8 @@ const resources = {
       lastNamePlaceholder: "Last name",
       phonePlaceholder: "Phone",
       grn: "UAH",
+      seller: "Seller",
+      "product-details": "Details",
 
       //Buttons labels
       searchBtn: "Search",

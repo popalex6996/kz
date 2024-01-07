@@ -35,7 +35,12 @@ const SearchBar = () => {
         onChange={handleChange}
         onKeyUp={onKeyUp}
       />
-      <Button label={t("searchBtn")} className="search-btn" onClick={onClick} />
+      <Button
+        label={t("searchBtn")}
+        className="search-btn"
+        onClick={onClick}
+        iconClassName="fa-solid"
+      />
     </div>
   );
 };

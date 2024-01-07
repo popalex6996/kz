@@ -71,13 +71,14 @@ const CartButton = () => {
 
   return (
     <div className="cart-button-wrapper">
-      <Button icon="cart-shopping" onClick={onOpen} />
+      <Button icon="cart-shopping" onClick={onOpen} iconClassName="fa-solid" />
       <div className={` ${isOpen && "cart-shadow"}`} onClick={onClose}>
         <div id="cart" className="cart" onClick={(e) => e.stopPropagation()}>
           <Button
             icon="cart-shopping"
             onClick={onClose}
             className="cart-close"
+            iconClassName="fa-solid"
           />
           <div className="cart-button-content">
             <div className="cart-button-content-title">{t("cart")}</div>
@@ -98,7 +99,7 @@ const CartButton = () => {
                             icon="plus"
                             color="#711d1d"
                             className="cart-button-amount-button"
-                            iconClassName="cart-button-amount-button-icon"
+                            iconClassName="cart-button-amount-button-icon fa-solid"
                           />
                           <Spacer width={5} />
                           <span className="cart-button-amount">
@@ -111,7 +112,7 @@ const CartButton = () => {
                             icon="minus"
                             color="#711d1d"
                             className="cart-button-amount-button"
-                            iconClassName="cart-button-amount-button-icon"
+                            iconClassName="cart-button-amount-button-icon fa-solid"
                           />
                         </div>
                       </div>
@@ -122,7 +123,12 @@ const CartButton = () => {
                         {t("grn")}
                       </span>
                       <Spacer width={10} />
-                      <Button onClick={() => {}} icon="trash" color="#711d1d" />
+                      <Button
+                        onClick={() => {}}
+                        icon="trash"
+                        color="#711d1d"
+                        iconClassName="fa-solid"
+                      />
                     </div>
                   </div>
                 );

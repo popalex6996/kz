@@ -71,7 +71,12 @@ const Hamburger = () => {
 
   return (
     <div className="hamburger-wrapper">
-      <Button icon="bars" color="white" onClick={onMenuOpen} />
+      <Button
+        icon="bars"
+        color="white"
+        onClick={onMenuOpen}
+        iconClassName="fa-solid"
+      />
       <div className={` ${isOpen && "hamburger-shadow"}`} onClick={onMenuClose}>
         <div
           id="hamburger-menu"
@@ -82,6 +87,7 @@ const Hamburger = () => {
             className="hamburger-close"
             icon="bars"
             color="white"
+            iconClassName="fa-solid"
             onClick={onMenuClose}
           />
           <div>

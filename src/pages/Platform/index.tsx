@@ -30,6 +30,7 @@ const Platform = () => {
           onClick={openCatalog}
           className="catalog-btn"
           label={t("store")}
+          iconClassName="fa-solid"
         />
         <Spacer height={150} />
       </div>

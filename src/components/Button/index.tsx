@@ -10,6 +10,7 @@ interface ButtonProps {
     | "cart-plus"
     | "bars"
     | "chevron-up"
+    | "up-right-from-square"
     | "trash"
     | "plus"
     | "minus"

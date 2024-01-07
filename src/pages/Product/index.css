@@ -70,6 +70,7 @@
 }
 
 .product-seller {
+  display: flex;
 }
 
 .seller-label {
@@ -79,15 +80,18 @@
   color: #711d1d;
 }
 
-.seller-name {
-  cursor: pointer;
-  font-weight: 400;
+.seller-name-btn {
   font-size: 16px;
-  color: #000000;
+  color: #711d1d;
+  font-weight: bold;
 }
 
-.seller-name:hover {
-  color: #711d1d;
+.seller-name-btn:hover {
+  color: #c60f0f;
+}
+
+.seller-name-btn .fa-solid {
+  font-size: 16px;
 }
 
 .product-details {

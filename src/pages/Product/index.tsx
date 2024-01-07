@@ -62,12 +62,19 @@ const Product = () => {
           <Spacer height={20} />
           <div className="product-seller">
             <span className="seller-label">{t("seller")}:</span>
-            <span className="seller-name">{product.seller}</span>
+            <Button
+              onClick={() => {}}
+              label={product.seller}
+              color="#711d1d"
+              icon="up-right-from-square"
+              iconClassName="fa-solid"
+              className="seller-name-btn"
+            />
           </div>
           <Spacer height={20} />
           <div className="product-details">
             <div className="details-label">
-              {t("product-details")}:{product.details.length}
+              {t("product-details")}:
               {product.details.length > 170 && (
                 <i
                   className={

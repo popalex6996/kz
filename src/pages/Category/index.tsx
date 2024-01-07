@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import Spacer from "../../components/Spacer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import MultiRangeSlider from "../../components/MultiRangeSlider";
 import Button from "../../components/Button";
@@ -444,6 +444,7 @@ const products = [
     measurement: "kg",
     img: "",
     isAvailable: true,
+    id: "1",
   },
   {
     title: "Cherry",
@@ -455,10 +456,10 @@ const products = [
     measurement: "kg",
     img: "",
     isAvailable: true,
+    id: "1",
   },
   {
-    name: "Hazelnut",
-    title: "Cherry",
+    title: "Hazelnut",
     category: "fruits-vegetables-pickles",
     subCategory: "nuts",
     price: 20,
@@ -467,210 +468,7 @@ const products = [
     measurement: "gramme",
     img: "",
     isAvailable: true,
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    name: "Hazelnut",
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    name: "Hazelnut",
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    name: "Hazelnut",
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    name: "Hazelnut",
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    name: "Hazelnut",
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-  },
-  {
-    name: "Hazelnut",
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
+    id: "3",
   },
 ];
 
@@ -678,6 +476,7 @@ const MIN = 0;
 const MAX = 1000;
 
 const Category = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   let { categoryId, subCategoryId } = useParams();
 
@@ -781,17 +580,21 @@ const Category = () => {
           <div className="content-wrapper">
             {products.map((p) => {
               return (
-                <div className="content-product-wrapper">
+                <div
+                  key={p.id + p.title}
+                  className="content-product-wrapper"
+                  onClick={() => {
+                    navigate(
+                      `/category/${p.category}/sub-category/${p.subCategory}/product/${p.id}`,
+                    );
+                  }}
+                >
                   <div className="content-product-img">[image]</div>
-                  {/* <img
-                    src={p.img}
-                    alt={p.title}
-                    className="content-product-img"
-                  />*/}
                   <div className="stars-rate-wrapper">
                     {[...Array(5)].map((s, index) => {
                       return (
                         <div
+                          key={p.rate + index}
                           className={
                             p.rate >= index + 1 ? "star active-star" : "star"
                           }
@@ -815,6 +618,7 @@ const Category = () => {
                       color="#711d1d"
                       label={t("buy")}
                       className="content-product-buy-btn"
+                      iconClassName="fa-solid"
                     />
                   </div>
                 </div>

@@ -41,7 +41,11 @@ const Account = () => {
         </button>
       ) : (
         <>
-          <Button onClick={toggleLoginModal} icon="user" />
+          <Button
+            onClick={toggleLoginModal}
+            icon="user"
+            iconClassName="fa-solid"
+          />
           <Modal
             onBackdropClick={toggleLoginModal}
             isVisible={isLoginModalVisible}

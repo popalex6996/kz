@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        path: "*",
+        element: <p>Path not resolved</p>,
+      },
+      {
         path: "/",
         element: <Home />,
       },
@@ -66,11 +70,11 @@ const router = createBrowserRouter([
         element: <Category />,
       },
       {
-        path: "/category/:categoryId/sub-category/:subCategoryId",
+        path: "category/:categoryId/sub-category/:subCategoryId",
         element: <Category />,
       },
       {
-        path: "/category/:categoryId/sub-category/:subCategoryId/product/:productId",
+        path: "category/:categoryId/sub-category/:subCategoryId/product/:productId",
         element: <Product />,
       },
     ],

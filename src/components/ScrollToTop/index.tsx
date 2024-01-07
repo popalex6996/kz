@@ -17,7 +17,12 @@ const ScrollToTop: React.FC = () => {
 
   return (
     <Tooltip text={t("scrollToTop")}>
-      <Button onClick={onClick} className="scroll-to-top" icon="chevron-up" />
+      <Button
+        onClick={onClick}
+        className="scroll-to-top"
+        icon="chevron-up"
+        iconClassName="fa-solid"
+      />
     </Tooltip>
   );
 };

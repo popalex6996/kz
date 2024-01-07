@@ -12,7 +12,8 @@ interface ButtonProps {
     | "chevron-up"
     | "trash"
     | "plus"
-    | "minus";
+    | "minus"
+    | "heart";
   color?: string;
   iconLeft?: boolean;
   className?: string;
@@ -31,19 +32,13 @@ const Button: React.FC<ButtonProps> = ({
 }) => (
   <button className={`btn ${className}`} onClick={onClick}>
     {iconLeft && icon && (
-      <i
-        className={`fa-solid fa-${icon} ${iconClassName} btn-icon`}
-        style={{ color }}
-      />
+      <i className={`fa-${icon} ${iconClassName} btn-icon`} style={{ color }} />
     )}
     {iconLeft && icon && label && <Spacer width={5} />}
     {label && <span> {label}</span>}
     {!iconLeft && icon && label && <Spacer width={5} />}
     {!iconLeft && icon && (
-      <i
-        className={`fa-solid fa-${icon} ${iconClassName} btn-icon`}
-        style={{ color }}
-      />
+      <i className={`fa-${icon} ${iconClassName} btn-icon`} style={{ color }} />
     )}
   </button>
 );

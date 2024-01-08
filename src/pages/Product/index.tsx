@@ -52,9 +52,6 @@ const imagesCarousel = [
   { src: images.apple, title: "apple" },
   { src: images.apple2, title: "apple2" },
   { src: images.apple3, title: "apple3" },
-  { src: images.apple3, title: "apple3" },
-  { src: images.apple3, title: "apple3" },
-  { src: images.apple3, title: "apple3" },
 ];
 
 const Product = () => {

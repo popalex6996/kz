@@ -1,0 +1,36 @@
+.breadcrumb-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 0;
+}
+
+.breadcrumb-link-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.breadcrumb-link {
+  cursor: pointer;
+  font-size: 14px;
+  color: #711d1d;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.breadcrumb-link i {
+  font-size: 14px;
+}
+
+.breadcrumb-link:hover {
+  color: #c60f0f;
+}
+
+.breadcrumb-chevron-icon {
+  font-size: 14px;
+  margin-top: 2px;
+  color: #711d1d;
+}

@@ -7,6 +7,7 @@ import LanguageSwitch from "../LanguageSwitch";
 import CartButton from "../CartButton";
 import CatalogButton from "../CatalogButton";
 import Account from "../Account";
+import Breadcrumb from "../Breadcrumb";
 
 const Header: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const Header: React.FC = () => {
           <Account />
         </div>
       </div>
+      <Breadcrumb />
     </div>
   );
 };

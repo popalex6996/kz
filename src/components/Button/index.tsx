@@ -14,11 +14,16 @@ interface ButtonProps {
     | "trash"
     | "comment-medical"
     | "plus"
+    | "caret-left"
+    | "caret-right"
     | "minus"
     | "ban"
+    | "expand"
+    | "xmark"
     | "heart";
   color?: string;
   iconLeft?: boolean;
+  disabled?: boolean;
   className?: string;
   iconClassName?: string;
   onClick: () => void;
@@ -29,11 +34,12 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   color = "white",
   iconLeft = false,
+  disabled = false,
   className,
   iconClassName,
   onClick,
 }) => (
-  <button className={`btn ${className}`} onClick={onClick}>
+  <button className={`btn ${className}`} onClick={onClick} disabled={disabled}>
     {iconLeft && icon && (
       <i className={`fa-${icon} ${iconClassName} btn-icon`} style={{ color }} />
     )}

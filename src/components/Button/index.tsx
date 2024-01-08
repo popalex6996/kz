@@ -12,8 +12,10 @@ interface ButtonProps {
     | "chevron-up"
     | "up-right-from-square"
     | "trash"
+    | "comment-medical"
     | "plus"
     | "minus"
+    | "ban"
     | "heart";
   color?: string;
   iconLeft?: boolean;

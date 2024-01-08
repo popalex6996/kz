@@ -3,6 +3,8 @@ import "./index.css";
 import Spacer from "../../components/Spacer";
 import Button from "../../components/Button";
 import { useTranslation } from "react-i18next";
+import ImageCarousel from "../../components/ImageCarousel ";
+import images from "../../assets/images/index";
 
 const product = {
   title: "Apple",
@@ -46,6 +48,15 @@ const feedbacks = [
   initialFeedback,
 ];
 
+const imagesCarousel = [
+  { src: images.apple, title: "apple" },
+  { src: images.apple2, title: "apple2" },
+  { src: images.apple3, title: "apple3" },
+  { src: images.apple3, title: "apple3" },
+  { src: images.apple3, title: "apple3" },
+  { src: images.apple3, title: "apple3" },
+];
+
 const Product = () => {
   const { t } = useTranslation();
   const [isVisibleDetails, setDetails] = useState(false);
@@ -56,7 +67,7 @@ const Product = () => {
     <div className="product-wrapper">
       <div className="product-image-details-wrapper">
         <div className="product-image-wrapper">
-          <div className="product-image">[product image]</div>
+          <ImageCarousel images={imagesCarousel} />
         </div>
         <div className="product-details-wrapper">
           <div className="product-name-wrapper">
@@ -244,7 +255,6 @@ const Product = () => {
                 setFeedback(event.target.value);
               }}
             />
-            {feedback}
             <Spacer height={10} />
             <div className="feedback-btns">
               <Button

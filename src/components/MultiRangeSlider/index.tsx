@@ -76,7 +76,7 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
         className="thumb thumb--right"
       />
 
-      <div className="slider">
+      <div className="range-slider">
         <div className="slider__track"></div>
         <div ref={rangeEL} className="slider__range" />
         <input

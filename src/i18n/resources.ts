@@ -34,10 +34,15 @@ const resources = {
       grn: "грн",
       seller: "Продавець",
       "product-details": "Про товар",
+      "no-feedback":
+        "Тут досі немає відгуку, мершій стань першим хто лишить відгук",
 
       //Buttons labels
       searchBtn: "Знайти",
       buy: "Купити",
+      "left-feedback": "Лишити відгук",
+      "send-feedback": "Надіслати відгук",
+      cancel: "Відмінити надсилання",
 
       //Hamburger btn
       home: "Головна",
@@ -219,10 +224,15 @@ const resources = {
       grn: "UAH",
       seller: "Seller",
       "product-details": "Details",
+      "no-feedback":
+        "There are no feedback yet, be the first to leave a feedback",
 
       //Buttons labels
       searchBtn: "Search",
       buy: "Buy",
+      "left-feedback": "Left feedback",
+      "send-feedback": "Send feedback",
+      cancel: "Cancel",
 
       //Hamburger btn
       home: "Home",

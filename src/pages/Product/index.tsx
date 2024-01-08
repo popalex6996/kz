@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import "./index.css";
 import Spacer from "../../components/Spacer";
 import Button from "../../components/Button";
@@ -23,9 +23,35 @@ const product = {
     " Його шкірка може бути різного кольору — від зеленого до жовтого, червоного і навіть темно-фіолетового.",
 };
 
+const initialUser = {
+  img: "",
+  name: "Oleksandr",
+  secondName: "",
+  id: "1",
+};
+
+const initialFeedback = {
+  user: "Alyosha",
+  text: "Смачнейші яблука",
+  rate: 4,
+  id: "1",
+};
+
+const feedbacks = [
+  initialFeedback,
+  initialFeedback,
+  initialFeedback,
+  initialFeedback,
+  initialFeedback,
+  initialFeedback,
+];
+
 const Product = () => {
   const { t } = useTranslation();
   const [isVisibleDetails, setDetails] = useState(false);
+  const [feedbackForm, setFeedbackForm] = useState(false);
+  const [feedback, setFeedback] = useState("");
+
   return (
     <div className="product-wrapper">
       <div className="product-image-details-wrapper">
@@ -114,6 +140,137 @@ const Product = () => {
           <Spacer height={10} />
         </div>
       </div>
+      <Spacer height={30} />
+      <div className="feedback-title">
+        <div className="feedback-title-text">Відгуки</div>
+        {!feedbackForm && !!feedbacks.length && (
+          <Button
+            onClick={() => setFeedbackForm(true)}
+            label={t("left-feedback")}
+            color="white"
+            icon="comment-medical"
+            iconClassName="fa-solid"
+            className="mini-left-feedback-btn"
+          />
+        )}
+      </div>
+      <Spacer height={5} />
+      <div className="feedback-wrapper">
+        {!!feedbacks.length ? (
+          feedbacks.map((f) => {
+            return (
+              <div key={f.id} className="feedback">
+                <div className="feedback-user-avatar-wrapper">
+                  <div className="feedback-user-avatar">[User Image]</div>
+                </div>
+                <Spacer width={10} />
+                <div className="feedback-details">
+                  <div className="feedback-user">{f.user}</div>
+                  <Spacer height={5} />
+                  <div className="feedback-rate">
+                    <div className="stars-rate-wrapper">
+                      {[...Array(5)].map((s, index) => {
+                        return (
+                          <div
+                            key={f.rate + index}
+                            className={
+                              f.rate >= index + 1 ? "star active-star" : "star"
+                            }
+                          >
+                            <i className="fa-solid fa-star" />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <Spacer height={10} />
+                  <div className="feedback-text">{f.text}</div>
+                </div>
+              </div>
+            );
+          })
+        ) : (
+          <div className="no-feedback">
+            <div></div>
+            {t("no-feedback")}
+          </div>
+        )}
+      </div>
+      <Spacer height={5} />
+      {!feedbackForm && (
+        <Button
+          onClick={() => setFeedbackForm(true)}
+          label={t("left-feedback")}
+          color="white"
+          icon="comment-medical"
+          iconClassName="fa-solid"
+          className="left-feedback-btn"
+        />
+      )}
+      <Spacer height={5} />
+      {feedbackForm && (
+        <div className="feedback  user-feedback-wrapper">
+          <div className="feedback-user-avatar-wrapper">
+            <div className="user-feedback-user-avatar">
+              [Current User Image]
+            </div>
+          </div>
+          <Spacer width={10} />
+          <div className="feedback-details">
+            <div className="user-feedback-user">{initialUser.name}</div>
+            <Spacer height={5} />
+            <div className="feedback-rate">
+              <div className="stars-rate-wrapper">
+                {[...Array(5)].map((s, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={0 >= index + 1 ? "star active-star" : "star"}
+                    >
+                      <i className="fa-solid fa-star" />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <Spacer height={10} />
+            <textarea
+              id="user-feedback"
+              className="user-feedback"
+              autoFocus={true}
+              placeholder="Type here..."
+              value={feedback}
+              onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
+                setFeedback(event.target.value);
+              }}
+            />
+            {feedback}
+            <Spacer height={10} />
+            <div className="feedback-btns">
+              <Button
+                onClick={() => setFeedbackForm(true)}
+                label={t("send-feedback")}
+                color="white"
+                icon="comment-medical"
+                iconClassName="fa-solid"
+                className="send-feedback-btn"
+              />
+              <Button
+                onClick={() => {
+                  setFeedbackForm(false);
+                  setFeedback("");
+                }}
+                label={t("cancel")}
+                color="white"
+                icon="ban"
+                iconClassName="fa-solid"
+                className="send-feedback-btn"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+      <Spacer height={20} />
     </div>
   );
 };

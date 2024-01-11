@@ -1,15 +1,14 @@
 .header-wrapper {
   position: sticky;
   top: 0;
-  padding: 0 120px;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid white;
-  padding: 10px 0;
+  background-color: #711d1d;
+  padding: 10px 120px;
 }
 
 .menu-catalog {

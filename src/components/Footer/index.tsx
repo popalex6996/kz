@@ -5,6 +5,7 @@ import LanguageSwitch from "../LanguageSwitch";
 import Spacer from "../Spacer";
 import Modal from "../Modal";
 import SignUp from "../SignUp";
+import SocialLinks from "../SocialLinks";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -57,17 +58,7 @@ const Footer: React.FC = () => {
         <div className="lang-socials-wrapper">
           <LanguageSwitch />
           <Spacer height={15} />
-          <div className="social-links">
-            <button onClick={() => {}} className="social-link">
-              <i className="fa-brands fa-facebook" />
-            </button>
-            <button onClick={() => {}} className="social-link">
-              <i className="fa-brands fa-instagram" />
-            </button>
-            <button onClick={() => {}} className="social-link">
-              <i className="fa-brands fa-youtube" />
-            </button>
-          </div>
+          <SocialLinks />
         </div>
       </div>
       <div className="copyright-wrapper">

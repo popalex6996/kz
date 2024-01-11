@@ -198,10 +198,7 @@ const Product = () => {
             );
           })
         ) : (
-          <div className="no-feedback">
-            <div></div>
-            {t("no-feedback")}
-          </div>
+          <div className="no-feedback">{t("no-feedback")}</div>
         )}
       </div>
       <Spacer height={5} />

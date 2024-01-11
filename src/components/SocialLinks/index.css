@@ -1,0 +1,28 @@
+.social-links {
+  margin-right: 10px;
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-link {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.fa-brands {
+  /*color: white;*/
+  font-size: 30px;
+}
+
+.red-link {
+  color: #711d1d;
+}
+
+.white-link {
+  color: white;
+}

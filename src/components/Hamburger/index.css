@@ -84,27 +84,17 @@
   background-color: #711d1d;
 }
 
+.hamburger-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .social-links-label {
   margin: 0 20px 0 10px;
   font-size: 16px;
   font-weight: bold;
   color: #711d1d;
-}
-
-.hamburger-social-links {
-  margin: 5px 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.hamburger-social-link {
-  margin-right: 20px;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  outline: none;
 }
 
 .hamburger-social-brand {

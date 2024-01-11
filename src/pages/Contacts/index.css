@@ -1,9 +1,91 @@
 .contacts-wrapper {
   height: 47vw;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: white;
+  font-size: 32px;
+  padding: 0 120px;
+}
+
+.contacts-page-title-wrapper {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.contacts-page-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #711d1d;
+  margin: 0;
+}
+
+.contacts-page-sub-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #711d1d;
+  margin: 0;
+}
+
+.contacts-border-line {
+  width: 200px;
+  height: 2px;
+  background-color: #711d1d;
+}
+
+.contacts-page-work-date {
+  font-size: 20px;
+  font-weight: bold;
+  color: #711d1d;
+  margin: 0;
+}
+
+.contacts-details-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid #711d1d;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 20px;
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-top: -45px;
+  color: #711d1d;
+  background-color: #f2f1f1;
+  border-radius: 100%;
+  padding: 10px;
+  font-size: 40px;
+  border: 2px solid #711d1d;
+}
+
+.contact-detail {
+  font-size: 16px;
+  color: #711d1d;
+}
+
+.contact-btn {
+  background-color: #711d1d;
+  font-size: 16px;
   color: white;
-  font-size: 32px;
+  padding: 5px 10px;
+  border-radius: 8px;
 }

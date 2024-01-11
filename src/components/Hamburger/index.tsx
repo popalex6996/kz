@@ -6,6 +6,7 @@ import Modal from "../Modal";
 import SignUp from "../SignUp";
 import Spacer from "../Spacer";
 import { useLocation } from "react-router-dom";
+import SocialLinks from "../SocialLinks";
 
 type User = {
   img: string;
@@ -193,17 +194,10 @@ const Hamburger = () => {
               {t("socialNetworksLabel")}:
             </span>
             <Spacer height={10} />
-            <div className="hamburger-social-links">
-              <button onClick={() => {}} className="hamburger-social-link">
-                <i className="fa-brands fa-facebook hamburger-social-brand" />
-              </button>
-              <button onClick={() => {}} className="hamburger-social-link">
-                <i className="fa-brands fa-instagram hamburger-social-brand" />
-              </button>
-              <button onClick={() => {}} className="hamburger-social-link">
-                <i className="fa-brands fa-youtube hamburger-social-brand" />
-              </button>
+            <div className="hamburger-socials">
+              <SocialLinks color="red" />
             </div>
+            <Spacer height={20} />
           </div>
         </div>
       </div>

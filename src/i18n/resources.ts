@@ -52,6 +52,13 @@ const resources = {
       exchange: "Обмін та повернення",
       contacts: "Контакти",
       socialNetworksLabel: "Ми в соціальних мережах",
+      "contacts-title": "Є питання, на які ми не відповіли?",
+      "contacts-sub-title": "Не соромся, питай",
+      "work-date": "Понеділок - Субота: 9:00 - 20:00",
+      call: "Зателефонувати",
+      "text us": "Написати",
+      follow: "Соціальні мережі",
+      location: "Заїхати",
 
       //Hamburger btn catalog
       "fruits-vegetables-pickles": "Фрукти, овочі та соління",
@@ -242,6 +249,13 @@ const resources = {
       exchange: "Exchange and return",
       contacts: "Contacts",
       socialNetworksLabel: "Social networks",
+      "contacts-title": "have a questions we didn't answer?",
+      "contacts-sub-title": "Don't be shy, ask",
+      "work-date": "Monday - Sunday: 9:00am - 8:00pm",
+      call: "Call",
+      "text us": "Text us",
+      follow: "Socials",
+      location: "Location",
 
       //Hamburger btn catalog
       "fruits-vegetables-pickles": "Fruits, vegetables and pickles",

@@ -7,6 +7,7 @@ const platformFeature_3 = require("./platform-feature-3.png");
 const apple = require("./apple.png");
 const apple2 = require("./apple2.png");
 const apple3 = require("./apple3.png");
+const logo = require("./logo.png");
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -19,4 +20,5 @@ export default {
   apple,
   apple2,
   apple3,
+  logo,
 };

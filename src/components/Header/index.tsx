@@ -8,15 +8,15 @@ import CartButton from "../CartButton";
 import CatalogButton from "../CatalogButton";
 import Account from "../Account";
 import Breadcrumb from "../Breadcrumb";
-import images from "../../assets/images";
+// import images from "../../assets/images";
 
 const Header: React.FC = () => {
   return (
     <div className="header-wrapper">
       <div className="header">
-        <div>
+        {/*<div>
           <img src={images.logo} alt="logo" className="logo" />
-        </div>
+        </div>*/}
         <div className="menu-catalog">
           <Hamburger />
           <Spacer width={15} />

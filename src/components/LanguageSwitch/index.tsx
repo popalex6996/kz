@@ -12,7 +12,7 @@ const LanguageSwitch = () => {
       >
         UA
       </button>
-      <div className="border" />
+      <div className="lang-switch-border" />
       <button
         className={`lang-btn ${i18n.language === "en" && " active-lang-btn"}`}
         onClick={() => i18n.changeLanguage("en")}

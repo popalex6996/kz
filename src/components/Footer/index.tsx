@@ -39,7 +39,9 @@ const Footer: React.FC = () => {
             <div className="nav-link" onClick={toggleLoginTab(true)}>
               {t("login")}
             </div>
-            <div className="border" />
+            <Spacer width={10} />
+            <div className="footer-links-border" />
+            <Spacer width={10} />
             <div className="nav-link" onClick={toggleLoginTab(false)}>
               {t("signup")}
             </div>

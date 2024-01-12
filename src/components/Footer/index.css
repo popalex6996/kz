@@ -51,9 +51,7 @@
   justify-content: center;
 }
 
-.border {
-  margin: 5px;
-  position: static;
+.footer-links-border {
   border-left: 1px solid white;
   width: 2px;
   height: 15px;

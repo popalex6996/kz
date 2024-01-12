@@ -549,11 +549,12 @@ const Category = () => {
                           }
                         }}
                       />
-                      <span className="checkmark" />
-                      <Spacer width={30} />
+                      <div className="checkmark" />
+                      <Spacer width={10} />
                       {t(sc.title)}
+                      <Spacer width={10} />
+                      <div>[count]</div>
                     </label>
-                    <div>[count]</div>
                   </div>
                 ),
               )}

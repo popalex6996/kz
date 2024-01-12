@@ -28,6 +28,10 @@
   font-size: 16px;
   border-radius: 0 8px 8px 0;
   color: white;
+  border: 2px solid white;
+}
+
+.search-btn:hover {
   background-color: #c60f0f;
 }
 

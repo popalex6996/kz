@@ -1,5 +1,4 @@
 .lang-switch-wrapper {
-  position: relative;
   width: 100px;
   display: flex;
   align-items: center;
@@ -24,8 +23,7 @@
   font-weight: bold;
 }
 
-.border {
-  position: absolute;
+.lang-switch-border {
   border-left: 1px solid white;
   width: 2px;
   height: 20px;

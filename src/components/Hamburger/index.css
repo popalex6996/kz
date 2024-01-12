@@ -76,6 +76,10 @@
   background-color: #711d1d;
 }
 
+.link:hover .hamburger-active-link {
+  background-color: white;
+}
+
 .border-line {
   margin: 0 20px 0 10px;
   width: 85%;

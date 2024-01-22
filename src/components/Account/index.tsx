@@ -4,6 +4,7 @@ import { useState } from "react";
 import Modal from "../Modal";
 import SignUp from "../SignUp";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
 type User = {
   img: string;
@@ -14,12 +15,14 @@ type User = {
 
 const initialUser: User = {
   img: "",
-  name: "",
-  secondName: "",
-  id: "",
+  name: "Oleksandr",
+  secondName: "Popov",
+  id: "1",
 };
 
 const Account = () => {
+  const navigate = useNavigate();
+
   // const [user, setUser] = useState<User>(initialUser);
   const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
 
@@ -30,7 +33,12 @@ const Account = () => {
   return (
     <div className="account-btn-wrapper">
       {initialUser.id ? (
-        <button className="account-btn">
+        <button
+          className="account-btn"
+          onClick={() => {
+            navigate(`/account`);
+          }}
+        >
           {initialUser.img ? (
             <img className="account-img" src={initialUser.img} alt="user" />
           ) : (

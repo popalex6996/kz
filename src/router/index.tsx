@@ -12,6 +12,7 @@ import Contacts from "../pages/Contacts";
 import Layout from "../layouts";
 import Category from "../pages/Category";
 import Product from "../pages/Product";
+import Account from "../pages/Account";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "platform",
         element: <Platform />,
+      },
+      {
+        path: "account",
+        element: <Account />,
       },
       {
         path: "store",

@@ -31,6 +31,7 @@ const resources = {
       namePlaceholder: "Ім'я",
       lastNamePlaceholder: "Прізвище",
       phonePlaceholder: "Телефон",
+      birthPlaceholder: "Дата народження",
       grn: "грн",
       seller: "Продавець",
       "product-details": "Про товар",
@@ -39,6 +40,11 @@ const resources = {
 
       //Buttons labels
       searchBtn: "Знайти",
+      saveBtn: "Зберегти зміни",
+      addProductBtn: "Додати продукт",
+      changeBtn: "Змінити",
+      statBtn: "Статистика",
+      removeBtn: "Прибрати",
       buy: "Купити",
       "left-feedback": "Лишити відгук",
       "send-feedback": "Надіслати відгук",
@@ -194,6 +200,18 @@ const resources = {
         "Відповідальність за якість продукції та доброчесність несуть самі виробники.",
       aboutPlatformText3:
         "Сайт є простим та зручним у використанні. Ми віримо, що всі будуть задоволені при використанню цього сайту.",
+
+      //Account page
+      "personal-data": "Особисті данні",
+      orders: "Мої замовлення",
+      favourites: "Список бажань",
+      "my-products": "Моя продукція",
+      logout: "Вийти",
+      account: "Профіль",
+      "user-no-products": "У Вас поки що немає доданих товарів, мершій!",
+      "user-no-orders": "У Вас поки що немає замовлень",
+      "user-no-favourites":
+        "У Вас поки що немає доданих товарів у списку бажань",
     },
   },
   en: {
@@ -228,6 +246,7 @@ const resources = {
       namePlaceholder: "Name",
       lastNamePlaceholder: "Last name",
       phonePlaceholder: "Phone",
+      birthPlaceholder: "Birth day",
       grn: "UAH",
       seller: "Seller",
       "product-details": "Details",
@@ -236,6 +255,11 @@ const resources = {
 
       //Buttons labels
       searchBtn: "Search",
+      saveBtn: "Save changes",
+      addProductBtn: "Add product",
+      changeBtn: "Change",
+      statBtn: "Statistic",
+      removeBtn: "Remove",
       buy: "Buy",
       "left-feedback": "Left feedback",
       "send-feedback": "Send feedback",
@@ -393,6 +417,18 @@ const resources = {
         "Manufacturers themselves are responsible for product quality and integrity.",
       aboutPlatformText3:
         "The site is simple and easy to use. We believe that everyone will be satisfied when using this site.",
+
+      //Account page
+      "personal-data": "Personal Data",
+      orders: "My orders",
+      favourites: "Favourites",
+      "my-products": "My products",
+      logout: "Logout",
+      account: "Account",
+      "user-no-products": "No products have been added yet",
+      "user-no-orders": "No orders have been placed yet",
+      "user-no-favourites":
+        "You have not added any products to your wish list yet",
     },
   },
 };

@@ -19,7 +19,7 @@ const initialUser: User = {
   img: "",
   name: "",
   secondName: "",
-  id: "",
+  id: "2",
 };
 
 const Hamburger = () => {
@@ -104,14 +104,14 @@ const Hamburger = () => {
               )}
             </a>
             {initialUser.id && (
-              <a href="/profile" className="link">
+              <a href="/account" className="link">
                 <div className="hamburger-link-icon-wrapper">
                   <i className="fa-solid fa-user" />
                 </div>
                 <Spacer width={5} />
-                {t("profile")}
+                {t("account")}
                 <Spacer width={10} />
-                {location.pathname === "/profile" && (
+                {location.pathname === "/account" && (
                   <div className="hamburger-active-link" />
                 )}
               </a>

@@ -20,6 +20,9 @@ interface ButtonProps {
     | "ban"
     | "expand"
     | "xmark"
+    | "pen-to-square"
+    | "circle-plus"
+    | "trash-can"
     | "heart";
   color?: string;
   iconLeft?: boolean;

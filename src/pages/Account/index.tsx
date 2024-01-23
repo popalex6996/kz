@@ -238,19 +238,55 @@ const favourites: Product[] = [
 
 type Order = {
   id: string;
-  title: string;
+  status: string;
+  date: string;
+  delivery: string;
   price: number;
-  category: string;
-  subCategory: string;
+  products: Product[];
 };
 
 const orders: Order[] = [
   {
-    id: "as",
-    title: "as",
-    price: 12,
-    category: "as",
-    subCategory: "as",
+    id: "id1",
+    status: "as",
+    date: "19.02.1996",
+    delivery: "Delivery",
+    price: 1,
+    products: [
+      {
+        title: "Apple",
+        category: "fruits-vegetables-pickles",
+        subCategory: "fruits",
+        price: 10,
+        quantity: 20,
+        rate: 4,
+        measurement: "kg",
+        img: "",
+        isAvailable: true,
+        id: "1",
+      },
+    ],
+  },
+  {
+    id: "id2",
+    status: "as",
+    date: "19.02.1996",
+    delivery: "Delivery",
+    price: 1,
+    products: [
+      {
+        title: "Apple",
+        category: "fruits-vegetables-pickles",
+        subCategory: "fruits",
+        price: 10,
+        quantity: 20,
+        rate: 4,
+        measurement: "kg",
+        img: "",
+        isAvailable: true,
+        id: "1",
+      },
+    ],
   },
 ];
 const Account = () => {
@@ -261,6 +297,8 @@ const Account = () => {
   const [activeTab, setTab] = useState("personal-data");
 
   const [userData, setUserData] = useState(initialUserData);
+
+  const [orderDetails, setDetails] = useState(false);
 
   const onCatalogOpen = () => {
     // @ts-ignore
@@ -515,7 +553,79 @@ const Account = () => {
                 <Spacer height={30} />
               </div>
             ) : (
-              <div className="orders"></div>
+              <div className="orders">
+                {orders.map((o) => (
+                  <div className="order-wrapper" key={o.id}>
+                    <div className="order-details">
+                      <div className="order-id-date">
+                        Замовлення: <span className="order-value">{o.id}</span>{" "}
+                        - <span className="order-value">{o.date}</span>
+                      </div>
+                      <div className="order-status">
+                        Статус: <span className="order-value">{o.status}</span>
+                      </div>
+                      <div className="order-price">
+                        Ціна: <span className="order-value">{o.price}</span>
+                      </div>
+                      <div className="chevron-more">
+                        <Button
+                          onClick={() => setDetails((prevState) => !prevState)}
+                          label="More details"
+                          icon={orderDetails ? "chevron-up" : "chevron-down"}
+                          iconClassName="fa-solid"
+                          className="order-details-btn"
+                        />
+                      </div>
+                    </div>
+                    {orderDetails && <Spacer height={20} />}
+                    {orderDetails && (
+                      <div className="order-details">
+                        <div className="order-products">
+                          {o.products.map((op) => (
+                            <div className="order-product-wrapper" key={op.id}>
+                              <div>image</div>
+                              <Spacer width={20} />
+                              <div>
+                                {op.title} - {op.price}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="order-delivery">
+                          Доставка:{" "}
+                          <span className="order-value">{o.delivery}</span>
+                        </div>
+                      </div>
+                    )}
+                    {orderDetails && <Spacer height={20} />}
+                    {orderDetails && (
+                      <div className="order-details">
+                        <Button
+                          onClick={() => {}}
+                          icon="circle-exclamation"
+                          label="Повідомити про проблему"
+                          className="problem-btn order-details-btn"
+                          iconClassName="fa-solid"
+                        />
+                        <Button
+                          onClick={() => {}}
+                          icon="rotate"
+                          label="Купити ще"
+                          className="buy-again-btn order-details-btn"
+                          iconClassName="fa-solid"
+                        />
+                        <Button
+                          onClick={() => {}}
+                          icon="comment"
+                          label="Лишити відгук"
+                          className="comment-btn order-details-btn"
+                          iconClassName="fa-solid"
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         )}

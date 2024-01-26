@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Spacer from "../Spacer";
 import "./index.css";
+import Button from "../Button";
 
 const categories = [
   {
@@ -544,7 +545,16 @@ const CatalogButton = () => {
             ))}
           </div>
           <div className="catalog-content">
-            <div className="category-name-title">{t(category)}</div>
+            <div className="category-name-title-close">
+              <span className="category-name-title">{t(category)}</span>
+              <Button
+                onClick={onClose}
+                icon="xmark"
+                iconClassName="fa-solid"
+                color="#711d1d"
+                className="catalog-close-btn"
+              />
+            </div>
             <Spacer height={10} />
             <div className="product-variety-cards">
               {subCategories[category as keyof typeof subCategories].map(

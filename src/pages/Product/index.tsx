@@ -154,7 +154,7 @@ const Product = () => {
         {!feedbackForm && !!feedbacks.length && (
           <Button
             onClick={() => setFeedbackForm(true)}
-            label={t("left-feedback")}
+            label={t("commentBtn")}
             color="white"
             icon="comment-medical"
             iconClassName="fa-solid"
@@ -205,7 +205,7 @@ const Product = () => {
       {!feedbackForm && (
         <Button
           onClick={() => setFeedbackForm(true)}
-          label={t("left-feedback")}
+          label={t("commentBtn")}
           color="white"
           icon="comment-medical"
           iconClassName="fa-solid"

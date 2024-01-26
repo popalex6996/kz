@@ -43,7 +43,7 @@ const ProductsCarousel = ({ products }: { products: Product[] }) => {
                 );
               }}
               className={
-                idx < slide || idx > slide + 5
+                idx < slide || idx > slide + 6
                   ? "carousel-product-wrapper carousel-product-wrapper-hidden"
                   : "carousel-product-wrapper"
               }
@@ -90,7 +90,7 @@ const ProductsCarousel = ({ products }: { products: Product[] }) => {
         iconClassName="fa-solid"
         color="#711d1d"
         className="arrow arrow-right"
-        disabled={products.length < slide + 7}
+        disabled={products.length < slide + 8}
       />
     </div>
   );

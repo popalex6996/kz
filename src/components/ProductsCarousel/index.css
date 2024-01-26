@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .carousel-product-wrapper {
@@ -19,7 +20,7 @@
   border: 2px solid white;
   border-radius: 8px;
   width: 150px;
-  height: 200px;
+  box-sizing: border-box;
 }
 
 .carousel-product-wrapper:hover {

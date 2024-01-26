@@ -7,6 +7,10 @@
   flex-direction: column;
 }
 
+.home-carousel {
+  width: 100%;
+}
+
 .logo-slogan-wrapper {
   display: flex;
   align-items: center;
@@ -60,4 +64,19 @@
   font-weight: bold;
   color: #711d1d;
   margin: 0 0 0 25px;
+}
+
+.home-season-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 200px;
+  /*background-color: #711d1d;*/
+  border-radius: 8px;
+  /*color: white;*/
+  color: #711d1d;
+  font-size: 32px;
+  font-weight: bold;
+  border: 2px solid #711d1d;
 }

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import Button from "../Button";
-import Tooltip from "../Tooltip";
 import { useTranslation } from "react-i18next";
 
 const ScrollToTop: React.FC = () => {
   const { t } = useTranslation();
+
+  const [isScroll, setScroll] = useState(false);
   const onClick = () => {
     //@ts-ignore
     window.scrollTo({
@@ -15,15 +16,33 @@ const ScrollToTop: React.FC = () => {
     });
   };
 
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    setScroll(scrollPosition > 500);
+  };
+
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <Tooltip text={t("scrollToTop")}>
+    <div
+      className={
+        isScroll ? "scroll-to-top-wrapper" : "scroll-to-top-wrapper-hide"
+      }
+    >
+      <span className="scroll-to-top-tooltip">{t("scrollToTop")}</span>
       <Button
         onClick={onClick}
         className="scroll-to-top"
         icon="chevron-up"
         iconClassName="fa-solid"
       />
-    </Tooltip>
+    </div>
   );
 };
 export default ScrollToTop;

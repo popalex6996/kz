@@ -446,6 +446,11 @@ const Home = () => {
         <h3 className="home-carousel-title">{t("popularProducts")}</h3>
         <ProductsCarousel products={products} />
       </div>
+      <Spacer height={10} />
+      <div className="home-season-banner">
+        Медовий місяць вже стартонув! Мершій перетвори його на рік :) [банер]
+      </div>
+      <Spacer height={10} />
       {!!viewedProducts.length && (
         <div className="home-carousel">
           <Spacer height={10} />

@@ -2,7 +2,6 @@ import React from "react";
 import "./index.css";
 import { useTranslation } from "react-i18next";
 import Spacer from "../../components/Spacer";
-import ScrollToTop from "../../components/ScrollToTop";
 import images from "../../assets/images";
 import Button from "../../components/Button";
 
@@ -77,9 +76,7 @@ const Platform = () => {
           <div className="about-platform-logo-wrapper">
             <div className="about-platform-logo">Logo</div>
           </div>
-          <ScrollToTop />
         </div>
-
         <Spacer height={50} />
       </div>
     </div>

@@ -558,19 +558,26 @@ const Account = () => {
                   <div className="order-wrapper" key={o.id}>
                     <div className="order-details">
                       <div className="order-id-date">
-                        Замовлення: <span className="order-value">{o.id}</span>{" "}
-                        - <span className="order-value">{o.date}</span>
+                        {t("Order")}:{" "}
+                        <span className="order-value">{o.id}</span> -{" "}
+                        <span className="order-value">{o.date}</span>
                       </div>
                       <div className="order-status">
-                        Статус: <span className="order-value">{o.status}</span>
+                        {t("status")}:{" "}
+                        <span className="order-value">{o.status}</span>
                       </div>
                       <div className="order-price">
-                        Ціна: <span className="order-value">{o.price}</span>
+                        {t("price")}:{" "}
+                        <span className="order-value">{o.price}</span>
                       </div>
                       <div className="chevron-more">
                         <Button
                           onClick={() => setDetails((prevState) => !prevState)}
-                          label="More details"
+                          label={
+                            orderDetails
+                              ? t("hideDetailsBtn")
+                              : t("moreDetailsBtn")
+                          }
                           icon={orderDetails ? "chevron-up" : "chevron-down"}
                           iconClassName="fa-solid"
                           className="order-details-btn"
@@ -592,7 +599,7 @@ const Account = () => {
                           ))}
                         </div>
                         <div className="order-delivery">
-                          Доставка:{" "}
+                          {t("delivery")}:{" "}
                           <span className="order-value">{o.delivery}</span>
                         </div>
                       </div>
@@ -603,21 +610,21 @@ const Account = () => {
                         <Button
                           onClick={() => {}}
                           icon="circle-exclamation"
-                          label="Повідомити про проблему"
+                          label={t("problemReportBtn")}
                           className="problem-btn order-details-btn"
                           iconClassName="fa-solid"
                         />
                         <Button
                           onClick={() => {}}
                           icon="rotate"
-                          label="Купити ще"
+                          label={t("buyMoreBtn")}
                           className="buy-again-btn order-details-btn"
                           iconClassName="fa-solid"
                         />
                         <Button
                           onClick={() => {}}
                           icon="comment"
-                          label="Лишити відгук"
+                          label={t("commentBtn")}
                           className="comment-btn order-details-btn"
                           iconClassName="fa-solid"
                         />

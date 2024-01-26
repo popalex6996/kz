@@ -17,7 +17,7 @@
 }
 
 .catalog {
-  width: -webkit-fill-available;
+  width: 100%;
   transition: margin-top 0.5s;
   margin-top: -620px;
   position: fixed;
@@ -127,11 +127,22 @@
   flex-direction: column;
 }
 
+.category-name-title-close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .category-name-title {
   background-color: #f2f1f1;
   color: #711d1d;
   font-size: 32px;
   font-weight: bold;
+}
+
+.catalog-close-btn .fa-solid {
+  font-size: 24px;
 }
 
 .product-variety-cards {

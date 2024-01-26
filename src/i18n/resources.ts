@@ -45,8 +45,12 @@ const resources = {
       changeBtn: "Змінити",
       statBtn: "Статистика",
       removeBtn: "Прибрати",
+      problemReportBtn: "Повідомити про проблему",
+      buyMoreBtn: "Повторити замолення",
+      commentBtn: "Лишити відгук",
+      moreDetailsBtn: "Більше деталей",
+      hideDetailsBtn: "Приховати деталі",
       buy: "Купити",
-      "left-feedback": "Лишити відгук",
       "send-feedback": "Надіслати відгук",
       cancel: "Відмінити надсилання",
 
@@ -179,6 +183,12 @@ const resources = {
       saplings: "Саджанці",
       lookAtAll: "Дивитися все",
 
+      //Home page
+      slogan: "Від рідної землі та городу до вашого дому та столу",
+      popularProducts: "Популярні товари:",
+      viewedProducts: "Переглянуті товари:",
+      favouritesProducts: "Ваш список бажань:",
+
       //Category page
       "sort price asc": "Дешевше",
       "sort price desc": "Дорожче",
@@ -212,6 +222,9 @@ const resources = {
       "user-no-orders": "У Вас поки що немає замовлень",
       "user-no-favourites":
         "У Вас поки що немає доданих товарів у списку бажань",
+      order: "Замовлення",
+      status: "Статус",
+      delivery: "Доставка",
     },
   },
   en: {
@@ -260,6 +273,11 @@ const resources = {
       changeBtn: "Change",
       statBtn: "Statistic",
       removeBtn: "Remove",
+      problemReportBtn: "Report a problem",
+      buyMoreBtn: "Buy again",
+      commentBtn: "Left a comment",
+      moreDetailsBtn: "More details",
+      hideDetailsBtn: "Hide details",
       buy: "Buy",
       "left-feedback": "Left feedback",
       "send-feedback": "Send feedback",
@@ -395,6 +413,12 @@ const resources = {
       saplings: "Saplings",
       lookAtAll: "Look at all",
 
+      //Home page
+      slogan: "From your homeland and garden to your home and table",
+      popularProducts: "Top products:",
+      viewedProducts: "Viewed products:",
+      favouritesProducts: "Your wish list:",
+
       //Category page
       "sort price asc": "Price low to high",
       "sort price desc": "Price high to low",
@@ -429,6 +453,9 @@ const resources = {
       "user-no-orders": "No orders have been placed yet",
       "user-no-favourites":
         "You have not added any products to your wish list yet",
+      order: "Order",
+      status: "Status",
+      delivery: "Delivery",
     },
   },
 };

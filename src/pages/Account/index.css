@@ -362,7 +362,7 @@
 .order-details {
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   font-size: 16px;
 }
@@ -404,6 +404,57 @@
   border: 2px solid;
   padding: 5px 10px;
   border-radius: 8px;
+}
+
+.problem-btn {
+  background-color: #c60f0f;
+  border: none;
+  color: white;
+}
+.problem-btn:hover {
+  color: white;
+  background-color: #711d1d;
+}
+
+.problem-btn .fa-solid {
+  color: white !important;
+}
+.problem-btn:hover .fa-solid {
+  color: white !important;
+}
+
+.buy-again-btn {
+  background-color: #7bb424;
+  border: none;
+  color: white;
+}
+.buy-again-btn:hover {
+  color: white;
+  background-color: #436215;
+}
+
+.buy-again-btn .fa-solid {
+  color: white !important;
+}
+.buy-again-btn:hover .fa-solid {
+  color: white !important;
+}
+
+.comment-btn {
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+}
+.comment-btn:hover {
+  color: white;
+  background-color: #2c57a4;
+}
+
+.comment-btn .fa-solid {
+  color: white !important;
+}
+.comment-btn:hover .fa-solid {
+  color: white !important;
 }
 
 .favourites-wrapper {

@@ -21,6 +21,7 @@ interface ButtonProps {
     | "ban"
     | "rotate"
     | "comment"
+    | "store"
     | "circle-exclamation"
     | "expand"
     | "xmark"

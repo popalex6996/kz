@@ -5,48 +5,7 @@ import Button from "../../components/Button";
 import { useTranslation } from "react-i18next";
 import ImageCarousel from "../../components/ImageCarousel ";
 import images from "../../assets/images/index";
-
-const product = {
-  title: "Apple",
-  category: "fruits-vegetables-pickles",
-  subCategory: "fruits",
-  price: 10,
-  quantity: 20,
-  rate: 4,
-  measurement: "kg",
-  img: "",
-  isAvailable: true,
-  isFavorite: false,
-  id: "1",
-  seller: "Svitlana Popova",
-  details:
-    "це плід яблуні, рослини з родини трояндових. " +
-    "Воно має круглий або яйцеподібний вигляд і зазвичай має діаметр від 5 до 10 сантиметрів." +
-    " Його шкірка може бути різного кольору — від зеленого до жовтого, червоного і навіть темно-фіолетового.",
-};
-
-const initialUser = {
-  img: "",
-  name: "Oleksandr",
-  secondName: "",
-  id: "1",
-};
-
-const initialFeedback = {
-  user: "Alyosha",
-  text: "Смачнейші яблука",
-  rate: 4,
-  id: "1",
-};
-
-const feedbacks = [
-  initialFeedback,
-  initialFeedback,
-  initialFeedback,
-  initialFeedback,
-  initialFeedback,
-  initialFeedback,
-];
+import { FEEDBACKS, INITIAL_USER, PRODUCT } from "../../utilities/constants";
 
 const imagesCarousel = [
   { src: images.apple, title: "apple" },
@@ -68,13 +27,13 @@ const Product = () => {
         </div>
         <div className="product-details-wrapper">
           <div className="product-name-wrapper">
-            <div className="product-name">{product.title}</div>
+            <div className="product-name">{PRODUCT.name}</div>
             <div className="favorite-btn-wrapper">
               <Button
                 onClick={() => {}}
                 icon="heart"
                 color="#711d1d"
-                iconClassName={product.isFavorite ? "fa-solid" : "fa-regular"}
+                iconClassName={PRODUCT.isFavorite ? "fa-solid" : "fa-regular"}
               />
             </div>
           </div>
@@ -83,9 +42,9 @@ const Product = () => {
             {[...Array(5)].map((s, index) => {
               return (
                 <div
-                  key={product.rate + index}
+                  key={PRODUCT.rate + index}
                   className={
-                    product.rate >= index + 1 ? "star active-star" : "star"
+                    PRODUCT.rate >= index + 1 ? "star active-star" : "star"
                   }
                 >
                   <i className="fa-solid fa-star" />
@@ -98,7 +57,7 @@ const Product = () => {
             <span className="seller-label">{t("seller")}:</span>
             <Button
               onClick={() => {}}
-              label={product.seller}
+              label={PRODUCT.seller}
               color="#711d1d"
               icon="up-right-from-square"
               iconClassName="fa-solid"
@@ -109,7 +68,7 @@ const Product = () => {
           <div className="product-details">
             <div className="details-label">
               {t("product-details")}:
-              {product.details.length > 170 && (
+              {PRODUCT.details.length > 170 && (
                 <i
                   className={
                     isVisibleDetails
@@ -127,13 +86,13 @@ const Product = () => {
                   : "details-text"
               }
             >
-              {product.details}
+              {PRODUCT.details}
             </span>
           </div>
           <Spacer height={20} />
           <div className="product-price-buy">
             <div className="product-price">
-              {product.price}
+              {PRODUCT.price}
               {t("grn")}
             </div>
             <Button
@@ -151,7 +110,7 @@ const Product = () => {
       <Spacer height={30} />
       <div className="feedback-title">
         <div className="feedback-title-text">Відгуки</div>
-        {!feedbackForm && !!feedbacks.length && (
+        {!feedbackForm && !!FEEDBACKS.length && (
           <Button
             onClick={() => setFeedbackForm(true)}
             label={t("commentBtn")}
@@ -164,8 +123,8 @@ const Product = () => {
       </div>
       <Spacer height={5} />
       <div className="feedback-wrapper">
-        {!!feedbacks.length ? (
-          feedbacks.map((f) => {
+        {!!FEEDBACKS.length ? (
+          FEEDBACKS.map((f) => {
             return (
               <div key={f.id} className="feedback">
                 <div className="feedback-user-avatar-wrapper">
@@ -222,7 +181,7 @@ const Product = () => {
           </div>
           <Spacer width={10} />
           <div className="feedback-details">
-            <div className="user-feedback-user">{initialUser.name}</div>
+            <div className="user-feedback-user">{INITIAL_USER.name}</div>
             <Spacer height={5} />
             <div className="feedback-rate">
               <div className="stars-rate-wrapper">

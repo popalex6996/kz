@@ -3,52 +3,8 @@ import { useState } from "react";
 import Button from "../Button";
 import { useTranslation } from "react-i18next";
 import Spacer from "../Spacer";
-
-type Product = {
-  name: string;
-  price: number;
-  amount: number;
-  img: string;
-  measurement: "kg" | "gramme" | "litres" | "piece";
-};
-
-const cart: Product[] = [
-  {
-    name: "Semerinka",
-    price: 20,
-    amount: 4,
-    img: "",
-    measurement: "kg",
-  },
-  {
-    name: "Cherry",
-    price: 30,
-    amount: 1.4,
-    img: "",
-    measurement: "kg",
-  },
-  {
-    name: "Milk",
-    price: 10,
-    amount: 1,
-    img: "",
-    measurement: "litres",
-  },
-  {
-    name: "Pickled cucumber",
-    price: 15,
-    amount: 1,
-    img: "",
-    measurement: "piece",
-  },
-  {
-    name: "Hazelnut",
-    price: 40,
-    amount: 0.1,
-    img: "",
-    measurement: "gramme",
-  },
-];
+import CartProducts from "../CartProducts";
+import { PRODUCTS } from "../../utilities/constants";
 
 const CartButton = () => {
   const { t } = useTranslation();
@@ -82,62 +38,11 @@ const CartButton = () => {
           />
           <div className="cart-button-content">
             <div className="cart-button-content-title">{t("cart")}</div>
-            <div className="cart-button-content-products">
-              {cart.map((p) => {
-                return (
-                  <div className="cart-button-product-card" key={p.name}>
-                    <div className="cart-button-product-details-wrapper">
-                      <span>img</span>
-                      <Spacer width={15} />
-                      <div className="cart-button-product-details">
-                        <span className="cart-button-product-name">
-                          {p.name}
-                        </span>
-                        <div className="cart-button-amount-buttons">
-                          <Button
-                            onClick={() => {}}
-                            icon="plus"
-                            color="#711d1d"
-                            className="cart-button-amount-button"
-                            iconClassName="cart-button-amount-button-icon fa-solid"
-                          />
-                          <Spacer width={5} />
-                          <span className="cart-button-amount">
-                            {" "}
-                            {p.amount}
-                          </span>
-                          <Spacer width={5} />
-                          <Button
-                            onClick={() => {}}
-                            icon="minus"
-                            color="#711d1d"
-                            className="cart-button-amount-button"
-                            iconClassName="cart-button-amount-button-icon fa-solid"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="cart-button-product-details2">
-                      <span className="cart-button-product-name">
-                        {p.price * p.amount}
-                        {t("grn")}
-                      </span>
-                      <Spacer width={10} />
-                      <Button
-                        onClick={() => {}}
-                        icon="trash"
-                        color="#711d1d"
-                        iconClassName="fa-solid"
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <CartProducts products={PRODUCTS} isModal />
             <Spacer height={20} />
             <div className="total-wrapper">
               <span className="total">
-                {cart.reduce((sum, i) => sum + i.price * i.amount, 0)}
+                {PRODUCTS.reduce((sum, i) => sum + i.price * i.amount, 0)}
                 {t("grn")}
               </span>
               <Spacer width={20} />

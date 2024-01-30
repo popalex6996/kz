@@ -51,50 +51,6 @@
   padding: 20px;
 }
 
-.cart-button-content-products {
-  overflow-y: scroll;
-  max-height: 30vw;
-}
-
-.cart-button-product-card {
-  height: 50px;
-  padding: 5px 20px;
-  margin: 5px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-}
-
-.cart-button-product-details-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.cart-button-product-details {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.cart-button-product-details2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart-button-amount-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart-button-amount-button-icon {
-  font-size: 15px;
-}
-
 .total-wrapper {
   background-color: white;
   padding: 20px;

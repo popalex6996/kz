@@ -5,20 +5,7 @@ import Modal from "../Modal";
 import SignUp from "../SignUp";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
-
-type User = {
-  img: string;
-  name: string;
-  secondName: string;
-  id: string;
-};
-
-const initialUser: User = {
-  img: "",
-  name: "Oleksandr",
-  secondName: "Popov",
-  id: "1",
-};
+import { INITIAL_USER } from "../../utilities/constants";
 
 const Account = () => {
   const navigate = useNavigate();
@@ -32,18 +19,18 @@ const Account = () => {
 
   return (
     <div className="account-btn-wrapper">
-      {initialUser.id ? (
+      {INITIAL_USER.id ? (
         <button
           className="account-btn"
           onClick={() => {
             navigate(`/account`);
           }}
         >
-          {initialUser.img ? (
-            <img className="account-img" src={initialUser.img} alt="user" />
+          {INITIAL_USER.img ? (
+            <img className="account-img" src={INITIAL_USER.img} alt="user" />
           ) : (
             <div className="initials">
-              {initialUser.name[0] + initialUser.secondName[0]}
+              {INITIAL_USER.name[0] + INITIAL_USER.lastName[0]}
             </div>
           )}
         </button>

@@ -7,20 +7,7 @@ import SignUp from "../SignUp";
 import Spacer from "../Spacer";
 import { useLocation } from "react-router-dom";
 import SocialLinks from "../SocialLinks";
-
-type User = {
-  img: string;
-  name: string;
-  secondName: string;
-  id: string;
-};
-
-const initialUser: User = {
-  img: "",
-  name: "",
-  secondName: "",
-  id: "2",
-};
+import { INITIAL_USER } from "../../utilities/constants";
 
 const Hamburger = () => {
   const { t } = useTranslation();
@@ -103,7 +90,7 @@ const Hamburger = () => {
                 <div className="hamburger-active-link" />
               )}
             </a>
-            {initialUser.id && (
+            {INITIAL_USER.id && (
               <a href="/account" className="link">
                 <div className="hamburger-link-icon-wrapper">
                   <i className="fa-solid fa-user" />
@@ -116,7 +103,7 @@ const Hamburger = () => {
                 )}
               </a>
             )}
-            {!initialUser.id && (
+            {!INITIAL_USER.id && (
               <button onClick={toggleLoginTab(true)} className="link link-btn">
                 <div className="hamburger-link-icon-wrapper">
                   <i className="fa-solid fa-right-to-bracket" />
@@ -125,7 +112,7 @@ const Hamburger = () => {
                 {t("login")}
               </button>
             )}
-            {!initialUser.id && (
+            {!INITIAL_USER.id && (
               <button onClick={toggleLoginTab(false)} className="link link-btn">
                 <div className="hamburger-link-icon-wrapper">
                   <i className="fa-solid fa-user-plus"></i>
@@ -167,7 +154,7 @@ const Hamburger = () => {
             <div className="border-line" />
             <Spacer height={10} />
             <a href="/payment" className="link">
-              {t("payment")}
+              {t("payment-delivery")}
               <Spacer width={10} />
               {location.pathname === "/payment" && (
                 <div className="hamburger-active-link" />

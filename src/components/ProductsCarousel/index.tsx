@@ -4,19 +4,8 @@ import Button from "../Button";
 import Spacer from "../Spacer";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Product } from "../../utilities/types";
 
-type Product = {
-  id: string;
-  title: string;
-  price: number;
-  category: string;
-  subCategory: string;
-  img: string;
-  quantity: number;
-  isAvailable: boolean;
-  rate: number;
-  measurement: "kg" | "gramme" | "litres" | "piece";
-};
 const ProductsCarousel = ({ products }: { products: Product[] }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -36,7 +25,7 @@ const ProductsCarousel = ({ products }: { products: Product[] }) => {
         {products.map((p, idx) => {
           return (
             <div
-              key={p.title}
+              key={p.name}
               onClick={() => {
                 navigate(
                   `/category/${p.category}/sub-category/${p.subCategory}/product/${p.id}`,
@@ -64,7 +53,7 @@ const ProductsCarousel = ({ products }: { products: Product[] }) => {
                 })}
               </div>
               <Spacer height={15} />
-              <div className="carousel-product-title">{p.title}</div>
+              <div className="carousel-product-title">{p.name}</div>
               <Spacer height={15} />
               <div className="carousel-product-price-buy">
                 <div className="carousel-product-price">

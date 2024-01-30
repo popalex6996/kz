@@ -1,0 +1,4 @@
+.modal-cart-products {
+  overflow-y: scroll;
+  max-height: 30vw;
+}

@@ -4,30 +4,7 @@ import Spacer from "../../components/Spacer";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/Button";
 import SocialLinks from "../../components/SocialLinks";
-
-const contacts = [
-  {
-    title: "+38907******",
-    icon: "fa-phone",
-    btnText: "call",
-  },
-  {
-    title: "kz-patform@gmail.com",
-    icon: "fa-envelope",
-    btnText: "text us",
-  },
-  {
-    title: "Kozinburg",
-    icon: "fa-location-dot",
-    btnText: "location",
-  },
-  {
-    title: "Follow us",
-    icon: "fa-hand-point-down",
-    btnText: "follow",
-    socials: true,
-  },
-];
+import { CONTACTS } from "../../utilities/constants";
 
 const Contacts = () => {
   const { t } = useTranslation();
@@ -45,7 +22,7 @@ const Contacts = () => {
       </div>
       <Spacer height={100} />
       <div className="contacts-details-wrapper">
-        {contacts.map(({ title, icon, btnText, socials }) => (
+        {CONTACTS.map(({ title, icon, btnText, socials }) => (
           <div className="contact" key={btnText}>
             <i className={`contact-icon fa-solid ${icon}`}></i>
             <Spacer height={10} />

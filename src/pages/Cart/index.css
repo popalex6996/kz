@@ -1,9 +1,93 @@
-.cart-wrapper {
-  height: 47vw;
-  padding: 20px;
+.cart-no-products {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  flex-direction: column;
+}
+
+.cart-no-products-title {
+  font-weight: bold;
   font-size: 32px;
+  color: #711d1d;
+  margin: 0;
+}
+
+.empty-cart-catalog-btn {
+  background: #711d1d;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+.empty-cart-catalog-btn:hover {
+  color: #c60f0f;
+}
+
+.cart-page-wrapper {
+  padding: 0 120px;
+}
+
+.cart-page-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #711d1d;
+}
+
+.cart-stage-indicator-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.active-cart-stage-indicator {
+  cursor: pointer;
+  border: 2px solid #711d1d !important;
+  color: #711d1d !important;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cart-stage-indicator {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 2px dashed grey;
+  color: grey;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cart-stage-border {
+  height: 2px;
+  border-right: 50px solid transparent;
+  background:
+    linear-gradient(grey, grey) top / 100% 2px padding-box no-repeat,
+    linear-gradient(grey, grey) bottom/100% 2px padding-box no-repeat,
+    linear-gradient(grey, grey) left / 2px 100% padding-box no-repeat,
+    linear-gradient(grey, grey) right / 2px 100% padding-box no-repeat,
+    repeating-linear-gradient(to right, grey 0px 3px, transparent 3px 5px) right
+      center/50px 2px border-box;
+  background-repeat: no-repeat;
+}
+
+.active-cart-stage-border {
+  height: 2px;
+  width: 50px;
+  background-color: #711d1d !important;
+  background: none;
+}
+
+.cart-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-stage-wrapper {
+  width: 80%;
+}
+
+.cart-details-wrapper {
+  width: 20%;
 }

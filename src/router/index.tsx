@@ -1,9 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Privacy from "../pages/PrivacyPolicy";
 import Terms from "../pages/Terms";
-import Profile from "../pages/Profile";
 import Platform from "../pages/Platform";
-import Store from "../pages/Store";
 import Home from "../pages/Home";
 import Payment from "../pages/Payment";
 import Exchange from "../pages/Exchange";
@@ -55,20 +53,12 @@ const router = createBrowserRouter([
         element: <Terms />,
       },
       {
-        path: "profile",
-        element: <Profile />,
-      },
-      {
         path: "platform",
         element: <Platform />,
       },
       {
         path: "account",
         element: <Account />,
-      },
-      {
-        path: "store",
-        element: <Store />,
       },
       {
         path: "category/:categoryId",

@@ -4,6 +4,7 @@ import Spacer from "../../components/Spacer";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
+import { INITIAL_USER, ORDERS, PRODUCTS } from "../../utilities/constants";
 
 const tabs = [
   {
@@ -29,266 +30,6 @@ const tabs = [
   },
 ];
 
-const initialUserData = {
-  name: "",
-  lastName: "",
-  phone: "+380 (__) ___-__-__",
-  email: "",
-  birth: "",
-};
-
-type Product = {
-  id: string;
-  title: string;
-  price: number;
-  category: string;
-  subCategory: string;
-  img: string;
-  quantity: number;
-  isAvailable: boolean;
-  rate: number;
-  measurement: "kg" | "gramme" | "litres" | "piece";
-};
-
-const products: Product[] = [
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Hazelnut",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-    id: "3",
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Hazelnut",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-    id: "3",
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Hazelnut",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-    id: "3",
-  },
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Hazelnut",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-    id: "3",
-  },
-];
-
-const favourites: Product[] = [
-  {
-    title: "Apple",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 10,
-    quantity: 20,
-    rate: 4,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Cherry",
-    category: "fruits-vegetables-pickles",
-    subCategory: "fruits",
-    price: 20,
-    quantity: 30,
-    rate: 3,
-    measurement: "kg",
-    img: "",
-    isAvailable: true,
-    id: "1",
-  },
-  {
-    title: "Hazelnut",
-    category: "fruits-vegetables-pickles",
-    subCategory: "nuts",
-    price: 20,
-    quantity: 30,
-    rate: 1,
-    measurement: "gramme",
-    img: "",
-    isAvailable: true,
-    id: "3",
-  },
-];
-
-type Order = {
-  id: string;
-  status: string;
-  date: string;
-  delivery: string;
-  price: number;
-  products: Product[];
-};
-
-const orders: Order[] = [
-  {
-    id: "id1",
-    status: "as",
-    date: "19.02.1996",
-    delivery: "Delivery",
-    price: 1,
-    products: [
-      {
-        title: "Apple",
-        category: "fruits-vegetables-pickles",
-        subCategory: "fruits",
-        price: 10,
-        quantity: 20,
-        rate: 4,
-        measurement: "kg",
-        img: "",
-        isAvailable: true,
-        id: "1",
-      },
-    ],
-  },
-  {
-    id: "id2",
-    status: "as",
-    date: "19.02.1996",
-    delivery: "Delivery",
-    price: 1,
-    products: [
-      {
-        title: "Apple",
-        category: "fruits-vegetables-pickles",
-        subCategory: "fruits",
-        price: 10,
-        quantity: 20,
-        rate: 4,
-        measurement: "kg",
-        img: "",
-        isAvailable: true,
-        id: "1",
-      },
-    ],
-  },
-];
 const Account = () => {
   const navigate = useNavigate();
 
@@ -296,7 +37,7 @@ const Account = () => {
 
   const [activeTab, setTab] = useState("personal-data");
 
-  const [userData, setUserData] = useState(initialUserData);
+  const [userData, setUserData] = useState(INITIAL_USER);
 
   const [orderDetails, setDetails] = useState(false);
 
@@ -432,7 +173,7 @@ const Account = () => {
 
         {activeTab === "my-products" && (
           <div className="user-products-wrapper">
-            {!products.length ? (
+            {!PRODUCTS.length ? (
               <div className="user-no-products-wrapper">
                 <Spacer height={30} />
                 <h2 className="user-no-products-title">
@@ -450,12 +191,12 @@ const Account = () => {
               </div>
             ) : (
               <div className="user-products">
-                {products?.map((p) => {
+                {PRODUCTS?.map((p) => {
                   return (
-                    <div key={p.id + p.title} className="user-product-wrapper">
+                    <div key={p.id + p.name} className="user-product-wrapper">
                       <div className="user-product-img">[image]</div>
                       <Spacer height={15} />
-                      <div className="user-product-title">{p.title}</div>
+                      <div className="user-product-title">{p.name}</div>
                       <Spacer height={15} />
                       <div className="user-product-price-buy">
                         <div className="user-product-price">
@@ -538,7 +279,7 @@ const Account = () => {
 
         {activeTab === "orders" && (
           <div className="orders-wrapper">
-            {!orders.length ? (
+            {!ORDERS.length ? (
               <div className="no-orders-wrapper">
                 <Spacer height={30} />
                 <h2 className="no-orders-title">{t("user-no-orders")}</h2>
@@ -554,7 +295,7 @@ const Account = () => {
               </div>
             ) : (
               <div className="orders">
-                {orders.map((o) => (
+                {ORDERS.map((o) => (
                   <div className="order-wrapper" key={o.id}>
                     <div className="order-details">
                       <div className="order-id-date">
@@ -593,7 +334,7 @@ const Account = () => {
                               <div>image</div>
                               <Spacer width={20} />
                               <div>
-                                {op.title} - {op.price}
+                                {op.name} - {op.price}
                               </div>
                             </div>
                           ))}
@@ -639,7 +380,7 @@ const Account = () => {
 
         {activeTab === "favourites" && (
           <div className="favourites-wrapper">
-            {!favourites.length ? (
+            {!PRODUCTS.length ? (
               <div className="no-favourites-wrapper">
                 <Spacer height={30} />
                 <h2 className="no-favourites-title">
@@ -657,10 +398,10 @@ const Account = () => {
               </div>
             ) : (
               <div className="favourites">
-                {favourites.map((f) => {
+                {PRODUCTS.map((f) => {
                   return (
                     <div
-                      key={f.id + f.title}
+                      key={f.id + f.name}
                       className="favourites-product-wrapper"
                       onClick={() => {
                         navigate(
@@ -686,7 +427,7 @@ const Account = () => {
                         })}
                       </div>
                       <Spacer height={15} />
-                      <div className="favourite-product-title">{f.title}</div>
+                      <div className="favourite-product-title">{f.name}</div>
                       <Spacer height={15} />
                       <div className="favourite-product-price-buy">
                         <div className="favourite-product-price">

@@ -115,7 +115,7 @@
   justify-content: flex-end;
 }
 
-.gallery-btn {
+.gallery-close-btn-wrapper i {
   outline: none;
   font-size: 50px;
 }

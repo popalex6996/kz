@@ -4,7 +4,9 @@ import Spacer from "../../components/Spacer";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { INITIAL_USER, ORDERS, PRODUCTS } from "../../utilities/constants";
+import { ORDERS, PRODUCTS } from "../../utilities/constants";
+import PersonalDataForm from "../../components/PersonalDataForm";
+import ProductCard from "../../components/ProductCard";
 
 const tabs = [
   {
@@ -37,7 +39,7 @@ const Account = () => {
 
   const [activeTab, setTab] = useState("personal-data");
 
-  const [userData, setUserData] = useState(INITIAL_USER);
+  // const [userData, setUserData] = useState(INITIAL_USER);
 
   const [orderDetails, setDetails] = useState(false);
 
@@ -77,88 +79,7 @@ const Account = () => {
             <div className="personal-data-avatar-wrapper">avatar</div>
             <Spacer width={20} />
             <div className="personal-data-inputs-wrapper">
-              <div className="personal-data-form-row">
-                <div className="personal-data-input-wrapper">
-                  <label htmlFor="user-name" className="account-input-label">
-                    {t("namePlaceholder")}
-                  </label>
-                  <input
-                    id="user-name"
-                    className="account-input"
-                    type="text"
-                    required
-                    value={userData.name}
-                    onChange={(event) =>
-                      setUserData({ ...userData, name: event.target.value })
-                    }
-                  />
-                </div>
-                <Spacer width={20} />
-                <div className="personal-data-input-wrapper">
-                  <label
-                    htmlFor="user-last-name"
-                    className="account-input-label"
-                  >
-                    {t("lastNamePlaceholder")}
-                  </label>
-                  <input
-                    id="user-last-name"
-                    className="account-input"
-                    type="text"
-                    required
-                    value={userData.lastName}
-                    onChange={(event) =>
-                      setUserData({ ...userData, lastName: event.target.value })
-                    }
-                  />
-                </div>
-              </div>
-              <div className="personal-data-form-row">
-                <div className="personal-data-input-wrapper">
-                  <label htmlFor="user-phone" className="account-input-label">
-                    {t("phonePlaceholder")}
-                  </label>
-                  <input
-                    id="user-phone"
-                    className="account-input"
-                    type="tel"
-                    required
-                  />
-                </div>
-                <Spacer width={20} />
-                <div className="personal-data-input-wrapper">
-                  <label htmlFor="user-email" className="account-input-label">
-                    {t("emailPlaceholder")}
-                  </label>
-                  <input
-                    id="user-email"
-                    className="account-input"
-                    type="email"
-                    required
-                    value={userData.email}
-                    onChange={(event) =>
-                      setUserData({ ...userData, email: event.target.value })
-                    }
-                  />
-                </div>
-              </div>
-              <div className="personal-data-form-row">
-                <div className="personal-data-date-input-wrapper">
-                  <label htmlFor="user-birth" className="account-input-label">
-                    {t("birthPlaceholder")}
-                  </label>
-                  <input
-                    id="user-birth"
-                    className="account-date-input"
-                    type="date"
-                    required
-                    value={userData.birth}
-                    onChange={(event) =>
-                      setUserData({ ...userData, birth: event.target.value })
-                    }
-                  />
-                </div>
-              </div>
+              <PersonalDataForm />
               <div className="personal-data-save-btn-wrapper">
                 <Button
                   onClick={() => {}}
@@ -398,64 +319,9 @@ const Account = () => {
               </div>
             ) : (
               <div className="favourites">
-                {PRODUCTS.map((f) => {
-                  return (
-                    <div
-                      key={f.id + f.name}
-                      className="favourites-product-wrapper"
-                      onClick={() => {
-                        navigate(
-                          `/category/${f.category}/sub-category/${f.subCategory}/product/${f.id}`,
-                        );
-                      }}
-                    >
-                      <div className="favourite-img">[image]</div>
-                      <div className="favourite-stars-rate-wrapper">
-                        {[...Array(5)].map((s, index) => {
-                          return (
-                            <div
-                              key={f.rate + index}
-                              className={
-                                f.rate >= index + 1
-                                  ? "star active-star"
-                                  : "star"
-                              }
-                            >
-                              <i className="fa-solid fa-star" />
-                            </div>
-                          );
-                        })}
-                      </div>
-                      <Spacer height={15} />
-                      <div className="favourite-product-title">{f.name}</div>
-                      <Spacer height={15} />
-                      <div className="favourite-product-price-buy">
-                        <div className="favourite-product-price">
-                          {f.price}
-                          {t("grn")}
-                        </div>
-                        <Button
-                          onClick={() => {}}
-                          icon="heart"
-                          color="#711d1d"
-                          label={t("removeBtn")}
-                          className="favourite-product-heart-btn"
-                          iconClassName="fa-solid"
-                        />
-                      </div>
-                      <Spacer height={10} />
-                      <Button
-                        onClick={() => {}}
-                        icon="cart-plus"
-                        color="#711d1d"
-                        label={t("buy")}
-                        className="favourite-product-buy-btn"
-                        iconClassName="fa-solid"
-                      />
-                      <Spacer height={10} />
-                    </div>
-                  );
-                })}
+                {PRODUCTS.map((product) => (
+                  <ProductCard product={product} />
+                ))}
               </div>
             )}
           </div>

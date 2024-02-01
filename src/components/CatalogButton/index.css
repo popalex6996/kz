@@ -155,6 +155,7 @@
 }
 
 .product-variety-card {
+  text-align: center;
   cursor: pointer;
   display: flex;
   align-items: flex-end;

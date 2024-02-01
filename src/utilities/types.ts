@@ -8,22 +8,24 @@ export type User = {
   birth: string;
 };
 
+export type Measurement = "kg" | "gramme" | "litres" | "piece";
+
 export type Product = {
   id: string;
   name: string;
   price: number;
-  totalPrice: number;
+  amountStep: number;
+  maxAmount: number;
   amount: number;
-  totalAmount: number;
-  category: string;
-  subCategory: string;
+  category: CategoryName;
+  subCategory: SubCategoryName;
   img: string;
   isAvailable: boolean;
   isFavorite: boolean;
   seller: string;
   details: string;
   rate: number;
-  measurement: "kg" | "gramme" | "litres" | "piece";
+  measurement: Measurement;
 };
 
 export type Order = {

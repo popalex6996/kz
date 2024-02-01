@@ -1,4 +1,5 @@
 import { Category, Order, Product, SubCategory, User } from "./types";
+import images from "../assets/images";
 
 export const INITIAL_USER: User = {
   id: "1",
@@ -425,18 +426,18 @@ export const SUB_CATEGORIES: SubCategory = {
 
 export const PRODUCT: Product = {
   name: "Semerinka",
-  totalPrice: 100,
-  totalAmount: 1,
   price: 20,
-  amount: 4,
-  img: "",
+  amount: 2,
+  amountStep: 1,
+  maxAmount: 21,
+  img: images.apple,
   measurement: "kg",
-  category: "",
-  subCategory: "",
-  id: "",
+  category: "fruits-vegetables-pickles",
+  subCategory: "fruits",
+  id: "1",
   isAvailable: true,
   rate: 2,
-  isFavorite: false,
+  isFavorite: true,
   seller: "Svitlana Popova",
   details:
     "це плід яблуні, рослини з родини трояндових. " +
@@ -444,18 +445,30 @@ export const PRODUCT: Product = {
     " Його шкірка може бути різного кольору — від зеленого до жовтого, червоного і навіть темно-фіолетового.",
 };
 
-export const PRODUCTS: Product[] = [PRODUCT];
-
-export const ORDERS: Order[] = [
-  {
-    id: "id1",
-    status: "as",
-    date: "19.02.1996",
-    delivery: "Delivery",
-    price: 1,
-    products: [PRODUCT],
-  },
+export const PRODUCTS: Product[] = [
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
+  PRODUCT,
 ];
+
+export const ORDER = {
+  id: "id1",
+  status: "as",
+  date: "19.02.1996",
+  delivery: "Delivery",
+  price: 100,
+  products: PRODUCTS,
+};
+
+export const ORDERS: Order[] = [ORDER];
 
 export const FEEDBACK = {
   user: "Alyosha",

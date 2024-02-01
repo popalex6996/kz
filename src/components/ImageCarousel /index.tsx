@@ -118,7 +118,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                   )
                 }
                 icon="caret-left"
-                iconClassName="fa-solid gallery-btn"
+                iconClassName="fa-solid"
                 color="#711d1d"
               />
               {images.map((img, index) => (
@@ -139,7 +139,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                   setSelected(selected + 1 === images.length ? 0 : selected + 1)
                 }
                 icon="caret-right"
-                iconClassName="fa-solid gallery-btn"
+                iconClassName="fa-solid"
                 color="#711d1d"
               />
             </ul>

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import Spacer from "../../components/Spacer";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import MultiRangeSlider from "../../components/MultiRangeSlider";
-import Button from "../../components/Button";
 import { PRODUCTS, SUB_CATEGORIES } from "../../utilities/constants";
+import ProductCard from "../../components/ProductCard";
 
 type SortOption = "price asc" | "price desc" | "rate";
 
@@ -28,7 +28,6 @@ const MIN = 0;
 const MAX = 1000;
 
 const Category = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
   let { categoryId, subCategoryId } = useParams();
 
@@ -131,52 +130,9 @@ const Category = () => {
           </div>
           <Spacer height={30} />
           <div className="content-wrapper">
-            {PRODUCTS.map((p) => {
-              return (
-                <div
-                  key={p.id + p.name}
-                  className="content-product-wrapper"
-                  onClick={() => {
-                    navigate(
-                      `/category/${p.category}/sub-category/${p.subCategory}/product/${p.id}`,
-                    );
-                  }}
-                >
-                  <div className="content-product-img">[image]</div>
-                  <div className="stars-rate-wrapper">
-                    {[...Array(5)].map((s, index) => {
-                      return (
-                        <div
-                          key={p.rate + index}
-                          className={
-                            p.rate >= index + 1 ? "star active-star" : "star"
-                          }
-                        >
-                          <i className="fa-solid fa-star" />
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <Spacer height={15} />
-                  <div className="content-product-title">{p.name}</div>
-                  <Spacer height={15} />
-                  <div className="content-product-price-buy">
-                    <div className="content-product-price">
-                      {p.price}
-                      {t("grn")}
-                    </div>
-                    <Button
-                      onClick={() => {}}
-                      icon="cart-plus"
-                      color="#711d1d"
-                      label={t("buy")}
-                      className="content-product-buy-btn"
-                      iconClassName="fa-solid"
-                    />
-                  </div>
-                </div>
-              );
-            })}
+            {PRODUCTS.map((product) => (
+              <ProductCard product={product} />
+            ))}
           </div>
         </div>
       </div>

@@ -33,6 +33,10 @@ const resources = {
       phonePlaceholder: "Телефон",
       birthPlaceholder: "Дата народження",
       grn: "грн",
+      kg: "кг",
+      gramme: "грам",
+      litres: "літри",
+      piece: "шт",
       seller: "Продавець",
       "product-details": "Про товар",
       "no-feedback":
@@ -51,6 +55,8 @@ const resources = {
       moreDetailsBtn: "Більше деталей",
       hideDetailsBtn: "Приховати деталі",
       emptyCartCatalogBtn: "Набрати смаколиків можна тут",
+      nextStepBtn: "Продовжити",
+      prevStepBtn: "Назад",
       buy: "Купити",
       "send-feedback": "Надіслати відгук",
       cancel: "Відмінити надсилання",
@@ -233,6 +239,8 @@ const resources = {
       "contact-details": "Контактні данні",
       payment: "Оплата",
       "cart-no-products-title": "Трясця агов! Ваша корзина ще порожня!",
+      "total-price": "Всього:",
+      "cart-terms-title": "Підтверджуючи замовлення, я приймаю умови:",
     },
   },
   en: {
@@ -269,6 +277,10 @@ const resources = {
       phonePlaceholder: "Phone",
       birthPlaceholder: "Birth day",
       grn: "UAH",
+      kg: "kg",
+      gramme: "gramme",
+      litres: "litres",
+      piece: "piece",
       seller: "Seller",
       "product-details": "Details",
       "no-feedback":
@@ -287,6 +299,8 @@ const resources = {
       moreDetailsBtn: "More details",
       hideDetailsBtn: "Hide details",
       emptyCartCatalogBtn: "You can get the goodies here",
+      nextStepBtn: "Next",
+      prevStepBtn: "Back",
       buy: "Buy",
       "left-feedback": "Left feedback",
       "send-feedback": "Send feedback",
@@ -472,6 +486,9 @@ const resources = {
       "contact-details": "Contact details",
       payment: "Payment",
       "cart-no-products-title": "Holy shit! Your cart is still empty!",
+      "total-price": "Total:",
+      "cart-terms-title":
+        "By confirming the order, I accept the terms and conditions:",
     },
   },
 };

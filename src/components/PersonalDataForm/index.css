@@ -1,0 +1,43 @@
+.personal-data-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.personal-data-form-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.personal-data-input-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 48%;
+  border: 2px solid #711d1d;
+  border-radius: 8px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.account-input-label {
+  width: 100%;
+  cursor: text;
+  color: #711d1d;
+  font-size: 14px;
+}
+
+.account-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 5px 0;
+  font-size: 16px;
+}

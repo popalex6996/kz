@@ -11,6 +11,8 @@ interface ButtonProps {
     | "bars"
     | "chevron-up"
     | "chevron-down"
+    | "chevron-right"
+    | "chevron-left"
     | "up-right-from-square"
     | "trash"
     | "comment-medical"
@@ -33,7 +35,7 @@ interface ButtonProps {
   iconLeft?: boolean;
   disabled?: boolean;
   className?: string;
-  iconClassName?: string;
+  iconClassName?: "fa-regular" | "fa-solid";
   onClick: () => void;
 }
 
@@ -47,7 +49,14 @@ const Button: React.FC<ButtonProps> = ({
   iconClassName,
   onClick,
 }) => (
-  <button className={`btn ${className}`} onClick={onClick} disabled={disabled}>
+  <button
+    className={`btn ${className}`}
+    onClick={(e) => {
+      e.stopPropagation();
+      onClick();
+    }}
+    disabled={disabled}
+  >
     {iconLeft && icon && (
       <i className={`fa-${icon} ${iconClassName} btn-icon`} style={{ color }} />
     )}

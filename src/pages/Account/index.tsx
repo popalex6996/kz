@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { ORDER, ORDERS, PRODUCTS } from "../../utilities/constants";
 import PersonalDataForm from "../../components/PersonalDataForm";
 import ProductCard from "../../components/ProductCard";
-import Cart from "../Cart";
-import CartProducts from "../../components/CartProducts";
 import ExpandableCartProducts from "../../components/ExpandableCartProducts";
 
 const tabs = [

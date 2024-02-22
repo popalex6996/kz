@@ -2,29 +2,27 @@ import "./index.css";
 import React, { useState } from "react";
 import Button from "../Button";
 import { useTranslation } from "react-i18next";
-import Spacer from "../Spacer";
 import CartProducts from "../CartProducts";
-import { ORDER, PRODUCTS } from "../../utilities/constants";
+import { ORDER } from "../../utilities/constants";
 import { useNavigate } from "react-router-dom";
 import Modal from "../Modal";
-import SignUp from "../SignUp";
 
 const CartButton = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const [isOpen, setCartOpen] = useState(false);
+  // const [isOpen, setCartOpen] = useState(false);
 
-  const onOpen = () => {
-    setCartOpen(true);
+  /* const onOpen = () => {
+    // setCartOpen(true);
     // @ts-ignore
     const cart = document.getElementById("cart");
     cart?.classList.toggle("cart-open");
     document.body.style.overflowY = "hidden";
-  };
+  };*/
 
   const onClose = () => {
-    setCartOpen(false);
+    // setCartOpen(false);
     // @ts-ignore
     const cart = document.getElementById("cart");
     cart?.classList.remove("cart-open");

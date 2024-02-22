@@ -22,7 +22,7 @@ const Hamburger = () => {
 
   const [isLoginTab, setLoginTab] = useState(true);
 
-  const [isCatalogModalVisible, setCatalogModalVisible] = useState(false);
+  // const [isCatalogModalVisible, setCatalogModalVisible] = useState(false);
 
   const toggleMenuModal = () => {
     if (!isMenuVisible) {

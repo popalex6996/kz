@@ -20,7 +20,7 @@ const Modal: React.FC<ModalProps> = ({
         {children}
       </div>
     </div>,
-    //@ts-ignore
+
     document.getElementById("modal-root")!,
   );
 };

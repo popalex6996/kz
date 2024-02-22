@@ -4,9 +4,12 @@ import Spacer from "../../components/Spacer";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { ORDERS, PRODUCTS } from "../../utilities/constants";
+import { ORDER, ORDERS, PRODUCTS } from "../../utilities/constants";
 import PersonalDataForm from "../../components/PersonalDataForm";
 import ProductCard from "../../components/ProductCard";
+import Cart from "../Cart";
+import CartProducts from "../../components/CartProducts";
+import ExpandableCartProducts from "../../components/ExpandableCartProducts";
 
 const tabs = [
   {
@@ -20,6 +23,10 @@ const tabs = [
   {
     name: "orders",
     icon: "receipt",
+  },
+  {
+    name: "cart",
+    icon: "shopping-cart",
   },
   {
     name: "favourites",
@@ -43,7 +50,7 @@ const Account = () => {
 
   const [orderDetails, setDetails] = useState(false);
 
-  const onCatalogOpen = () => {
+  const toggleCatalog = () => {
     // @ts-ignore
     const catalogShadow = document.getElementById("catalog-shadow");
     catalogShadow?.classList.toggle("catalog-shadow-visible");
@@ -206,7 +213,7 @@ const Account = () => {
                 <h2 className="no-orders-title">{t("user-no-orders")}</h2>
                 <Spacer height={30} />
                 <Button
-                  onClick={onCatalogOpen}
+                  onClick={toggleCatalog}
                   className="user-add-products-btn"
                   label={t("store")}
                   icon="cart-plus"
@@ -298,7 +305,25 @@ const Account = () => {
             )}
           </div>
         )}
-
+        {activeTab === "cart" && (
+          <div className="account-cart-wrapper">
+            <div className="account-cart-total-price-wrapper">
+              <span>
+                {t("total-price")} {ORDER.price}
+                {t("grn")}
+              </span>
+              <Button
+                onClick={() => navigate("/cart")}
+                label={t("goToCheckoutBtn")}
+                icon="chevron-right"
+                iconClassName="fa-solid"
+                className="to-checkout-btn"
+              />
+            </div>
+            <Spacer height={20} />
+            <ExpandableCartProducts products={ORDER.products} />
+          </div>
+        )}
         {activeTab === "favourites" && (
           <div className="favourites-wrapper">
             {!PRODUCTS.length ? (
@@ -309,7 +334,7 @@ const Account = () => {
                 </h2>
                 <Spacer height={30} />
                 <Button
-                  onClick={onCatalogOpen}
+                  onClick={toggleCatalog}
                   className="user-add-products-btn"
                   label={t("store")}
                   icon="circle-plus"

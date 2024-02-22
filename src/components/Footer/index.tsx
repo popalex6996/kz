@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
     setIsLoginModalVisible((isVisible) => !isVisible);
   };
 
-  const onCatalogOpen = () => {
+  const toggleCatalog = () => {
     // @ts-ignore
     const catalogShadow = document.getElementById("catalog-shadow");
     catalogShadow?.classList.toggle("catalog-shadow-visible");
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="nav-links">
           <div className="nav-links">
-            <button onClick={onCatalogOpen} className="nav-link">
+            <button onClick={toggleCatalog} className="nav-link">
               {t("store")}
             </button>
           </div>

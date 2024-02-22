@@ -17,6 +17,7 @@ const CatalogButton = () => {
     catalogShadow?.classList.toggle("catalog-shadow-visible");
     const cart = document.getElementById("catalog");
     cart?.classList.toggle("catalog-open");
+    document.body.style.overflowY = "hidden";
   };
 
   const onClose = () => {
@@ -24,6 +25,7 @@ const CatalogButton = () => {
     catalogShadow?.classList.remove("catalog-shadow-visible");
     const cart = document.getElementById("catalog");
     cart?.classList.remove("catalog-open");
+    document.body.style.overflowY = "scroll";
   };
 
   return (
@@ -33,7 +35,7 @@ const CatalogButton = () => {
         <Spacer width={5} />
         <span>{t("allProducts")}</span>
         <Spacer width={5} />
-        <i className="fa-solid fa-chevron-down"></i>
+        <i className="fa-solid fa-chevron-down" />
       </button>
       <div id="catalog-shadow" className="catalog-shadow" onClick={onClose}>
         <div

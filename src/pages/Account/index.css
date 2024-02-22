@@ -404,6 +404,37 @@
   color: white !important;
 }
 
+.account-cart-wrapper {
+  width: 100%;
+}
+
+.account-cart-total-price-wrapper {
+  font-size: 24px;
+  font-weight: bold;
+  color: #711d1d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.to-checkout-btn {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  background: #c60f0f;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.to-checkout-btn:hover {
+  background: #711d1d;
+}
+
+.to-checkout-btn:hover .fa-solid {
+  color: white !important;
+}
+
 .favourites-wrapper {
   width: 100%;
   display: flex;
@@ -431,10 +462,4 @@
   color: #711d1d;
   font-weight: bold;
   margin: 0;
-}
-
-.favourite-stars-rate-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

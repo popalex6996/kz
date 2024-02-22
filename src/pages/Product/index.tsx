@@ -5,7 +5,14 @@ import Button from "../../components/Button";
 import { useTranslation } from "react-i18next";
 import ImageCarousel from "../../components/ImageCarousel ";
 import images from "../../assets/images/index";
-import { FEEDBACKS, INITIAL_USER, PRODUCT } from "../../utilities/constants";
+import {
+  FEEDBACK,
+  FEEDBACKS,
+  INITIAL_USER,
+  PRODUCT,
+} from "../../utilities/constants";
+import StarsRate from "../../components/StarsRate";
+import { Feedback } from "../../utilities/types";
 
 const imagesCarousel = [
   { src: images.apple, title: "apple" },
@@ -17,7 +24,7 @@ const Product = () => {
   const { t } = useTranslation();
   const [isVisibleDetails, setDetails] = useState(false);
   const [feedbackForm, setFeedbackForm] = useState(false);
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState<Feedback>(FEEDBACK);
 
   return (
     <div className="product-wrapper">
@@ -38,20 +45,7 @@ const Product = () => {
             </div>
           </div>
           <Spacer height={5} />
-          <div className="stars-rate-wrapper">
-            {[...Array(5)].map((s, index) => {
-              return (
-                <div
-                  key={PRODUCT.rate + index}
-                  className={
-                    PRODUCT.rate >= index + 1 ? "star active-star" : "star"
-                  }
-                >
-                  <i className="fa-solid fa-star" />
-                </div>
-              );
-            })}
-          </div>
+          <StarsRate rate={PRODUCT.rate} />
           <Spacer height={20} />
           <div className="product-seller">
             <span className="seller-label">{t("seller")}:</span>
@@ -135,20 +129,7 @@ const Product = () => {
                   <div className="feedback-user">{f.user}</div>
                   <Spacer height={5} />
                   <div className="feedback-rate">
-                    <div className="stars-rate-wrapper">
-                      {[...Array(5)].map((s, index) => {
-                        return (
-                          <div
-                            key={f.rate + index}
-                            className={
-                              f.rate >= index + 1 ? "star active-star" : "star"
-                            }
-                          >
-                            <i className="fa-solid fa-star" />
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <StarsRate rate={f.rate} />
                   </div>
                   <Spacer height={10} />
                   <div className="feedback-text">{f.text}</div>
@@ -184,18 +165,14 @@ const Product = () => {
             <div className="user-feedback-user">{INITIAL_USER.name}</div>
             <Spacer height={5} />
             <div className="feedback-rate">
-              <div className="stars-rate-wrapper">
-                {[...Array(5)].map((s, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className={0 >= index + 1 ? "star active-star" : "star"}
-                    >
-                      <i className="fa-solid fa-star" />
-                    </div>
-                  );
-                })}
-              </div>
+              <StarsRate
+                color={"white"}
+                activeColor={"#c60f0f"}
+                rate={feedback.rate}
+                changeRate={(rate: number) => {
+                  setFeedback({ ...feedback, rate });
+                }}
+              />
             </div>
             <Spacer height={10} />
             <textarea
@@ -203,9 +180,9 @@ const Product = () => {
               className="user-feedback"
               autoFocus={true}
               placeholder="Type here..."
-              value={feedback}
+              value={feedback.text}
               onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
-                setFeedback(event.target.value);
+                setFeedback({ ...feedback, text: event.target.value });
               }}
             />
             <Spacer height={10} />
@@ -221,7 +198,7 @@ const Product = () => {
               <Button
                 onClick={() => {
                   setFeedbackForm(false);
-                  setFeedback("");
+                  setFeedback({ ...feedback, rate: 0, text: "" });
                 }}
                 label={t("cancel")}
                 color="white"

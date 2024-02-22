@@ -31,6 +31,7 @@ const ScrollToTop: React.FC = () => {
 
   return (
     <div
+      id="scroll-top"
       className={
         isScroll ? "scroll-to-top-wrapper" : "scroll-to-top-wrapper-hide"
       }

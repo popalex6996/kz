@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: 5px 120px;
+  background: #f2f1f1;
 }
 
 .breadcrumb-link-wrapper {

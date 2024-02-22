@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Product } from "../../utilities/types";
 import "./index.css";
 import Spacer from "../Spacer";
+import StarsRate from "../StarsRate";
 import Button from "../Button";
 import NumberInput from "../NumberInput";
 
@@ -43,20 +44,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, hide = false }) => {
       <Spacer height={15} />
       <div className="product-card-title">{product.name}</div>
       <Spacer height={15} />
-      <div className="stars-rate-wrapper">
-        {[...Array(5)].map((s, index) => {
-          return (
-            <div
-              key={product.rate + index}
-              className={
-                product.rate >= index + 1 ? "star active-star" : "star"
-              }
-            >
-              <i className="fa-solid fa-star" />
-            </div>
-          );
-        })}
-      </div>
+      <StarsRate rate={product.rate} />
       <Spacer height={15} />
       <div className="product-card-price-buy">
         <div className="product-card-price">

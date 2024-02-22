@@ -223,17 +223,3 @@
   flex-wrap: wrap;
   /*overflow-y: auto;*/
 }
-
-.stars-rate-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.star {
-  color: #eee;
-}
-
-.active-star {
-  color: #711d1d;
-}

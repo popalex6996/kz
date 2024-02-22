@@ -3,125 +3,65 @@ import { useTranslation } from "react-i18next";
 import "./index.css";
 import Spacer from "../../components/Spacer";
 import Button from "../../components/Button";
-import CartProducts from "../../components/CartProducts";
 import { ORDER } from "../../utilities/constants";
 import PersonalDataForm from "../../components/PersonalDataForm";
+import DeliveryForm from "../../components/DeliveryForm";
+import PaymentForm from "../../components/PaymentForm";
+import { Delivery, Payment } from "../../utilities/types";
+import ExpandableCartProducts from "../../components/ExpandableCartProducts";
 
 const Cart = () => {
   const { t } = useTranslation();
 
-  const [cartStage, setStage] = useState(1);
+  const [delivery, setDelivery] = useState<Delivery>(null);
+  const [payment, setPayment] = useState<Payment | null>(null);
 
   return ORDER.products ? (
     <div className="cart-page-wrapper">
       <h2 className="cart-page-title">{t("cart-page-title")}</h2>
       <div className="cart-content-details">
         <div className="cart-stage-indicator-content">
-          <div className="cart-stage-indicator-wrapper">
-            <div
-              className={
-                cartStage >= 1
-                  ? "active-cart-stage-indicator"
-                  : "cart-stage-indicator"
-              }
-              onClick={() => setStage(1)}
-            >
-              {t("selected-products")}
-            </div>
-            <div
-              className={
-                cartStage > 2 ? "active-cart-stage-border" : "cart-stage-border"
-              }
-            />
-            <div
-              className={
-                cartStage >= 2
-                  ? "active-cart-stage-indicator"
-                  : "cart-stage-indicator"
-              }
-              onClick={() => setStage(2)}
-            >
-              {t("contact-details")}
-            </div>
-            <div
-              className={
-                cartStage > 2 ? "active-cart-stage-border" : "cart-stage-border"
-              }
-            />
-            <div
-              className={
-                cartStage >= 3
-                  ? "active-cart-stage-indicator"
-                  : "cart-stage-indicator"
-              }
-              onClick={() => setStage(3)}
-            >
-              {t("delivery")}
-            </div>
-            <div
-              className={
-                cartStage > 3 ? "active-cart-stage-border" : "cart-stage-border"
-              }
-            />
-            <div
-              className={
-                cartStage >= 4
-                  ? "active-cart-stage-indicator"
-                  : "cart-stage-indicator"
-              }
-              onClick={() => setStage(4)}
-            >
-              {t("payment")}
-            </div>
-          </div>
-          <Spacer height={10} />
           <div className="cart-content">
             <div className="cart-stage-wrapper">
-              {cartStage === 1 && <CartProducts products={ORDER.products} />}
-              {cartStage === 2 && (
-                <div className="personal-data-form-wrapper">
-                  <PersonalDataForm noDate />
+              <ExpandableCartProducts products={ORDER.products} />
+              <Spacer height={20} />
+              <h2 className="stage-title">{t("contact-details")}</h2>
+              <Spacer height={10} />
+              <div className="personal-data-form-wrapper">
+                <PersonalDataForm noDate />
+              </div>
+              <Spacer height={20} />
+              <div className="delivery-payment-forms">
+                <div className="delivery-form-wrapper">
+                  <h2 className="stage-title">{t("delivery")}</h2>
+                  <Spacer height={10} />
+                  <DeliveryForm delivery={delivery} setDelivery={setDelivery} />
                 </div>
-              )}
+                <Spacer width={20} />
+                <div className="payment-form-wrapper">
+                  <h2 className="stage-title">{t("payment")}</h2>
+                  <Spacer height={10} />
+                  <PaymentForm payment={payment} setPayment={setPayment} />
+                </div>
+              </div>
+              <Spacer height={20} />
             </div>
           </div>
         </div>
         <Spacer width={20} />
         <div className="cart-details-wrapper">
-          {cartStage > 1 && (
-            <div className="cart-details-products-wrapper">
-              <CartProducts products={ORDER.products} hideDetails />
-            </div>
-          )}
           <div className="cart-total-price-wrapper">
-            <span>{t("total-price")}</span>
-            <span>
-              {ORDER.price}
+            <span className="cart-total-price">
+              {t("total-price")} {ORDER.price}
               {t("grn")}
             </span>
-          </div>
-          <Spacer height={20} />
-          <div className="cart-stage-switch-btns">
-            {cartStage > 1 && (
-              <Button
-                onClick={() => setStage((prevState) => --prevState)}
-                label={t("prevStepBtn")}
-                className="cart-prev-step-btn"
-                icon="chevron-left"
-                iconLeft
-                iconClassName="fa-solid"
-              />
-            )}
-            {cartStage > 1 && <Spacer width={20} />}
-            {cartStage < 4 && (
-              <Button
-                onClick={() => setStage((prevState) => ++prevState)}
-                label={t("nextStepBtn")}
-                className="cart-next-step-btn"
-                icon="chevron-right"
-                iconClassName="fa-solid"
-              />
-            )}
+            <Button
+              onClick={() => {}}
+              label={t("orderConfirm")}
+              icon="chevron-right"
+              iconClassName="fa-solid"
+              className="cart-to-checkout-btn"
+            />
           </div>
           <Spacer height={20} />
           <div className="cart-terms">

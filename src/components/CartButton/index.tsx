@@ -1,13 +1,17 @@
 import "./index.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import { useTranslation } from "react-i18next";
 import Spacer from "../Spacer";
 import CartProducts from "../CartProducts";
-import { PRODUCTS } from "../../utilities/constants";
+import { ORDER, PRODUCTS } from "../../utilities/constants";
+import { useNavigate } from "react-router-dom";
+import Modal from "../Modal";
+import SignUp from "../SignUp";
 
 const CartButton = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [isOpen, setCartOpen] = useState(false);
 
@@ -16,6 +20,7 @@ const CartButton = () => {
     // @ts-ignore
     const cart = document.getElementById("cart");
     cart?.classList.toggle("cart-open");
+    document.body.style.overflowY = "hidden";
   };
 
   const onClose = () => {
@@ -23,12 +28,37 @@ const CartButton = () => {
     // @ts-ignore
     const cart = document.getElementById("cart");
     cart?.classList.remove("cart-open");
+    document.body.style.overflowY = "scroll";
+  };
+
+  const [isCartVisible, setCartModalVisible] = useState(false);
+
+  const toggleCartModal = () => {
+    if (!isCartVisible) {
+      setCartModalVisible(true);
+      setTimeout(() => {
+        const menu = document.getElementById("hamburger-menu");
+        menu?.classList.toggle("hamburger-open");
+        document.body.style.overflowY = "hidden";
+      }, 0);
+    } else {
+      const menu = document.getElementById("hamburger-menu");
+      menu?.classList.remove("hamburger-open");
+      document.body.style.overflowY = "scroll";
+      setTimeout(() => {
+        setCartModalVisible(false);
+      }, 500);
+    }
   };
 
   return (
     <div className="cart-button-wrapper">
-      <Button icon="cart-shopping" onClick={onOpen} iconClassName="fa-solid" />
-      <div className={` ${isOpen && "cart-shadow"}`} onClick={onClose}>
+      <Button
+        icon="cart-shopping"
+        onClick={toggleCartModal}
+        iconClassName="fa-solid"
+      />
+      <Modal onBackdropClick={toggleCartModal} isVisible={isCartVisible}>
         <div id="cart" className="cart" onClick={(e) => e.stopPropagation()}>
           <Button
             icon="cart-shopping"
@@ -38,25 +68,26 @@ const CartButton = () => {
           />
           <div className="cart-button-content">
             <div className="cart-button-content-title">{t("cart")}</div>
-            <CartProducts products={PRODUCTS} isModal />
-            <Spacer height={20} />
-            <div className="total-wrapper">
-              <span className="total">
-                {PRODUCTS.reduce((sum, i) => sum + i.price * i.amount, 0)}
+            <CartProducts products={ORDER.products} isModal />
+            <div className="cart-btn-total-price-wrapper">
+              <span className="cart-btn-total-price">
+                {t("total-price")} {ORDER.price}
                 {t("grn")}
               </span>
-              <Spacer width={20} />
               <Button
-                onClick={() => {}}
-                label="Оформити"
-                color="711d1d"
-                className="but-button"
+                onClick={() => {
+                  onClose();
+                  navigate("/cart");
+                }}
+                label={t("goToCheckoutBtn")}
+                icon="chevron-right"
+                iconClassName="fa-solid"
+                className="cart-btn-to-checkout-btn"
               />
             </div>
-            <Spacer height={30} />
           </div>
         </div>
-      </div>
+      </Modal>
     </div>
   );
 };

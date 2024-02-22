@@ -37,6 +37,8 @@ export type Order = {
   products: Product[];
 };
 
+export type Feedback = { rate: number; text: string; user: string; id: string };
+
 type CategoryName =
   | "fruits-vegetables-pickles"
   | "meat"
@@ -135,3 +137,7 @@ export type SubCategory = Record<
     available: boolean;
   }[]
 >;
+
+export type Delivery = "sd" | "np" | "up" | null;
+
+export type Payment = "uponReceipt" | "payNow" | null;

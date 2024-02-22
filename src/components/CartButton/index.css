@@ -45,31 +45,40 @@
   align-items: center;
   justify-content: flex-start;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 24px;
   color: #711d1d;
-  background-color: white;
   padding: 20px;
 }
 
-.total-wrapper {
-  background-color: white;
-  padding: 20px;
+.cart-btn-total-price-wrapper {
+  font-size: 24px;
+  font-weight: bold;
+  color: #711d1d;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-.total {
-  font-size: 20px;
-  color: #711d1d;
+.cart-btn-total-price {
   font-weight: bold;
+  font-size: 24px;
+  color: #711d1d;
+}
+.cart-btn-to-checkout-btn {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  background: #c60f0f;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
 
-.but-button {
-  font-size: 20px;
-  font-weight: bold;
-  color: #711d1d;
-  border: 2px solid #711d1d;
-  border-radius: 10px;
-  padding: 5px;
+.cart-btn-to-checkout-btn:hover {
+  background: #711d1d;
+}
+
+.cart-btn-to-checkout-btn:hover .fa-solid {
+  color: white !important;
 }

@@ -1,0 +1,23 @@
+.expandable-cart-products-wrapper {
+  width: 100%;
+}
+
+.stage-title-collapse-bnt {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.stage-title-collapse-bnt:hover .stage-title {
+  color: #c60f0f;
+}
+
+.stage-title-collapse-bnt:hover i {
+  color: #c60f0f !important;
+}
+
+.products-collapse-btn i {
+  color: #711d1d !important;
+}

@@ -1,8 +1,39 @@
-import { Category, Order, Product, SubCategory, User } from "./types";
+import { Category, Feedback, Order, Product, SubCategory, User } from "./types";
 import images from "../assets/images";
 
+export const MENU_LINKS = [
+  {
+    link: "home",
+    icon: "fa-house",
+  },
+  {
+    link: "account",
+    icon: "fa-user",
+  },
+  {
+    link: "cart",
+    icon: "fa-cart-shopping",
+  },
+  {
+    link: "platform",
+    icon: "fa-shop",
+  },
+  {
+    link: "payment",
+    icon: "fa-money-check-dollar",
+  },
+  {
+    link: "exchange",
+    icon: "fa-arrow-right-arrow-left",
+  },
+  {
+    link: "contacts",
+    icon: "fa-square-phone-flip",
+  },
+];
+
 export const INITIAL_USER: User = {
-  id: "1",
+  id: "",
   img: "",
   name: "Oleksandr",
   lastName: "Popov",
@@ -470,7 +501,7 @@ export const ORDER = {
 
 export const ORDERS: Order[] = [ORDER];
 
-export const FEEDBACK = {
+export const FEEDBACK: Feedback = {
   user: "Alyosha",
   text: "Смачнейші яблука",
   rate: 4,

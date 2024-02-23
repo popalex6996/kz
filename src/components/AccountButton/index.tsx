@@ -7,7 +7,7 @@ import Button from "../Button";
 import { useNavigate } from "react-router-dom";
 import { INITIAL_USER } from "../../utilities/constants";
 
-const Account = () => {
+const AccountButton = () => {
   const navigate = useNavigate();
 
   // const [user, setUser] = useState<User>(initialUser);
@@ -53,4 +53,4 @@ const Account = () => {
   );
 };
 
-export default Account;
+export default AccountButton;

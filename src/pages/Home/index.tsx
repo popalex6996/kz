@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="home-wrapper">
       <div className="logo-slogan-wrapper">
-        <img src={images.logo} alt="logo" className="logo" />
+        <img src={images.logo} alt="logo" className="home-logo" />
         <h1 className="slogan">{t("slogan")}</h1>
       </div>
       <Spacer height={10} />

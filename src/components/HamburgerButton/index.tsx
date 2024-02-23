@@ -8,10 +8,10 @@ import SignUp from "../SignUp";
 import SocialLinks from "../SocialLinks";
 import Spacer from "../Spacer";
 
-import { INITIAL_USER, MENU_LINKS } from "../../utilities/constants";
 import "./index.css";
+import { INITIAL_USER, MENU_LINKS } from "../../utilities/constants";
 
-const Hamburger = () => {
+const HamburgerButton = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -160,4 +160,4 @@ const Hamburger = () => {
   );
 };
 
-export default Hamburger;
+export default HamburgerButton;

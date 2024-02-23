@@ -1,29 +1,33 @@
-import "./index.css";
 import React, { useState } from "react";
-import Button from "../Button";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+
+import Button from "../Button";
 import Modal from "../Modal";
 import SignUp from "../SignUp";
-import Spacer from "../Spacer";
-import { useLocation, useNavigate } from "react-router-dom";
 import SocialLinks from "../SocialLinks";
+import Spacer from "../Spacer";
+
+import "./index.css";
 import { INITIAL_USER, MENU_LINKS } from "../../utilities/constants";
 
-const Hamburger = () => {
+const HamburgerButton = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const location = useLocation();
-
-  const navigate = useNavigate();
-
+  //Nav menu modal visibility value
   const [isMenuVisible, setMenuModalVisible] = useState(false);
 
+  //Login modal visibility value
   const [isLoginModalVisible, setLoginModalVisible] = useState(false);
 
+  //Login modal active tab value (login/signup)
   const [isLoginTab, setLoginTab] = useState(true);
 
   // const [isCatalogModalVisible, setCatalogModalVisible] = useState(false);
 
+  //Function that switch the Menu modal to open/close
   const toggleMenuModal = () => {
     if (!isMenuVisible) {
       setMenuModalVisible(true);
@@ -42,6 +46,7 @@ const Hamburger = () => {
     }
   };
 
+  //Function that switch the Login modal to open/close and set active tab for it
   const toggleLoginTab = (loginTabActive: boolean) => () => {
     toggleMenuModal();
     setTimeout(() => {
@@ -52,6 +57,7 @@ const Hamburger = () => {
     }, 500);
   };
 
+  //Function that switch the Catalog modal to open/close
   const toggleCatalogModal = () => {
     toggleMenuModal();
     setTimeout(() => {
@@ -62,6 +68,7 @@ const Hamburger = () => {
     }, 500);
   };
 
+  //Menu link component
   const MenuLink = ({ link, icon }: { link: string; icon: string }) => {
     if (link === "account" && !INITIAL_USER.id) return;
     const onNavigate = (link: string) => () => {
@@ -153,4 +160,4 @@ const Hamburger = () => {
   );
 };
 
-export default Hamburger;
+export default HamburgerButton;

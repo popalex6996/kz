@@ -34,7 +34,7 @@ const Breadcrumb = () => {
     });
   return (
     <div className="breadcrumb-wrapper">
-      {pathname !== "/home" && (
+      {pathname !== "/home" && pathname !== "/" && (
         <a href="/home" className="breadcrumb-link ">
           <i className="fa-solid fa-house" />
           <Spacer width={5} />

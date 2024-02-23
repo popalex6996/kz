@@ -1,34 +1,51 @@
 import React from "react";
-import Hamburger from "../Hamburger";
-import "./index.css";
+import { useNavigate } from "react-router-dom";
+
+import AccountButton from "../AccountButton";
+import Breadcrumb from "../Breadcrumb";
+import CartButton from "../CartButton";
+import CatalogButton from "../CatalogButton";
+import HamburgerButton from "../HamburgerButton";
 import SearchBar from "../SearchBar";
 import Spacer from "../Spacer";
 import LanguageSwitch from "../LanguageSwitch";
-import CartButton from "../CartButton";
-import CatalogButton from "../CatalogButton";
-import Account from "../Account";
-import Breadcrumb from "../Breadcrumb";
-// import images from "../../assets/images";
+
+import "./index.css";
 
 const Header: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="header-wrapper">
       <div className="header">
-        {/*<div>
-          <img src={images.logo} alt="logo" className="logo" />
-        </div>*/}
-        <div className="menu-catalog">
-          <Hamburger />
+        {/*Left header part*/}
+        <div className="header-side-part">
+          {/*Hamburger nav menu*/}
+          <HamburgerButton />
+
           <Spacer width={15} />
+
+          {/*Catalog nav menu*/}
           <CatalogButton />
+
+          <Spacer width={15} />
+
+          {/*todo: logo button with surprise like goose from the right side*/}
+          <button onClick={() => navigate("/home")} className="logo-btn" />
         </div>
+
+        {/*Global search input in the center*/}
         <SearchBar />
-        <div className="settings-bar">
+
+        {/*Right header part*/}
+        <div className="header-side-part">
+          {/*todo: change LanguageSwitch to an announcement*/}
           <LanguageSwitch />
           <Spacer width={15} />
+          {/*Cart button*/}
           <CartButton />
           <Spacer width={15} />
-          <Account />
+          {/*Account button*/}
+          <AccountButton />
         </div>
       </div>
       <Breadcrumb />

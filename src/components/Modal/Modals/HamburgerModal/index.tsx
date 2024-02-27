@@ -19,7 +19,7 @@ const HamburgerModal = ({
   const { t } = useTranslation();
 
   //Login modal visibility value
-  const [isLoginModalVisible, setLoginModalVisible] = useState(false);
+  // const [isLoginModalVisible, setLoginModalVisible] = useState(false);
 
   //Login modal active tab value (login/signup)
   const [isLoginTab, setLoginTab] = useState(true);
@@ -31,7 +31,7 @@ const HamburgerModal = ({
       if (loginTabActive !== isLoginTab) {
         setLoginTab(loginTabActive);
       }
-      setLoginModalVisible((isVisible) => !isVisible);
+      // setLoginModalVisible((isVisible) => !isVisible);
     }, 500);
   };
 

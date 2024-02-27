@@ -130,8 +130,8 @@ const Category = () => {
           </div>
           <Spacer height={30} />
           <div className="content-wrapper">
-            {PRODUCTS.map((product) => (
-              <ProductCard product={product} />
+            {PRODUCTS.map((product, index) => (
+              <ProductCard product={product} key={product.name + index} />
             ))}
           </div>
         </div>

@@ -6,6 +6,7 @@ import Spacer from "../../components/Spacer";
 import { useNavigate } from "react-router-dom";
 import ProductsCarousel from "../../components/ProductsCarousel";
 import { CATEGORIES, PRODUCTS } from "../../utilities/constants";
+import { Category } from "../../utilities/types";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,14 +20,15 @@ const Home = () => {
       </div>
       <Spacer height={10} />
       <div className="home-catalog-wrapper">
-        {CATEGORIES.map((c) => (
+        {CATEGORIES.map(({ category, icon }: Category) => (
           <button
+            key={category}
             className="home-category"
-            onClick={() => navigate(`category/${c.category}`)}
+            onClick={() => navigate(`category/${category}`)}
           >
-            <i className={`fa-solid fa-${c.icon}`} />
+            <i className={`fa-solid fa-${icon}`} />
             <Spacer width={5} />
-            <span>{t(c.category)}</span>
+            <span>{t(category)}</span>
           </button>
         ))}
       </div>

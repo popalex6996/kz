@@ -342,8 +342,8 @@ const Account = () => {
               </div>
             ) : (
               <div className="favourites">
-                {PRODUCTS.map((product) => (
-                  <ProductCard product={product} />
+                {PRODUCTS.map((product, index) => (
+                  <ProductCard product={product} key={product.name + index} />
                 ))}
               </div>
             )}

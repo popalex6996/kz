@@ -3,12 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 import AccountButton from "../AccountButton";
 import Breadcrumb from "../Breadcrumb";
-import CartButton from "../CartButton";
-import CatalogButton from "../CatalogButton";
-import HamburgerButton from "../HamburgerButton";
+import LanguageSwitch from "../LanguageSwitch";
+import ModalButton from "../ModalButton";
 import SearchBar from "../SearchBar";
 import Spacer from "../Spacer";
-import LanguageSwitch from "../LanguageSwitch";
 
 import "./index.css";
 
@@ -17,15 +15,15 @@ const Header: React.FC = () => {
   return (
     <div className="header-wrapper">
       <div className="header">
-        {/*Left header part*/}
+        {/* Left header part */}
         <div className="header-side-part">
-          {/*Hamburger nav menu*/}
-          <HamburgerButton />
+          {/* Hamburger modal button */}
+          <ModalButton modal="hamburger" />
 
           <Spacer width={15} />
 
-          {/*Catalog nav menu*/}
-          <CatalogButton />
+          {/* Catalog modal button */}
+          <ModalButton modal="catalog" />
 
           <Spacer width={15} />
 
@@ -33,21 +31,23 @@ const Header: React.FC = () => {
           <button onClick={() => navigate("/home")} className="logo-btn" />
         </div>
 
-        {/*Global search input in the center*/}
+        {/* Global search input in the center */}
         <SearchBar />
 
-        {/*Right header part*/}
+        {/* Right header part */}
         <div className="header-side-part">
-          {/*todo: change LanguageSwitch to an announcement*/}
+          {/* todo: change LanguageSwitch to an announcement*/}
           <LanguageSwitch />
           <Spacer width={15} />
-          {/*Cart button*/}
-          <CartButton />
+          {/* Cart modal button */}
+          <ModalButton modal="cart" />
           <Spacer width={15} />
-          {/*Account button*/}
+          {/* Account button */}
           <AccountButton />
         </div>
       </div>
+
+      {/* Breadcrumb navigation */}
       <Breadcrumb />
     </div>
   );

@@ -40,6 +40,7 @@ const ProductsCarousel = ({ products }: { products: Product[] }) => {
       <div id="slides" className="slides">
         {products.map((product, index) => (
           <ProductCard
+            key={product.name + index}
             product={product}
             hide={index < slide || index > slide + slidesToDisplay - 1}
           />

@@ -190,6 +190,9 @@ const resources = {
       seed: "Насіння",
       saplings: "Саджанці",
       lookAtAll: "Дивитися все",
+      "no-category":
+        "Схоже що всі доступні товари цієї категорії вже розібрали",
+      "empty-subcategory": "Схоже що всі товари тут уже розібрали",
 
       //Home page
       slogan: "Від рідної землі та городу до вашого дому та столу",
@@ -447,6 +450,10 @@ const resources = {
       seed: "Seed",
       saplings: "Saplings",
       lookAtAll: "Look at all",
+      "no-category":
+        "It seems that all available products in this category have already been sold out",
+      "empty-subcategory":
+        "It seems that all available products in this subcategory have already been sold out",
 
       //Home page
       slogan: "From your homeland and garden to your home and table",

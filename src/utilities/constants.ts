@@ -1,4 +1,12 @@
-import { Category, Feedback, Order, Product, SubCategory, User } from "./types";
+import {
+  Category,
+  Feedback,
+  Order,
+  Product,
+  SubCategories,
+  SubCategory,
+  User,
+} from "./types";
 import images from "../assets/images";
 
 export const MENU_LINKS = [
@@ -34,7 +42,7 @@ export const MENU_LINKS = [
 
 export const INITIAL_USER: User = {
   id: "",
-  img: "",
+  image: "",
   name: "Oleksandr",
   lastName: "Popov",
   phone: "+380 (__) ___-__-__",
@@ -76,7 +84,7 @@ export const CATEGORIES: Category[] = [
   {
     icon: "seedling",
     category: "grocery",
-    available: true,
+    available: false,
   },
   {
     icon: "bottle-droplet",
@@ -100,40 +108,40 @@ export const CATEGORIES: Category[] = [
   },
 ];
 
-export const SUB_CATEGORIES: SubCategory = {
+export const SUB_CATEGORIES: SubCategories = {
   "fruits-vegetables-pickles": [
     {
-      img: "",
+      image: "",
       category: "fruits-vegetables-pickles",
       subCategory: "fruits",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "fruits-vegetables-pickles",
       subCategory: "vegetables",
-      available: true,
+      available: false,
     },
     {
-      img: "",
+      image: "",
       category: "fruits-vegetables-pickles",
       subCategory: "pickles",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "fruits-vegetables-pickles",
       subCategory: "dried-fruits",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "fruits-vegetables-pickles",
       subCategory: "mushrooms",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "fruits-vegetables-pickles",
       subCategory: "nuts",
       available: true,
@@ -141,43 +149,43 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   meat: [
     {
-      img: "",
+      image: "",
       category: "meat",
       subCategory: "poultry-meat",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "meat",
       subCategory: "pork",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "meat",
       subCategory: "beef-veal",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "meat",
       subCategory: "salo",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "meat",
       subCategory: "rabbit",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "meat",
       subCategory: "lamb",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "meat",
       subCategory: "offal",
       available: true,
@@ -185,19 +193,19 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   fish: [
     {
-      img: "",
+      image: "",
       category: "fish",
       subCategory: "fresh-fish",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "fish",
       subCategory: "smoked-fish",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "fish",
       subCategory: "cancers",
       available: true,
@@ -205,31 +213,31 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   cheeses: [
     {
-      img: "",
+      image: "",
       category: "cheeses",
       subCategory: "semi-hard-cheeses",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "cheeses",
       subCategory: "brined-cheeses",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "cheeses",
       subCategory: "soft-cheeses",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "cheeses",
       subCategory: "processed-cheeses",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "cheeses",
       subCategory: "hard-cheeses",
       available: true,
@@ -237,31 +245,31 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   "bakery-products": [
     {
-      img: "",
+      image: "",
       category: "bakery-products",
       subCategory: "bread",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "bakery-products",
       subCategory: "buns",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "bakery-products",
       subCategory: "croissant-puffs",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "bakery-products",
       subCategory: "pita-cakes-blanks",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "bakery-products",
       subCategory: "drying-breadcrumbs",
       available: true,
@@ -269,37 +277,37 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   "milk-eggs": [
     {
-      img: "",
+      image: "",
       category: "milk-eggs",
       subCategory: "milk-cream",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "milk-eggs",
       subCategory: "yogurts-desserts",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "milk-eggs",
       subCategory: "eggs",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "milk-eggs",
       subCategory: "cottage-cheese",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "milk-eggs",
       subCategory: "sour-cream",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "milk-eggs",
       subCategory: "butter-margarine",
       available: true,
@@ -307,37 +315,37 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   grocery: [
     {
-      img: "",
+      image: "",
       category: "grocery",
       subCategory: "groats",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "grocery",
       subCategory: "pasta",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "grocery",
       subCategory: "oil",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "grocery",
       subCategory: "sugar",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "grocery",
       subCategory: "salt",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "grocery",
       subCategory: "flour",
       available: true,
@@ -345,37 +353,37 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   "sauces-canned": [
     {
-      img: "",
+      image: "",
       category: "sauces-canned",
       subCategory: "sauces",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "sauces-canned",
       subCategory: "seasonings-spices",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "sauces-canned",
       subCategory: "jams-preserves",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "sauces-canned",
       subCategory: "canned-meat",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "sauces-canned",
       subCategory: "canned-fruits",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "sauces-canned",
       subCategory: "honey",
       available: true,
@@ -383,13 +391,13 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   tea: [
     {
-      img: "",
+      image: "",
       category: "tea",
       subCategory: "herbal-tea-compositions",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "tea",
       subCategory: "herbs",
       available: true,
@@ -397,19 +405,19 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   drinks: [
     {
-      img: "",
+      image: "",
       category: "drinks",
       subCategory: "juice",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "drinks",
       subCategory: "kvass",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "drinks",
       subCategory: "compote",
       available: true,
@@ -417,37 +425,37 @@ export const SUB_CATEGORIES: SubCategory = {
   ],
   garden: [
     {
-      img: "",
+      image: "",
       category: "garden",
       subCategory: "flowers",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "garden",
       subCategory: "indoor-plants",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "garden",
       subCategory: "bouquets",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "garden",
       subCategory: "seed",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "garden",
       subCategory: "saplings",
       available: true,
     },
     {
-      img: "",
+      image: "",
       category: "garden",
       subCategory: "flower-pots",
       available: true,
@@ -461,7 +469,7 @@ export const PRODUCT: Product = {
   amount: 2,
   amountStep: 1,
   maxAmount: 21,
-  img: images.apple,
+  image: images.apple,
   measurement: "kg",
   category: "fruits-vegetables-pickles",
   subCategory: "fruits",

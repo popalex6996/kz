@@ -1,0 +1,81 @@
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: margin-left 0.5s;
+  margin-left: -335px;
+  background: #fffbf6;
+  border-bottom-right-radius: 32px;
+  box-sizing: border-box;
+}
+
+.hamburger-open {
+  margin-left: 0;
+  transition: margin-left 0.5s;
+}
+
+.cart {
+  flex-direction: column;
+  max-width: 450px;
+  transition: margin-right 0.5s;
+  margin-right: -500px;
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #f2f1f1;
+  right: 0;
+  top: 0;
+}
+
+.cart-open {
+  margin-right: 0;
+  transition: margin-right 0.5s;
+  border-bottom-left-radius: 32px;
+}
+
+.catalog {
+  width: 100%;
+  transition: margin-top 0.5s;
+  margin-top: -620px;
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #fffbf6;
+  left: 0;
+  top: 0;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  padding: 20px;
+  max-height: 550px;
+}
+
+.catalog-open {
+  margin-top: 0;
+  transition: margin-top 0.5s;
+}
+
+.catalog-button {
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  border: 2px solid #fffbf6;
+  padding: 5px 10px;
+  width: 180px;
+  height: 40px;
+  color: #fffbf6;
+  font-size: 16px;
+}
+
+.catalog-button:hover {
+  color: #c60f0f;
+  border-color: #c60f0f;
+}

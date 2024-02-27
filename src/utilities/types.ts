@@ -1,5 +1,5 @@
 export type User = {
-  img: string;
+  image: string;
   name: string;
   lastName: string;
   id: string;
@@ -19,7 +19,7 @@ export type Product = {
   amount: number;
   category: CategoryName;
   subCategory: SubCategoryName;
-  img: string;
+  image: string;
   isAvailable: boolean;
   isFavorite: boolean;
   seller: string;
@@ -39,7 +39,7 @@ export type Order = {
 
 export type Feedback = { rate: number; text: string; user: string; id: string };
 
-type CategoryName =
+export type CategoryName =
   | "fruits-vegetables-pickles"
   | "meat"
   | "fish"
@@ -66,7 +66,7 @@ type CategoryIcon =
   | "leaf";
 
 export type Category = {
-  available: boolean;
+  available?: boolean;
   category: CategoryName;
   icon: CategoryIcon;
 };
@@ -128,15 +128,14 @@ type SubCategoryName =
   | "flower-pots"
   | "croissant-puffs";
 
-export type SubCategory = Record<
-  CategoryName,
-  {
-    img: string;
-    category: CategoryName;
-    subCategory: SubCategoryName;
-    available: boolean;
-  }[]
->;
+export type SubCategory = {
+  image: string;
+  category: CategoryName;
+  subCategory: SubCategoryName;
+  available: boolean;
+};
+
+export type SubCategories = Record<CategoryName, SubCategory[]>;
 
 export type Delivery = "sd" | "np" | "up" | null;
 

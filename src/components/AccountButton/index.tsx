@@ -26,8 +26,8 @@ const AccountButton = () => {
             navigate(`/account`);
           }}
         >
-          {INITIAL_USER.img ? (
-            <img className="account-img" src={INITIAL_USER.img} alt="user" />
+          {INITIAL_USER.image ? (
+            <img className="account-img" src={INITIAL_USER.image} alt="user" />
           ) : (
             <div className="initials">
               {INITIAL_USER.name[0] + INITIAL_USER.lastName[0]}

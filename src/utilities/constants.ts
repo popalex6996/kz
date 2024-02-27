@@ -4,7 +4,6 @@ import {
   Order,
   Product,
   SubCategories,
-  SubCategory,
   User,
 } from "./types";
 import images from "../assets/images";

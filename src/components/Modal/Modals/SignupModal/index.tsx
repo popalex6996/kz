@@ -6,13 +6,16 @@ import SignupForm from "./SignupForm";
 import Spacer from "../../../Spacer";
 
 import "./index.css";
+import { Modal } from "../../../../utilities/types";
 
 interface SignupModalProps {
+  hide: (modal: Modal) => void;
   isLoginTab: boolean;
   setLoginTab: (value: boolean) => void;
 }
 
 const SignupModal: React.FC<SignupModalProps> = ({
+  hide,
   isLoginTab,
   setLoginTab,
 }) => {

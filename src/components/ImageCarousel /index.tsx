@@ -10,7 +10,7 @@ interface ImageCarouselProps {
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   const [selected, setSelected] = useState<number>(0);
-  const [isGallery, setGallery] = useState(false);
+  // const [isGallery, setGallery] = useState(false);
   const handleClick = (e: any) => {
     let value = e.target.getAttribute("data-value");
     if (value !== null) {
@@ -18,7 +18,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     }
   };
   const toggleGallery = () => {
-    setGallery((isVisible) => !isVisible);
+    // setGallery((isVisible) => !isVisible);
   };
 
   return (

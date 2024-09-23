@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitch from "../LanguageSwitch";
 import Spacer from "../Spacer";
 import Modal from "../Modal";
-import SignUp from "../SignUp";
+// import SignUp from "../SignupModal";
 import SocialLinks from "../SocialLinks";
 
 const Footer: React.FC = () => {
@@ -76,9 +76,9 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <Modal onBackdropClick={toggleLoginModal} isVisible={isLoginModalVisible}>
+      {/* <Modal onBackdropClick={toggleLoginModal} isVisible={isLoginModalVisible}>
         <SignUp loginTabActive={isLoginTab} />
-      </Modal>
+      </Modal>*/}
     </div>
   );
 };

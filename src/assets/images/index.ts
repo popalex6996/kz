@@ -8,6 +8,7 @@ const apple = require("./apple.png");
 const apple2 = require("./apple2.png");
 const apple3 = require("./apple3.png");
 const logo = require("./logo.png");
+const redLogo = require("./logo-red.png");
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -21,4 +22,5 @@ export default {
   apple2,
   apple3,
   logo,
+  redLogo,
 };

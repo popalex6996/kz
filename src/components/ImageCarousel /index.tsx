@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import Spacer from "../Spacer";
 import Button from "../Button";
-import Modal from "../Modal";
+// import Modal from "../Modal";
 
 interface ImageCarouselProps {
   images: { src: string; title: string }[];
@@ -79,7 +79,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
           />
         </ul>
       </div>
-      <Modal onBackdropClick={toggleGallery} isVisible={isGallery}>
+      {/* <Modal onBackdropClick={toggleGallery} isVisible={isGallery}>
         <div className="gallery-wrapper">
           <div className="gallery-close-btn-wrapper">
             <Button
@@ -145,7 +145,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
             </ul>
           </div>
         </div>
-      </Modal>
+      </Modal>*/}
     </div>
   );
 };

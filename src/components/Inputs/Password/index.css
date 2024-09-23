@@ -1,0 +1,65 @@
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 2px solid #711d1d;
+  border-radius: 8px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.input-error {
+  border-color: #c60f0f;
+}
+
+.input-error .password-input-label {
+  color: #c60f0f;
+}
+
+.password-input-label {
+  width: 100%;
+  cursor: text;
+  color: #711d1d;
+  font-size: 14px;
+}
+
+.password-input {
+  background: transparent;
+  width: 80%;
+  border: none;
+  outline: none;
+  padding: 5px 0;
+  font-size: 16px;
+}
+
+.password-input-wrapper:focus-within {
+  box-shadow: rgba(198, 157, 165, 0.81) 0 8px 15px;
+  .password-input-label {
+    color: #c60f0f;
+  }
+}
+
+.password-input-wrapper:hover {
+  box-shadow: rgba(198, 157, 165, 0.81) 0 8px 15px;
+  .password-input-label {
+    color: #c60f0f;
+  }
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  outline: none;
+  border: none;
+  background: none;
+
+  i {
+    color: #711d1d;
+    font-size: 20px;
+  }
+}

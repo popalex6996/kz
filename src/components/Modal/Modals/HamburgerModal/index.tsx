@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -8,49 +8,26 @@ import Spacer from "../../../Spacer";
 
 import "./index.css";
 import { INITIAL_USER, MENU_LINKS } from "../../../../utilities/constants";
+import { Modal } from "../../../../utilities/types";
 
 const HamburgerModal = ({
-  toggleMenuModal,
+  hide,
+  changeModal,
+  setLoginTab,
 }: {
-  toggleMenuModal: () => void;
+  hide: (modal: Modal) => void;
+  changeModal: (newModal: Modal) => void;
+  setLoginTab: (isLoginTab: boolean) => void;
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  //Login modal visibility value
-  // const [isLoginModalVisible, setLoginModalVisible] = useState(false);
-
-  //Login modal active tab value (login/signup)
-  const [isLoginTab, setLoginTab] = useState(true);
-
-  //Function that switch the Login modal to open/close and set active tab for it
-  const toggleLoginTab = (loginTabActive: boolean) => () => {
-    toggleMenuModal();
-    setTimeout(() => {
-      if (loginTabActive !== isLoginTab) {
-        setLoginTab(loginTabActive);
-      }
-      // setLoginModalVisible((isVisible) => !isVisible);
-    }, 500);
-  };
-
-  //Function that switch the Catalog modal to open/close
-  const toggleCatalogModal = () => {
-    toggleMenuModal();
-    setTimeout(() => {
-      const catalogShadow = document.getElementById("catalog-shadow");
-      catalogShadow?.classList.toggle("catalog-shadow-visible");
-      const cart = document.getElementById("catalog");
-      cart?.classList.toggle("catalog-open");
-    }, 500);
-  };
-
   //Menu link component
   const MenuLink = ({ link, icon }: { link: string; icon: string }) => {
     if (link === "account" && !INITIAL_USER.id) return;
     const onNavigate = (link: string) => () => {
-      toggleMenuModal();
+      hide("hamburger");
       navigate(`/${link}`);
     };
 
@@ -76,12 +53,18 @@ const HamburgerModal = ({
         icon="bars"
         iconClassName="fa-solid"
         className="hamburger-menu-close-btn"
-        onClick={toggleMenuModal}
+        onClick={() => hide("hamburger")}
       />
 
       {/* Login button */}
       {!INITIAL_USER.id && (
-        <button onClick={toggleLoginTab(true)} className="link link-btn">
+        <button
+          onClick={() => {
+            setLoginTab(true);
+            changeModal("signup");
+          }}
+          className="link link-btn"
+        >
           <i className="fa-solid fa-right-to-bracket link-icon" />
           <Spacer width={5} />
           {t("login")}
@@ -90,7 +73,13 @@ const HamburgerModal = ({
 
       {/* SignUp button */}
       {!INITIAL_USER.id && (
-        <button onClick={toggleLoginTab(false)} className="link link-btn">
+        <button
+          onClick={() => {
+            setLoginTab(false);
+            changeModal("signup");
+          }}
+          className="link link-btn"
+        >
           <i className="fa-solid fa-user-plus link-icon" />
           <Spacer width={5} />
           {t("signup")}
@@ -98,7 +87,7 @@ const HamburgerModal = ({
       )}
 
       {/* Catalog button */}
-      <button onClick={toggleCatalogModal} className="link link-btn">
+      <button onClick={() => changeModal("catalog")} className="link link-btn">
         <i className="fa-solid fa-store link-icon" />
         <Spacer width={5} />
         {t("store")}

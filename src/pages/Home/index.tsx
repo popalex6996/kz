@@ -5,7 +5,7 @@ import images from "../../assets/images";
 import Spacer from "../../components/Spacer";
 import { useNavigate } from "react-router-dom";
 import ProductsCarousel from "../../components/ProductsCarousel";
-import { CATEGORIES, PRODUCTS } from "../../utilities/constants";
+import { CATEGORIES, INITIAL_USER, PRODUCTS } from "../../utilities/constants";
 import { Category } from "../../utilities/types";
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="home-wrapper">
       <div className="logo-slogan-wrapper">
-        <img src={images.logo} alt="logo" className="home-logo" />
+        <img src={images.redLogo} alt="logo" className="home-logo" />
         <h1 className="slogan">{t("slogan")}</h1>
       </div>
       <Spacer height={10} />
@@ -32,14 +32,14 @@ const Home = () => {
           </button>
         ))}
       </div>
+      <Spacer height={10} />
+      <div className="home-season-banner">
+        Медовий місяць вже стартонув! Мершій перетвори його на рік :) [банер]
+      </div>
       <div className="home-carousel">
         <Spacer height={10} />
         <h3 className="home-carousel-title">{t("popularProducts")}</h3>
         <ProductsCarousel products={PRODUCTS} />
-      </div>
-      <Spacer height={10} />
-      <div className="home-season-banner">
-        Медовий місяць вже стартонув! Мершій перетвори його на рік :) [банер]
       </div>
       <Spacer height={10} />
       {!!PRODUCTS.length && (
@@ -49,7 +49,7 @@ const Home = () => {
           <ProductsCarousel products={PRODUCTS} />
         </div>
       )}
-      {!!PRODUCTS.length && (
+      {!!PRODUCTS.length && INITIAL_USER.id && (
         <div className="home-carousel">
           <Spacer height={10} />
           <h3 className="home-carousel-title">{t("favouritesProducts")}</h3>

@@ -7,8 +7,9 @@ import CartProducts from "../../../CartProducts";
 
 import "./index.css";
 import { ORDER } from "../../../../utilities/constants";
+import { Modal } from "../../../../utilities/types";
 
-const CartModal = ({ toggleCartModal }: { toggleCartModal: () => void }) => {
+const CartModal = ({ hide }: { hide: (modal: Modal) => void }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -17,7 +18,7 @@ const CartModal = ({ toggleCartModal }: { toggleCartModal: () => void }) => {
       {/* Cart close button */}
       <Button
         icon="cart-shopping"
-        onClick={toggleCartModal}
+        onClick={() => hide("cart")}
         className="cart-close-btn"
         iconClassName="fa-solid"
       />
@@ -39,7 +40,7 @@ const CartModal = ({ toggleCartModal }: { toggleCartModal: () => void }) => {
         {/* Nav to Cart page button*/}
         <Button
           onClick={() => {
-            toggleCartModal();
+            hide("cart");
             navigate("/cart");
           }}
           label={t("goToCheckoutBtn")}

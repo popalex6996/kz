@@ -19,11 +19,7 @@
 }
 
 .home-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #711d1d;
-  border-radius: 100%;
+  width: 200px;
 }
 
 .slogan {

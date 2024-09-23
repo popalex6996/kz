@@ -9,15 +9,12 @@ import "./index.css";
 import {
   Category,
   CategoryName,
+  Modal,
   SubCategory,
 } from "../../../../utilities/types";
 import { CATEGORIES, SUB_CATEGORIES } from "../../../../utilities/constants";
 
-const CatalogModal = ({
-  toggleCatalogModal,
-}: {
-  toggleCatalogModal: () => void;
-}) => {
+const CatalogModal = ({ hide }: { hide: (modal: Modal) => void }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -32,7 +29,7 @@ const CatalogModal = ({
         key={category}
         onClick={() => {
           if (selectedCategory === category) {
-            toggleCatalogModal();
+            hide("catalog");
             navigate(`category/${selectedCategory}`);
           } else {
             setCategory(category);
@@ -71,7 +68,7 @@ const CatalogModal = ({
         key={subCategory}
         className={available ? "product-variety-card" : "no-subcategory"}
         onClick={() => {
-          toggleCatalogModal();
+          hide("catalog");
           navigate(`category/${category}/sub-category/${subCategory}`);
         }}
         disabled={!available}
@@ -115,7 +112,7 @@ const CatalogModal = ({
 
           {/* Catalog modal close button */}
           <Button
-            onClick={toggleCatalogModal}
+            onClick={() => hide("catalog")}
             icon="xmark"
             iconClassName="fa-solid"
             color="#711d1d"
@@ -143,7 +140,7 @@ const CatalogModal = ({
           <button
             className="product-variety-card"
             onClick={() => {
-              toggleCatalogModal();
+              hide("catalog");
               navigate(`category/${selectedCategory}`);
             }}
           >

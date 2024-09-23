@@ -9,6 +9,8 @@ const Breadcrumb = () => {
   const { pathname } = useLocation();
   let { categoryId, subCategoryId, productId } = useParams();
 
+  if (pathname === "/home" || pathname === "/") return;
+
   const breadcrumbs = pathname
     .split("/")
     .filter(
@@ -32,15 +34,14 @@ const Breadcrumb = () => {
                 : `/${b}`,
       };
     });
+
   return (
     <div className="breadcrumb-wrapper">
-      {pathname !== "/home" && pathname !== "/" && (
-        <a href="/home" className="breadcrumb-link ">
-          <i className="fa-solid fa-house" />
-          <Spacer width={5} />
-          {t("home")}
-        </a>
-      )}
+      <a href="/home" className="breadcrumb-link ">
+        <i className="fa-solid fa-house" />
+        <Spacer width={5} />
+        {t("home")}
+      </a>
       {breadcrumbs.map((b) => {
         return (
           <div className="breadcrumb-link-wrapper" key={b.title}>

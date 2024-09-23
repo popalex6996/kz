@@ -1,10 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import AccountButton from "../AccountButton";
 import Breadcrumb from "../Breadcrumb";
 import LanguageSwitch from "../LanguageSwitch";
-import ModalButton from "../ModalButton";
+import ModalButton from "../Modal/ModalButton";
 import SearchBar from "../SearchBar";
 import Spacer from "../Spacer";
 
@@ -18,12 +17,12 @@ const Header: React.FC = () => {
         {/* Left header part */}
         <div className="header-side-part">
           {/* Hamburger modal button */}
-          <ModalButton modal="hamburger" />
+          <ModalButton type="hamburger" />
 
           <Spacer width={15} />
 
           {/* Catalog modal button */}
-          <ModalButton modal="catalog" />
+          <ModalButton type="catalog" />
 
           <Spacer width={15} />
 
@@ -40,10 +39,10 @@ const Header: React.FC = () => {
           <LanguageSwitch />
           <Spacer width={15} />
           {/* Cart modal button */}
-          <ModalButton modal="cart" />
+          <ModalButton type="cart" />
           <Spacer width={15} />
           {/* Account button */}
-          <AccountButton />
+          <ModalButton type="account" />
         </div>
       </div>
 

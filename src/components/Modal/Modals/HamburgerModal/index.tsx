@@ -7,8 +7,9 @@ import SocialLinks from "../../../SocialLinks";
 import Spacer from "../../../Spacer";
 
 import "./index.css";
-import { INITIAL_USER, MENU_LINKS } from "../../../../utilities/constants";
+import { MENU_LINKS } from "../../../../utilities/constants";
 import { Modal } from "../../../../utilities/types";
+import { useAuth } from "../../../../hooks/useAuth";
 
 const HamburgerModal = ({
   hide,
@@ -23,9 +24,11 @@ const HamburgerModal = ({
   const navigate = useNavigate();
   const { t } = useTranslation();
 
+  const { isAuth } = useAuth();
+
   //Menu link component
   const MenuLink = ({ link, icon }: { link: string; icon: string }) => {
-    if (link === "account" && !INITIAL_USER.id) return;
+    if (link === "account" && !isAuth) return;
     const onNavigate = (link: string) => () => {
       hide("hamburger");
       navigate(`/${link}`);
@@ -57,7 +60,7 @@ const HamburgerModal = ({
       />
 
       {/* Login button */}
-      {!INITIAL_USER.id && (
+      {!isAuth && (
         <button
           onClick={() => {
             setLoginTab(true);
@@ -72,7 +75,7 @@ const HamburgerModal = ({
       )}
 
       {/* SignUp button */}
-      {!INITIAL_USER.id && (
+      {!isAuth && (
         <button
           onClick={() => {
             setLoginTab(false);

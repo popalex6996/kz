@@ -1,20 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
 import { useTranslation } from "react-i18next";
 import LanguageSwitch from "../LanguageSwitch";
 import Spacer from "../Spacer";
 import SocialLinks from "../SocialLinks";
+import ModalButton from "../Modal/ModalButton";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
-
-  const [isLoginTab, setLoginTab] = useState(true);
-
-  const toggleLoginTab = (loginTabActive: boolean) => () => {
-    if (loginTabActive !== isLoginTab) {
-      setLoginTab(loginTabActive);
-    }
-  };
 
   const toggleCatalog = () => {
     // @ts-ignore
@@ -29,15 +22,15 @@ const Footer: React.FC = () => {
       <div className="footer-links">
         <div className="nav-links">
           <div className="nav-links-row">
-            <div className="nav-link" onClick={toggleLoginTab(true)}>
-              {t("login")}
-            </div>
+            {/* Footer Login button */}
+            <ModalButton type="footerLogin" />
+
             <Spacer width={10} />
             <div className="footer-links-border" />
             <Spacer width={10} />
-            <div className="nav-link" onClick={toggleLoginTab(false)}>
-              {t("signup")}
-            </div>
+
+            {/* Footer Signup button */}
+            <ModalButton type="footerSignup" />
           </div>
           <a className="nav-link" href="/platform">
             {t("platform")}

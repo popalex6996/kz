@@ -141,4 +141,11 @@ export type Delivery = "sd" | "np" | "up" | null;
 
 export type Payment = "uponReceipt" | "payNow" | null;
 
-export type Modal = "hamburger" | "catalog" | "cart" | "account" | "signup";
+export type Modal =
+  | "hamburger"
+  | "catalog"
+  | "cart"
+  | "account"
+  | "signup"
+  | "footerLogin"
+  | "footerSignup";

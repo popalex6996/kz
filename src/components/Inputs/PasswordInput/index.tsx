@@ -6,12 +6,14 @@ interface PasswordInputProps {
   value: string;
   error: string | undefined;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const PasswordInput: React.FC<PasswordInputProps> = ({
   value,
   error,
   onChange,
+  onBlur,
 }) => {
   const { t } = useTranslation();
 
@@ -28,6 +30,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
         className="password-input"
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
       {type === "password" && !!value.length && (
         <button className="eye" onClick={() => setType("text")}>

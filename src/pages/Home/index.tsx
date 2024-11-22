@@ -5,12 +5,14 @@ import images from "../../assets/images";
 import Spacer from "../../components/Spacer";
 import { useNavigate } from "react-router-dom";
 import ProductsCarousel from "../../components/ProductsCarousel";
-import { CATEGORIES, INITIAL_USER, PRODUCTS } from "../../utilities/constants";
+import { CATEGORIES, PRODUCTS } from "../../utilities/constants";
 import { Category } from "../../utilities/types";
+import { useAuth } from "../../hooks/useAuth";
 
 const Home = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { isAuth } = useAuth();
 
   return (
     <div className="home-wrapper">
@@ -49,7 +51,7 @@ const Home = () => {
           <ProductsCarousel products={PRODUCTS} />
         </div>
       )}
-      {!!PRODUCTS.length && INITIAL_USER.id && (
+      {!!PRODUCTS.length && isAuth && (
         <div className="home-carousel">
           <Spacer height={10} />
           <h3 className="home-carousel-title">{t("favouritesProducts")}</h3>

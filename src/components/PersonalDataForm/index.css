@@ -16,15 +16,7 @@
 }
 
 .personal-data-input-wrapper {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
   width: 48%;
-  border: 2px solid #711d1d;
-  border-radius: 8px;
-  padding: 5px 10px;
-  box-sizing: border-box;
 }
 
 .account-input-label {

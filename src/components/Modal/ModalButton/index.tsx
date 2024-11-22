@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import Button from "../../Button";
@@ -8,6 +8,8 @@ import Spacer from "../../Spacer";
 import "./index.css";
 import { Modal as ModalType } from "../../../utilities/types";
 import AccountButton from "./AccountButton";
+import FooterSignupButton from "./FooterSignupButton";
+import FooterLoginButton from "./FooterLoginButton";
 
 const ModalButton = ({ type }: { type: ModalType }) => {
   const { t } = useTranslation();
@@ -16,6 +18,12 @@ const ModalButton = ({ type }: { type: ModalType }) => {
   const [modal, setModal] = useState<ModalType | null>(null);
 
   const [isLoginTab, setLoginTab] = useState(true);
+
+  useEffect(() => {
+    if (type === "footerSignup") {
+      setLoginTab(false);
+    }
+  }, [type]);
 
   const show = (currentModal: ModalType) => {
     setModal(currentModal);
@@ -78,6 +86,12 @@ const ModalButton = ({ type }: { type: ModalType }) => {
 
       {/* Account modal open button */}
       {type === "account" && <AccountButton show={show} />}
+
+      {/* Footer Signup modal open button */}
+      {type === "footerSignup" && <FooterSignupButton show={show} />}
+
+      {/* Footer Login modal open button */}
+      {type === "footerLogin" && <FooterLoginButton show={show} />}
 
       {/* Modal content*/}
       {modal && (

@@ -1,106 +1,125 @@
 import React, { useState } from "react";
 import "./index.css";
 import Spacer from "../Spacer";
-import { INITIAL_USER } from "../../utilities/constants";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../../hooks/useAuth";
+import { validation } from "../../utilities/validation";
+import NameInput from "../Inputs/NameInput";
+import EmailInput from "../Inputs/EmailInput";
+import PasswordInput from "../Inputs/PasswordInput";
+import { auth } from "../../firebase";
+import { updateProfile } from "firebase/auth";
+import { setUser } from "../../store/slices/userSlice";
+import { useAppDispatch } from "../../hooks/redux-hooks";
 
-interface PersonalDataFormProps {
-  noDate?: boolean;
-}
+interface PersonalDataFormProps {}
 
-const PersonalDataForm: React.FC<PersonalDataFormProps> = ({
-  noDate = false,
-}) => {
+const PersonalDataForm: React.FC<PersonalDataFormProps> = ({}) => {
   const { t } = useTranslation();
-  const [userData, setUserData] = useState(INITIAL_USER);
+  const { name, lastName, email, password } = useAuth();
+  const dispatch = useAppDispatch();
+
+  const [formData, setFormData] = useState({
+    name,
+    lastName,
+    email,
+    password,
+  });
+
+  const [errors, setErrors] = useState<{ name: string; text: string }[]>([]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name } = e.target;
+    validation(
+      formData,
+      errors,
+      setErrors,
+      name as "email" | "password" | "name" | "lastName",
+    );
+  };
+
+  const onSave = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (name === formData.name && lastName === formData.lastName) return;
+    const displayName = formData.name + " " + formData.lastName;
+    if (auth.currentUser) {
+      updateProfile(auth.currentUser, {
+        displayName,
+      })
+        .then(() => {
+          dispatch(
+            setUser({
+              displayName,
+              name: formData.name,
+              lastName: formData.lastName,
+            }),
+          );
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   return (
-    <div className="personal-data-form">
+    <form id="personal-data" className="personal-data-form" onSubmit={onSave}>
       <div className="personal-data-form-row">
         <div className="personal-data-input-wrapper">
-          <label htmlFor="user-name" className="account-input-label">
-            {t("namePlaceholder")}
-          </label>
-          <input
-            id="user-name"
-            className="account-input"
-            type="text"
-            required
-            value={userData.name}
-            onChange={(event) =>
-              setUserData({ ...userData, name: event.target.value })
-            }
+          <NameInput
+            name="name"
+            value={formData.name || ""}
+            error={errors?.find((e) => e.name === "name")?.text}
+            onChange={handleInputChange}
+            onBlur={onInputBlur}
           />
         </div>
         <Spacer width={20} />
         <div className="personal-data-input-wrapper">
-          <label htmlFor="user-last-name" className="account-input-label">
-            {t("lastNamePlaceholder")}
-          </label>
-          <input
-            id="user-last-name"
-            className="account-input"
-            type="text"
-            required
-            value={userData.lastName}
-            onChange={(event) =>
-              setUserData({ ...userData, lastName: event.target.value })
-            }
+          <NameInput
+            name="lastName"
+            value={formData.lastName || ""}
+            error={errors?.find((e) => e.name === "lastName")?.text}
+            onChange={handleInputChange}
+            onBlur={onInputBlur}
           />
         </div>
       </div>
       <Spacer height={20} />
       <div className="personal-data-form-row">
         <div className="personal-data-input-wrapper">
-          <label htmlFor="user-phone" className="account-input-label">
-            {t("phonePlaceholder")}
-          </label>
-          <input
-            id="user-phone"
-            className="account-input"
-            type="tel"
-            required
+          <EmailInput
+            value={formData.email || ""}
+            error={errors?.find((e) => e.name === "email")?.text}
+            onChange={handleInputChange}
+            onBlur={onInputBlur}
           />
         </div>
-        <Spacer width={20} />
         <div className="personal-data-input-wrapper">
-          <label htmlFor="user-email" className="account-input-label">
-            {t("emailPlaceholder")}
-          </label>
-          <input
-            id="user-email"
-            className="account-input"
-            type="email"
-            required
-            value={userData.email}
-            onChange={(event) =>
-              setUserData({ ...userData, email: event.target.value })
-            }
-          />
+          {password && (
+            <PasswordInput
+              value={formData.password || ""}
+              error={errors?.find((e) => e.name === "password")?.text}
+              onChange={handleInputChange}
+              onBlur={onInputBlur}
+            />
+          )}
         </div>
       </div>
-      {!noDate && <Spacer height={20} />}
-      {!noDate && (
-        <div className="personal-data-form-row">
-          <div className="personal-data-input-wrapper">
-            <label htmlFor="user-birth" className="account-input-label">
-              {t("birthPlaceholder")}
-            </label>
-            <input
-              id="user-birth"
-              className="account-input"
-              type="date"
-              required
-              value={userData.birth}
-              onChange={(event) =>
-                setUserData({ ...userData, birth: event.target.value })
-              }
-            />
-          </div>
-          <Spacer width={20} />
-        </div>
-      )}
-    </div>
+      <Spacer height={20} />
+      <div className="personal-data-save-btn-wrapper">
+        <button className="personal-data-save-btn" type="submit">
+          {t("saveBtn")}
+        </button>
+      </div>
+    </form>
   );
 };
 export default PersonalDataForm;

@@ -40,7 +40,7 @@ export const MENU_LINKS = [
 ];
 
 export const INITIAL_USER: User = {
-  id: "asd",
+  id: "",
   image: "",
   name: "Oleksandr",
   lastName: "Popov",

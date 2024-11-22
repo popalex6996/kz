@@ -8,6 +8,7 @@ import SignupModal from "./Modals/SignupModal";
 
 import "./index.css";
 import { Modal as ModalType } from "../../utilities/types";
+import AccountModal from "./Modals/AccountModal";
 
 interface ModalProps {
   hide: (modal: ModalType) => void;
@@ -38,6 +39,9 @@ const Modal: React.FC<ModalProps> = ({
 
         {/* Cart modal content */}
         {modal === "cart" && <CartModal hide={hide} />}
+
+        {/* Cart modal content */}
+        {modal === "account" && <AccountModal hide={hide} />}
 
         {/* Catalog modal content */}
         {modal === "catalog" && <CatalogModal hide={hide} />}

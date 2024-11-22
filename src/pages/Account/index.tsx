@@ -1,44 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import Spacer from "../../components/Spacer";
 import { useTranslation } from "react-i18next";
 import Button from "../../components/Button";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ORDER, ORDERS, PRODUCTS } from "../../utilities/constants";
 import PersonalDataForm from "../../components/PersonalDataForm";
 import ProductCard from "../../components/ProductCard";
 import ExpandableCartProducts from "../../components/ExpandableCartProducts";
-
-const tabs = [
-  {
-    name: "personal-data",
-    icon: "user",
-  },
-  {
-    name: "my-products",
-    icon: "hand-holding-dollar",
-  },
-  {
-    name: "orders",
-    icon: "receipt",
-  },
-  {
-    name: "cart",
-    icon: "shopping-cart",
-  },
-  {
-    name: "favourites",
-    icon: "heart",
-  },
-  {
-    name: "logout",
-    icon: "right-from-bracket",
-    onClick: () => {},
-  },
-];
+import { removeUser } from "../../store/slices/userSlice";
+import { useAppDispatch } from "../../hooks/redux-hooks";
+import { useAuth } from "../../hooks/useAuth";
 
 const Account = () => {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const dispatch = useAppDispatch();
+
+  const tabs = [
+    {
+      name: "personal-data",
+      icon: "user",
+    },
+    {
+      name: "favourites",
+      icon: "heart",
+    },
+    {
+      name: "cart",
+      icon: "shopping-cart",
+    },
+    {
+      name: "orders",
+      icon: "receipt",
+    },
+    {
+      name: "my-products",
+      icon: "hand-holding-dollar",
+    },
+    {
+      name: "add-product",
+      icon: "circle-plus",
+      onClick: () => {},
+    },
+
+    {
+      name: "logout",
+      icon: "right-from-bracket",
+      onClick: () => {
+        dispatch(removeUser());
+      },
+    },
+  ];
+
+  const { isAuth } = useAuth();
 
   const { t } = useTranslation();
 
@@ -47,6 +62,19 @@ const Account = () => {
   // const [userData, setUserData] = useState(INITIAL_USER);
 
   const [orderDetails, setDetails] = useState(false);
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/home");
+    }
+  }, [isAuth]);
+
+  //Set active tab from account modal from route
+  useEffect(() => {
+    if (state?.activeTab) {
+      setTab(state?.activeTab);
+    }
+  }, [state?.activeTab]);
 
   const toggleCatalog = () => {
     // @ts-ignore
@@ -72,7 +100,7 @@ const Account = () => {
             <div className="account-menu-icon-wrapper">
               <i className={`fa-solid fa-${tab.icon}`} />
             </div>
-            <Spacer width={5} />
+            <Spacer width={10} />
             <span className="account-menu-tab-name">{t(tab.name)}</span>
           </button>
         ))}
@@ -83,17 +111,7 @@ const Account = () => {
           <div className="personal-data-wrapper">
             <div className="personal-data-avatar-wrapper">avatar</div>
             <Spacer width={20} />
-            <div className="personal-data-inputs-wrapper">
-              <PersonalDataForm />
-              <div className="personal-data-save-btn-wrapper">
-                <Button
-                  onClick={() => {}}
-                  className="personal-data-save-btn"
-                  label={t("saveBtn")}
-                  color="#711d1d"
-                />
-              </div>
-            </div>
+            <PersonalDataForm />
           </div>
         )}
 
@@ -303,6 +321,7 @@ const Account = () => {
             )}
           </div>
         )}
+
         {activeTab === "cart" && (
           <div className="account-cart-wrapper">
             <div className="account-cart-total-price-wrapper">
@@ -322,6 +341,7 @@ const Account = () => {
             <ExpandableCartProducts products={ORDER.products} />
           </div>
         )}
+
         {activeTab === "favourites" && (
           <div className="favourites-wrapper">
             {!PRODUCTS.length ? (

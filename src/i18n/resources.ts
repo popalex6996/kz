@@ -27,6 +27,7 @@ const resources = {
       //Placeholders
       searchPlaceholder: "Я шукаю...",
       emailPlaceholder: "Ел. пошта",
+      nameInputPlaceholder: "Ім'я та прізвище",
       passwordPlaceholder: "Пароль",
       namePlaceholder: "Ім'я",
       lastNamePlaceholder: "Прізвище",
@@ -236,6 +237,7 @@ const resources = {
       order: "Замовлення",
       status: "Статус",
       delivery: "Доставка",
+      "add-product": "Дати оголошення",
 
       //Cart page
       "cart-page-title": "Оформлення замовлення",
@@ -498,6 +500,7 @@ const resources = {
       order: "Order",
       status: "Status",
       delivery: "Delivery",
+      "add-product": "Sell a product",
 
       //Cart page
       "cart-page-title": "Checkout process",

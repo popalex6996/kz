@@ -28,7 +28,7 @@ const Cart = () => {
               <h2 className="stage-title">{t("contact-details")}</h2>
               <Spacer height={10} />
               <div className="personal-data-form-wrapper">
-                <PersonalDataForm noDate />
+                {/*<PersonalDataForm noDate />*/}
               </div>
               <Spacer height={20} />
               <div className="delivery-payment-forms">

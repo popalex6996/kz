@@ -4,7 +4,6 @@ import "./index.css";
 import Spacer from "../../components/Spacer";
 import Button from "../../components/Button";
 import { ORDER } from "../../utilities/constants";
-import PersonalDataForm from "../../components/PersonalDataForm";
 import DeliveryForm from "../../components/DeliveryForm";
 import PaymentForm from "../../components/PaymentForm";
 import { Delivery, Payment } from "../../utilities/types";

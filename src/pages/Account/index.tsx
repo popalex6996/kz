@@ -67,7 +67,7 @@ const Account = () => {
     if (!isAuth) {
       navigate("/home");
     }
-  }, [isAuth]);
+  }, [isAuth, navigate]);
 
   //Set active tab from account modal from route
   useEffect(() => {

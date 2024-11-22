@@ -14,7 +14,7 @@ import { useAppDispatch } from "../../hooks/redux-hooks";
 
 interface PersonalDataFormProps {}
 
-const PersonalDataForm: React.FC<PersonalDataFormProps> = ({}) => {
+const PersonalDataForm: React.FC<PersonalDataFormProps> = () => {
   const { t } = useTranslation();
   const { name, lastName, email, password } = useAuth();
   const dispatch = useAppDispatch();

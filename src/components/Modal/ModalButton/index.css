@@ -38,6 +38,27 @@
   border-bottom-left-radius: 32px;
 }
 
+.account {
+  flex-direction: column;
+  max-width: 450px;
+  transition: margin-right 0.5s;
+  margin-right: -500px;
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #f2f1f1;
+  right: 0;
+  top: 0;
+}
+
+.account-open {
+  margin-right: 0;
+  transition: margin-right 0.5s;
+  border-bottom-left-radius: 32px;
+  background: #fffbf6;
+}
+
 .catalog {
   width: 100%;
   transition: margin-top 0.5s;

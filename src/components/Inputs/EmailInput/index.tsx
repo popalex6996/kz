@@ -6,9 +6,15 @@ interface EmailInputProps {
   value: string;
   error: string | undefined;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const EmailInput: React.FC<EmailInputProps> = ({ value, error, onChange }) => {
+const EmailInput: React.FC<EmailInputProps> = ({
+  value,
+  error,
+  onChange,
+  onBlur,
+}) => {
   const { t } = useTranslation();
   return (
     <div className={`email-input-wrapper ${error && "input-error"}`}>
@@ -22,6 +28,7 @@ const EmailInput: React.FC<EmailInputProps> = ({ value, error, onChange }) => {
         className="email-input"
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
     </div>
   );

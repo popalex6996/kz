@@ -1,6 +1,3 @@
-.account-btn-wrapper {
-  cursor: pointer;
-}
 .account-btn {
   padding: 0;
   border-radius: 100%;
@@ -29,4 +26,25 @@
   color: white;
   background-color: #c60f0f;
   border: 1px solid white;
+}
+
+.initials:hover {
+  background-color: #711d1d;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #711d1d;
+  border: 1px solid white;
+}
+
+.user-icon:hover {
+  background-color: #c60f0f;
 }

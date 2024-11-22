@@ -1,0 +1,117 @@
+.account-modal {
+}
+
+.close-account-modal-btn {
+  width: 40px;
+  height: 40px;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
+  border: none;
+  background: #fffbf6;
+  position: absolute;
+  left: -30px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.close-account-modal-btn .fa-chevron-right {
+  color: #711d1d;
+}
+
+.close-account-modal-btn .fa-chevron-right:hover {
+  color: #c60f0f;
+}
+
+.account-name-image {
+  padding: 10px 30px 10px 10px;
+  background: #fffbf6;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+
+.account-name-image:hover .initials {
+  background: #711d1d;
+}
+
+.account-name-image:hover .initials-text {
+  color: #711d1d;
+}
+
+.account-btn {
+  padding: 0;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.account-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  object-fit: cover;
+}
+
+.initials-text {
+  color: #c60f0f;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.account-link {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 1px 0;
+  padding: 5px 30px 5px 13px;
+  text-decoration: none;
+  color: #711d1d;
+  background: #fffbf6;
+  font-size: 16px;
+  border: 2px solid #fffbf6;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.account-link:hover {
+  background-color: #711d1d;
+  color: #fffbf6;
+}
+
+.link-icon {
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exit-btn {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-decoration: none;
+  color: #711d1d;
+  background: #fffbf6;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: none;
+  border-top: 2px solid #711d1d;
+  border-bottom-left-radius: 24px;
+}
+
+.exit-btn:hover {
+  background-color: #711d1d;
+  color: #fffbf6;
+}

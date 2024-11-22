@@ -1,25 +1,38 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { setUser } from "../../../../../store/slices/userSlice";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-import EmailInput from "../../../../Inputs/Email";
+import EmailInput from "../../../../Inputs/EmailInput";
 import Socials from "../../../../Socials";
 import Spacer from "../../../../Spacer";
 
-import {
-  emailValidation,
-  passwordValidation,
-} from "../../../../../utilities/validation";
-import PasswordInput from "../../../../Inputs/Password";
+import { updateErrors, validation } from "../../../../../utilities/validation";
+import PasswordInput from "../../../../Inputs/PasswordInput";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../../../hooks/redux-hooks";
+import { Modal } from "../../../../../utilities/types";
+import { auth } from "../../../../../firebase";
 
-interface LoginFormProps {}
+interface LoginFormProps {
+  hide: (modal: Modal) => void;
+  setResetPasswordView: () => void;
+}
 
-const LoginForm: React.FC<LoginFormProps> = () => {
+const LoginForm: React.FC<LoginFormProps> = ({
+  hide,
+  setResetPasswordView,
+}) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState<{ email: string; password: string }>(
+    {
+      email: "",
+      password: "",
+    },
+  );
   const [errors, setErrors] = useState<{ name: string; text: string }[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,46 +43,39 @@ const LoginForm: React.FC<LoginFormProps> = () => {
     });
   };
 
-  const updateErrors = (name: "email" | "password", text?: string) => {
-    if (text) {
-      setErrors((prevState) => [
-        ...prevState?.filter((e) => e.name !== name),
-        { name, text },
-      ]);
-    } else {
-      setErrors((prevState) => [...prevState?.filter((e) => e.name !== name)]);
-    }
+  const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name } = e.target;
+    validation(formData, errors, setErrors, name as "email" | "password");
   };
 
-  const validation = () => {
-    // Validate email
-    if (!formData.email) {
-      updateErrors("email", "Email is required");
-    } else if (!emailValidation(formData.email)) {
-      updateErrors("email", "Email is invalid");
-    } else if (formData.email && emailValidation(formData.email)) {
-      if (errors.find((e) => e.name === "email")) {
-        updateErrors("email");
-      }
-    }
-    // Validate password
-    if (!formData.password) {
-      updateErrors("password", "Password is required");
-    } else if (!passwordValidation(formData.password)) {
-      updateErrors(
-        "password",
-        "Password must contain at least 8 characters long,one uppercase letter, one lowercase letter, least one digit, one special character (e.g., !@#$%^&*) ",
-      );
-    } else if (formData.password && passwordValidation(formData.password)) {
-      if (errors.find((e) => e.name === "password")) {
-        updateErrors("password");
-      }
-    }
-  };
-
-  const onLogin = (event: React.FormEvent) => {
+  const onLogin = async (event: React.FormEvent) => {
     event.preventDefault();
-    validation();
+    validation(formData, errors, setErrors);
+    if (errors.length || !formData.email || !formData.password) return;
+    await signInWithEmailAndPassword(auth, formData.email, formData.password)
+      .then(({ user }) => {
+        console.log("user =>", user);
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+            token: user.refreshToken,
+            displayName: user.displayName,
+            name: user.displayName?.split(" ")[0],
+            lastName: user.displayName?.split(" ")[1],
+            photoURL: user.photoURL,
+            password: formData.password,
+          }),
+        );
+        navigate("/home");
+        hide("signup");
+      })
+      .catch((error) => {
+        if (error.code === "auth/invalid-credential") {
+          updateErrors(setErrors, "email", "Не вірний email");
+          updateErrors(setErrors, "password", "та/або пароль");
+        }
+      });
   };
 
   return (
@@ -78,25 +84,28 @@ const LoginForm: React.FC<LoginFormProps> = () => {
         value={formData.email}
         error={errors?.find((e) => e.name === "email")?.text}
         onChange={handleInputChange}
+        onBlur={onInputBlur}
       />
       <Spacer height={20} />
       <PasswordInput
         value={formData.password}
         error={errors?.find((e) => e.name === "password")?.text}
         onChange={handleInputChange}
+        onBlur={onInputBlur}
       />
       <Spacer height={10} />
       <div className="reset-pass-wrapper">
-        <button className="reset-pass-btn">{t("forgetPassword")}</button>
+        <button className="reset-pass-btn" onClick={setResetPasswordView}>
+          {t("forgetPassword")}
+        </button>
       </div>
-      <Spacer height={50} />
+      <Spacer height={30} />
       <button className="submit-btn" type="submit">
         {t("login")}
       </button>
-      <Spacer height={20} />
+      <Spacer height={15} />
       <span>{t("or")}</span>
-      <Spacer height={20} />
-      <Socials />
+      <Socials hide={hide} />
     </form>
   );
 };

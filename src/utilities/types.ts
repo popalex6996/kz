@@ -50,7 +50,8 @@ export type CategoryName =
   | 'sauces-canned'
   | 'drinks'
   | 'garden'
-  | 'tea';
+  | 'tea'
+  | 'other';
 
 type CategoryIcon =
   | 'apple-whole'
@@ -63,15 +64,16 @@ type CategoryIcon =
   | 'bottle-droplet'
   | 'mug-hot'
   | 'bottle-water'
-  | 'leaf';
+  | 'leaf'
+  | 'basket-shopping';
 
 export type Category = {
   available?: boolean;
-  category: CategoryName;
+  name: CategoryName;
   icon: CategoryIcon;
 };
 
-type SubCategoryName =
+export type SubCategoryName =
   | 'fruits'
   | 'vegetables'
   | 'pickles'
@@ -126,12 +128,13 @@ type SubCategoryName =
   | 'seed'
   | 'saplings'
   | 'flower-pots'
-  | 'croissant-puffs';
+  | 'croissant-puffs'
+  | 'other';
 
 export type SubCategory = {
   image: string;
   category: CategoryName;
-  subCategory: SubCategoryName;
+  name: SubCategoryName;
   available: boolean;
 };
 
@@ -150,7 +153,7 @@ export type Modal =
   | 'footerLogin'
   | 'footerSignup';
 
-export type AccountTabs =
+export type AccountTabType =
   | 'personal-data'
   | 'favourites'
   | 'cart'

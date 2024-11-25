@@ -27,7 +27,14 @@ const resources = {
       //Placeholders
       searchPlaceholder: 'Я шукаю...',
       emailPlaceholder: 'Ел. пошта',
-      nameInputPlaceholder: "Ім'я та прізвище",
+      nameInputPlaceholder: "Ім'я",
+      lastNameInputPlaceholder: 'Прізвище',
+      displayNameInputPlaceholder: "Ім'я та Прізвище",
+      productNameInputPlaceholder: 'Вкажіть назву',
+      priceInputPlaceholder: 'Вкажіть ціну',
+      categoryInputPlaceholder: 'Виберіть категорію',
+      subCategoryInputPlaceholder: 'Виберіть підкатегорію',
+      descriptionInputPlaceholder: 'Додайте опис',
       passwordPlaceholder: 'Пароль',
       namePlaceholder: "Ім'я",
       lastNamePlaceholder: 'Прізвище',
@@ -44,6 +51,7 @@ const resources = {
 
       //Buttons labels
       searchBtn: 'Знайти',
+      addProduct: 'Дати оголошення',
       saveBtn: 'Зберегти зміни',
       addProductBtn: 'Додати продукт',
       changeBtn: 'Змінити',
@@ -65,6 +73,7 @@ const resources = {
       //Hamburger btn
       home: 'Головна',
       profile: 'Профіль',
+      'account/personal-data': 'Профіль',
       cart: 'Кошик',
       'payment-delivery': 'Оплата і доставка',
       exchange: 'Обмін та повернення',
@@ -104,6 +113,7 @@ const resources = {
       veal: 'Телятина',
       beef: 'Яловичина',
       lamb: 'Баранина',
+      other: 'Інше...',
       walnut: 'Волоський горіх',
       hazelnut: 'Лісовий горіх',
       chickpeas: 'Нут',
@@ -284,6 +294,14 @@ const resources = {
       //Placeholders
       searchPlaceholder: 'Type here...',
       emailPlaceholder: 'Email Address',
+      nameInputPlaceholder: 'Name',
+      lastNameInputPlaceholder: 'Last name',
+      displayNameInputPlaceholder: 'Full name',
+      productNameInputPlaceholder: 'Product name',
+      priceInputPlaceholder: 'Product price',
+      categoryInputPlaceholder: 'Choose category',
+      subCategoryInputPlaceholder: 'Choose subcategory',
+      descriptionInputPlaceholder: 'Add description',
       passwordPlaceholder: 'Password',
       namePlaceholder: 'Name',
       lastNamePlaceholder: 'Last name',
@@ -300,6 +318,7 @@ const resources = {
 
       //Buttons labels
       searchBtn: 'Search',
+      addProduct: 'Add product',
       saveBtn: 'Save changes',
       addProductBtn: 'Add product',
       changeBtn: 'Change',
@@ -322,6 +341,7 @@ const resources = {
       //Hamburger btn
       home: 'Home',
       profile: 'Profile',
+      'account/personal-data': 'Profile',
       cart: 'Cart',
       'payment-delivery': 'Payment and delivery',
       exchange: 'Exchange and return',
@@ -361,6 +381,7 @@ const resources = {
       veal: 'Veal',
       beef: 'Beef',
       lamb: 'Lamb',
+      other: 'Other...',
       walnut: 'Walnut',
       hazelnut: 'Hazelnut',
       chickpeas: 'Сhickpeas',

@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         element: <Platform />,
       },
       {
-        path: 'account',
+        path: 'account/:tab',
         element: <Account />,
       },
       {

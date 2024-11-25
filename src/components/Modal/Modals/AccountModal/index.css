@@ -1,4 +1,5 @@
 .account-modal {
+  cursor: pointer!important;
 }
 
 .close-account-modal-btn {

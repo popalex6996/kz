@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './index.css';
 
 interface NameInputProps {
-  name: 'displayName' | 'name' | 'lastName';
+  name: 'displayName' | 'name' | 'lastName' | 'productName';
   value: string;
   error: string | undefined;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -16,7 +16,7 @@ const NameInput: React.FC<NameInputProps> = ({ name, value, error, onChange, onB
   return (
     <div className={`name-input-wrapper ${error && 'input-error'}`}>
       <label htmlFor={name} className="name-input-label">
-        {error || t('nameInputPlaceholder')}
+        {error || t(`${name}InputPlaceholder`)}
       </label>
       <input
         id={name}

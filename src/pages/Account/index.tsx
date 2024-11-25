@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import './index.css';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
+import AddProductTab from './Tabs/AddProductTab';
 import CartTab from './Tabs/CartTab';
 import FavouritesTab from './Tabs/FavouritesTab';
 import OrdersTab from './Tabs/OrdersTab';
@@ -14,7 +15,7 @@ import { useAppDispatch } from '../../hooks/redux-hooks';
 import { useAuth } from '../../hooks/useAuth';
 import { removeUser } from '../../store/slices/userSlice';
 import { ACCOUNT_TABS } from '../../utilities/constants';
-import { AccountTabs } from '../../utilities/types';
+import { AccountTabType } from '../../utilities/types';
 
 // Account tabs content components
 const tabs = {
@@ -23,18 +24,23 @@ const tabs = {
   cart: <CartTab />,
   orders: <OrdersTab />,
   'my-products': <ProductsTab />,
-  'add-product': <ProductsTab />,
+  'add-product': <AddProductTab />,
 };
 
 const Account = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { state } = useLocation();
+  const { tab } = useParams();
   const { isAuth } = useAuth();
-  const dispatch = useAppDispatch();
 
   //Active tab variable
-  const [activeTab, setTab] = useState<AccountTabs>('personal-data');
+  const [activeTab, setTab] = useState<AccountTabType>('personal-data');
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setTab(tab as AccountTabType);
+  }, [tab]);
 
   //Navigate on logout to Home page
   useEffect(() => {
@@ -43,18 +49,10 @@ const Account = () => {
     }
   }, [isAuth, navigate]);
 
-  //Set active tab form route(from account modal)
-
-  useEffect(() => {
-    if (state?.activeTab) {
-      setTab(state?.activeTab);
-    }
-  }, [state?.activeTab]);
-
   //Tabs buttons component
-  const AccountTab = ({ name, icon }: { name: AccountTabs; icon: string }) => (
+  const AccountTab = ({ name, icon }: { name: AccountTabType; icon: string }) => (
     <button
-      onClick={() => setTab(name)}
+      onClick={() => navigate(`/account/${name}`)}
       className={activeTab === name ? 'account-menu-active-button' : 'account-menu-button'}
     >
       <div className="account-menu-icon-wrapper">

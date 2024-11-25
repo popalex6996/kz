@@ -1,18 +1,22 @@
-import React from "react";
-import "./index.css";
-import { useTranslation } from "react-i18next";
-import Spacer from "../../components/Spacer";
-import images from "../../assets/images";
-import Button from "../../components/Button";
+import React from 'react';
+
+import './index.css';
+import { useTranslation } from 'react-i18next';
+
+import platformFeature_1 from '../../assets/images/platform-feature-1.png';
+import platformFeature_2 from '../../assets/images/platform-feature-2.png';
+import platformFeature_3 from '../../assets/images/platform-feature-3.png';
+import Button from '../../components/Button';
+import Spacer from '../../components/Spacer';
 
 const Platform = () => {
   const { t } = useTranslation();
 
   const openCatalog = () => {
-    const catalogShadow = document.getElementById("catalog-shadow");
-    catalogShadow?.classList.toggle("catalog-shadow-visible");
-    const cart = document.getElementById("catalog");
-    cart?.classList.toggle("catalog-open");
+    const catalogShadow = document.getElementById('catalog-shadow');
+    catalogShadow?.classList.toggle('catalog-shadow-visible');
+    const cart = document.getElementById('catalog');
+    cart?.classList.toggle('catalog-open');
   };
 
   return (
@@ -21,57 +25,51 @@ const Platform = () => {
       <div className="name-block">
         <div className="platform-background" />
         <Spacer height={100} />
-        <h1 className="platform-name">{t("platformName")}</h1>
+        <h1 className="platform-name">{t('platformName')}</h1>
         <Spacer height={80} />
-        <span className="platform-description">{t("platformDescription")}</span>
+        <span className="platform-description">{t('platformDescription')}</span>
         <Spacer height={80} />
         <Button
           onClick={openCatalog}
           className="catalog-btn"
-          label={t("store")}
+          label={t('store')}
           iconClassName="fa-solid"
         />
         <Spacer height={150} />
       </div>
       <div className="about-platform-wrapper">
         <Spacer height={50} />
-        <h3 className="platform-features">{t("platformFeatures")}</h3>
+        <h3 className="platform-features">{t('platformFeatures')}</h3>
         <div className="platform-features-wrapper">
           <div className="platform-feature">
             <div className="platform-feature-icon-wrapper">
-              <img src={images.platformFeature_1} alt="feature" />
+              <img src={platformFeature_1} alt="feature" />
             </div>
-            <span className="platform-feature-description">
-              {t("platform-feature-1")}
-            </span>
+            <span className="platform-feature-description">{t('platform-feature-1')}</span>
           </div>
           <div className="platform-feature">
             <div className="platform-feature-icon-wrapper">
-              <img src={images.platformFeature_2} alt="feature" />
+              <img src={platformFeature_2} alt="feature" />
             </div>
-            <span className="platform-feature-description">
-              {t("platform-feature-2")}
-            </span>
+            <span className="platform-feature-description">{t('platform-feature-2')}</span>
           </div>
           <div className="platform-feature">
             <div className="platform-feature-icon-wrapper">
-              <img src={images.platformFeature_3} alt="feature" />
+              <img src={platformFeature_3} alt="feature" />
             </div>
-            <span className="platform-feature-description">
-              {t("platform-feature-3")}
-            </span>
+            <span className="platform-feature-description">{t('platform-feature-3')}</span>
           </div>
         </div>
         <Spacer height={70} />
         <div className="about-platform">
           <div className="about-platform-text-wrpper">
-            <h3 className="about-platform-title">{t("aboutPlatform")}</h3>
+            <h3 className="about-platform-title">{t('aboutPlatform')}</h3>
             <Spacer height={30} />
-            <span>{t("aboutPlatformText1")}</span>
+            <span>{t('aboutPlatformText1')}</span>
             <Spacer height={20} />
-            <span>{t("aboutPlatformText2")}</span>
+            <span>{t('aboutPlatformText2')}</span>
             <Spacer height={20} />
-            <span>{t("aboutPlatformText3")}</span>
+            <span>{t('aboutPlatformText3')}</span>
           </div>
           <div className="about-platform-logo-wrapper">
             <div className="about-platform-logo">Logo</div>

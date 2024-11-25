@@ -1,33 +1,32 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
 
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
-import Socials from "../../../../Socials";
-import Spacer from "../../../../Spacer";
-import EmailInput from "../../../../Inputs/EmailInput";
-import PasswordInput from "../../../../Inputs/PasswordInput";
-import { setUser } from "../../../../../store/slices/userSlice";
-import { useAppDispatch } from "../../../../../hooks/redux-hooks";
-import { Modal } from "../../../../../utilities/types";
-import { auth } from "../../../../../firebase";
-import { updateErrors, validation } from "../../../../../utilities/validation";
-import NameInput from "../../../../Inputs/NameInput";
+import { auth } from '../../../../../firebase';
+import { useAppDispatch } from '../../../../../hooks/redux-hooks';
+import { setUser } from '../../../../../store/slices/userSlice';
+import { Modal } from '../../../../../utilities/types';
+import { updateErrors, validation } from '../../../../../utilities/validation';
+import EmailInput from '../../../../Inputs/EmailInput';
+import NameInput from '../../../../Inputs/NameInput';
+import PasswordInput from '../../../../Inputs/PasswordInput';
+import Socials from '../../../../Socials';
+import Spacer from '../../../../Spacer';
 
 interface SignupFormProps {
-  setLoginForm: () => void;
   hide: (modal: Modal) => void;
 }
 
-const SignupForm: React.FC<SignupFormProps> = ({ setLoginForm, hide }) => {
+const SignupForm: React.FC<SignupFormProps> = ({ hide }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    displayName: "",
+    email: '',
+    password: '',
+    displayName: '',
   });
 
   const [errors, setErrors] = useState<{ name: string; text: string }[]>([]);
@@ -42,32 +41,21 @@ const SignupForm: React.FC<SignupFormProps> = ({ setLoginForm, hide }) => {
 
   const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    validation(
-      formData,
-      errors,
-      setErrors,
-      name as "email" | "password" | "displayName",
-    );
+    validation(formData, errors, setErrors, name as 'email' | 'password' | 'displayName');
   };
 
   const onSignUp = (event: React.FormEvent) => {
     event.preventDefault();
     validation(formData, errors, setErrors);
-    if (
-      errors.length ||
-      !formData.email ||
-      !formData.password ||
-      !formData.displayName
-    )
-      return;
+    if (errors.length || !formData.email || !formData.password || !formData.displayName) return;
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
       .then(({ user }) => {
-        console.log("user+>", user);
+        console.log('user+>', user);
         if (auth.currentUser) {
           updateProfile(auth.currentUser, {
             displayName: formData.displayName,
             /* todo: setting photo upload (paid storage) */
-            photoURL: "",
+            photoURL: '',
           })
             .then(() => {
               dispatch(
@@ -76,23 +64,25 @@ const SignupForm: React.FC<SignupFormProps> = ({ setLoginForm, hide }) => {
                   id: user.uid,
                   token: user.refreshToken,
                   displayName: user.displayName,
-                  name: user.displayName?.split(" ")[0],
-                  lastName: user.displayName?.split(" ")[1],
+                  name: user.displayName?.split(' ')[0],
+                  lastName: user.displayName?.split(' ')[1],
                   photoURL: user.photoURL,
                   password: formData.password,
                 }),
               );
             })
-            .catch((error) => {});
+            .catch((error) => {
+              console.log(error);
+            });
         }
-        navigate("/home");
-        hide("signup");
+        navigate('/home');
+        hide('signup');
       })
       .catch((error) => {
-        console.log("error =>", error);
-        if (error.code === "auth/invalid-credential") {
-          updateErrors(setErrors, "email", "Не вірний email");
-          updateErrors(setErrors, "password", "та/або пароль");
+        console.log('error =>', error);
+        if (error.code === 'auth/invalid-credential') {
+          updateErrors(setErrors, 'email', 'Не вірний email');
+          updateErrors(setErrors, 'password', 'та/або пароль');
         }
       });
   };
@@ -102,30 +92,30 @@ const SignupForm: React.FC<SignupFormProps> = ({ setLoginForm, hide }) => {
       <NameInput
         name="displayName"
         value={formData.displayName}
-        error={errors?.find((e) => e.name === "displayName")?.text}
+        error={errors?.find((e) => e.name === 'displayName')?.text}
         onChange={handleInputChange}
         onBlur={onInputBlur}
       />
       <Spacer height={20} />
       <EmailInput
         value={formData.email}
-        error={errors?.find((e) => e.name === "email")?.text}
+        error={errors?.find((e) => e.name === 'email')?.text}
         onChange={handleInputChange}
         onBlur={onInputBlur}
       />
       <Spacer height={20} />
       <PasswordInput
         value={formData.password}
-        error={errors?.find((e) => e.name === "password")?.text}
+        error={errors?.find((e) => e.name === 'password')?.text}
         onChange={handleInputChange}
         onBlur={onInputBlur}
       />
       <Spacer height={30} />
       <button className="submit-btn" type="submit">
-        {t("signup")}
+        {t('signup')}
       </button>
       <Spacer height={15} />
-      <span> {t("or")}</span>
+      <span> {t('or')}</span>
       <Socials hide={hide} />
     </form>
   );

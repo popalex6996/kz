@@ -8,7 +8,7 @@ export type User = {
   birth: string;
 };
 
-export type Measurement = "kg" | "gramme" | "litres" | "piece";
+export type Measurement = 'kg' | 'gramme' | 'litres' | 'piece';
 
 export type Product = {
   id: string;
@@ -40,30 +40,30 @@ export type Order = {
 export type Feedback = { rate: number; text: string; user: string; id: string };
 
 export type CategoryName =
-  | "fruits-vegetables-pickles"
-  | "meat"
-  | "fish"
-  | "cheeses"
-  | "bakery-products"
-  | "milk-eggs"
-  | "grocery"
-  | "sauces-canned"
-  | "drinks"
-  | "garden"
-  | "tea";
+  | 'fruits-vegetables-pickles'
+  | 'meat'
+  | 'fish'
+  | 'cheeses'
+  | 'bakery-products'
+  | 'milk-eggs'
+  | 'grocery'
+  | 'sauces-canned'
+  | 'drinks'
+  | 'garden'
+  | 'tea';
 
 type CategoryIcon =
-  | "apple-whole"
-  | "drumstick-bite"
-  | "fish"
-  | "cheese"
-  | "bread-slice"
-  | "egg"
-  | "seedling"
-  | "bottle-droplet"
-  | "mug-hot"
-  | "bottle-water"
-  | "leaf";
+  | 'apple-whole'
+  | 'drumstick-bite'
+  | 'fish'
+  | 'cheese'
+  | 'bread-slice'
+  | 'egg'
+  | 'seedling'
+  | 'bottle-droplet'
+  | 'mug-hot'
+  | 'bottle-water'
+  | 'leaf';
 
 export type Category = {
   available?: boolean;
@@ -72,61 +72,61 @@ export type Category = {
 };
 
 type SubCategoryName =
-  | "fruits"
-  | "vegetables"
-  | "pickles"
-  | "dried-fruits"
-  | "mushrooms"
-  | "nuts"
-  | "poultry-meat"
-  | "pork"
-  | "beef-veal"
-  | "salo"
-  | "rabbit"
-  | "lamb"
-  | "offal"
-  | "fresh-fish"
-  | "smoked-fish"
-  | "cancers"
-  | "semi-hard-cheeses"
-  | "brined-cheeses"
-  | "soft-cheeses"
-  | "processed-cheeses"
-  | "hard-cheeses"
-  | "bread"
-  | "buns"
-  | "pita-cakes-blanks"
-  | "drying-breadcrumbs"
-  | "milk-cream"
-  | "yogurts-desserts"
-  | "eggs"
-  | "cottage-cheese"
-  | "sour-cream"
-  | "butter-margarine"
-  | "groats"
-  | "pasta"
-  | "oil"
-  | "sugar"
-  | "salt"
-  | "flour"
-  | "sauces"
-  | "seasonings-spices"
-  | "jams-preserves"
-  | "canned-meat"
-  | "canned-fruits"
-  | "honey"
-  | "herbal-tea-compositions"
-  | "herbs"
-  | "juice"
-  | "kvass"
-  | "compote"
-  | "flowers"
-  | "indoor-plants"
-  | "bouquets"
-  | "seed"
-  | "saplings"
-  | "flower-pots"
-  | "croissant-puffs";
+  | 'fruits'
+  | 'vegetables'
+  | 'pickles'
+  | 'dried-fruits'
+  | 'mushrooms'
+  | 'nuts'
+  | 'poultry-meat'
+  | 'pork'
+  | 'beef-veal'
+  | 'salo'
+  | 'rabbit'
+  | 'lamb'
+  | 'offal'
+  | 'fresh-fish'
+  | 'smoked-fish'
+  | 'cancers'
+  | 'semi-hard-cheeses'
+  | 'brined-cheeses'
+  | 'soft-cheeses'
+  | 'processed-cheeses'
+  | 'hard-cheeses'
+  | 'bread'
+  | 'buns'
+  | 'pita-cakes-blanks'
+  | 'drying-breadcrumbs'
+  | 'milk-cream'
+  | 'yogurts-desserts'
+  | 'eggs'
+  | 'cottage-cheese'
+  | 'sour-cream'
+  | 'butter-margarine'
+  | 'groats'
+  | 'pasta'
+  | 'oil'
+  | 'sugar'
+  | 'salt'
+  | 'flour'
+  | 'sauces'
+  | 'seasonings-spices'
+  | 'jams-preserves'
+  | 'canned-meat'
+  | 'canned-fruits'
+  | 'honey'
+  | 'herbal-tea-compositions'
+  | 'herbs'
+  | 'juice'
+  | 'kvass'
+  | 'compote'
+  | 'flowers'
+  | 'indoor-plants'
+  | 'bouquets'
+  | 'seed'
+  | 'saplings'
+  | 'flower-pots'
+  | 'croissant-puffs';
 
 export type SubCategory = {
   image: string;
@@ -137,15 +137,15 @@ export type SubCategory = {
 
 export type SubCategories = Record<CategoryName, SubCategory[]>;
 
-export type Delivery = "sd" | "np" | "up" | null;
+export type Delivery = 'sd' | 'np' | 'up' | null;
 
-export type Payment = "uponReceipt" | "payNow" | null;
+export type Payment = 'uponReceipt' | 'payNow' | null;
 
 export type Modal =
-  | "hamburger"
-  | "catalog"
-  | "cart"
-  | "account"
-  | "signup"
-  | "footerLogin"
-  | "footerSignup";
+  | 'hamburger'
+  | 'catalog'
+  | 'cart'
+  | 'account'
+  | 'signup'
+  | 'footerLogin'
+  | 'footerSignup';

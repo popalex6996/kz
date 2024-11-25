@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useEffect, useState } from 'react';
 
-import Button from "../../Button";
-import Modal from "../index";
-import Spacer from "../../Spacer";
+import { useTranslation } from 'react-i18next';
 
-import "./index.css";
-import { Modal as ModalType } from "../../../utilities/types";
-import AccountButton from "./AccountButton";
-import FooterSignupButton from "./FooterSignupButton";
-import FooterLoginButton from "./FooterLoginButton";
+import AccountButton from './AccountButton';
+import FooterLoginButton from './FooterLoginButton';
+import FooterSignupButton from './FooterSignupButton';
+import { Modal as ModalType } from '../../../utilities/types';
+import Button from '../../Button';
+import Spacer from '../../Spacer';
+import Modal from '../index';
+
+import './index.css';
 
 const ModalButton = ({ type }: { type: ModalType }) => {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ const ModalButton = ({ type }: { type: ModalType }) => {
   const [isLoginTab, setLoginTab] = useState(true);
 
   useEffect(() => {
-    if (type === "footerSignup") {
+    if (type === 'footerSignup') {
       setLoginTab(false);
     }
   }, [type]);
@@ -30,14 +31,14 @@ const ModalButton = ({ type }: { type: ModalType }) => {
     setTimeout(() => {
       const modalEl = document.getElementById(currentModal);
       modalEl?.classList.toggle(`${currentModal}-open`);
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = 'hidden';
     }, 0);
   };
 
   const hide = (currentModal: ModalType) => {
     const modalEl = document.getElementById(currentModal);
     modalEl?.classList.remove(`${currentModal}-open`);
-    document.body.style.overflowY = "scroll";
+    document.body.style.overflowY = 'scroll';
     setTimeout(() => setModal(null), 500);
   };
 
@@ -56,42 +57,34 @@ const ModalButton = ({ type }: { type: ModalType }) => {
   return (
     <>
       {/* Hamburger modal open button */}
-      {type === "hamburger" && (
-        <Button
-          icon="bars"
-          iconClassName="fa-solid"
-          onClick={() => show("hamburger")}
-        />
+      {type === 'hamburger' && (
+        <Button icon="bars" iconClassName="fa-solid" onClick={() => show('hamburger')} />
       )}
 
       {/* Cart modal open button */}
-      {type === "cart" && (
-        <Button
-          icon="cart-shopping"
-          iconClassName="fa-solid"
-          onClick={() => show("cart")}
-        />
+      {type === 'cart' && (
+        <Button icon="cart-shopping" iconClassName="fa-solid" onClick={() => show('cart')} />
       )}
 
       {/* Catalog modal open button */}
-      {type === "catalog" && (
-        <button onClick={() => show("catalog")} className="catalog-button">
+      {type === 'catalog' && (
+        <button onClick={() => show('catalog')} className="catalog-button">
           <i className="fa-solid fa-store" />
           <Spacer width={5} />
-          <span>{t("allProducts")}</span>
+          <span>{t('allProducts')}</span>
           <Spacer width={5} />
           <i className="fa-solid fa-chevron-down" />
         </button>
       )}
 
       {/* Account modal open button */}
-      {type === "account" && <AccountButton show={show} />}
+      {type === 'account' && <AccountButton show={show} />}
 
       {/* Footer Signup modal open button */}
-      {type === "footerSignup" && <FooterSignupButton show={show} />}
+      {type === 'footerSignup' && <FooterSignupButton show={show} />}
 
       {/* Footer Login modal open button */}
-      {type === "footerLogin" && <FooterLoginButton show={show} />}
+      {type === 'footerLogin' && <FooterLoginButton show={show} />}
 
       {/* Modal content*/}
       {modal && (

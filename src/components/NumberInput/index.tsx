@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import "./index.css";
-import Button from "../Button";
-import { Measurement } from "../../utilities/types";
+import React, { useState } from 'react';
+
+import './index.css';
+import { Measurement } from '../../utilities/types';
+import Button from '../Button';
 
 interface NumberInputProps {
   amount: number;
@@ -57,12 +58,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
       />
       <span className="quantity-measurement">{measurement}</span>
       {!hideBtns && (
-        <Button
-          onClick={stepUp}
-          icon="plus"
-          iconClassName="fa-solid"
-          className="amount-button"
-        />
+        <Button onClick={stepUp} icon="plus" iconClassName="fa-solid" className="amount-button" />
       )}
     </div>
   );

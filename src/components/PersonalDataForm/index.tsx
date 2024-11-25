@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import "./index.css";
-import Spacer from "../Spacer";
-import { useTranslation } from "react-i18next";
-import { useAuth } from "../../hooks/useAuth";
-import { validation } from "../../utilities/validation";
-import NameInput from "../Inputs/NameInput";
-import EmailInput from "../Inputs/EmailInput";
-import PasswordInput from "../Inputs/PasswordInput";
-import { auth } from "../../firebase";
-import { updateProfile } from "firebase/auth";
-import { setUser } from "../../store/slices/userSlice";
-import { useAppDispatch } from "../../hooks/redux-hooks";
+import React, { useState } from 'react';
 
-interface PersonalDataFormProps {}
+import './index.css';
+import { updateProfile } from 'firebase/auth';
+import { useTranslation } from 'react-i18next';
 
-const PersonalDataForm: React.FC<PersonalDataFormProps> = () => {
+import { auth } from '../../firebase';
+import { useAppDispatch } from '../../hooks/redux-hooks';
+import { useAuth } from '../../hooks/useAuth';
+import { setUser } from '../../store/slices/userSlice';
+import { validation } from '../../utilities/validation';
+import EmailInput from '../Inputs/EmailInput';
+import NameInput from '../Inputs/NameInput';
+import PasswordInput from '../Inputs/PasswordInput';
+import Spacer from '../Spacer';
+
+const PersonalDataForm: React.FC = () => {
   const { t } = useTranslation();
   const { name, lastName, email, password } = useAuth();
   const dispatch = useAppDispatch();
@@ -38,18 +38,13 @@ const PersonalDataForm: React.FC<PersonalDataFormProps> = () => {
 
   const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    validation(
-      formData,
-      errors,
-      setErrors,
-      name as "email" | "password" | "name" | "lastName",
-    );
+    validation(formData, errors, setErrors, name as 'email' | 'password' | 'name' | 'lastName');
   };
 
   const onSave = async (event: React.FormEvent) => {
     event.preventDefault();
     if (name === formData.name && lastName === formData.lastName) return;
-    const displayName = formData.name + " " + formData.lastName;
+    const displayName = formData.name + ' ' + formData.lastName;
     if (auth.currentUser) {
       updateProfile(auth.currentUser, {
         displayName,
@@ -75,8 +70,8 @@ const PersonalDataForm: React.FC<PersonalDataFormProps> = () => {
         <div className="personal-data-input-wrapper">
           <NameInput
             name="name"
-            value={formData.name || ""}
-            error={errors?.find((e) => e.name === "name")?.text}
+            value={formData.name || ''}
+            error={errors?.find((e) => e.name === 'name')?.text}
             onChange={handleInputChange}
             onBlur={onInputBlur}
           />
@@ -85,8 +80,8 @@ const PersonalDataForm: React.FC<PersonalDataFormProps> = () => {
         <div className="personal-data-input-wrapper">
           <NameInput
             name="lastName"
-            value={formData.lastName || ""}
-            error={errors?.find((e) => e.name === "lastName")?.text}
+            value={formData.lastName || ''}
+            error={errors?.find((e) => e.name === 'lastName')?.text}
             onChange={handleInputChange}
             onBlur={onInputBlur}
           />
@@ -96,8 +91,8 @@ const PersonalDataForm: React.FC<PersonalDataFormProps> = () => {
       <div className="personal-data-form-row">
         <div className="personal-data-input-wrapper">
           <EmailInput
-            value={formData.email || ""}
-            error={errors?.find((e) => e.name === "email")?.text}
+            value={formData.email || ''}
+            error={errors?.find((e) => e.name === 'email')?.text}
             onChange={handleInputChange}
             onBlur={onInputBlur}
           />
@@ -105,8 +100,8 @@ const PersonalDataForm: React.FC<PersonalDataFormProps> = () => {
         <div className="personal-data-input-wrapper">
           {password && (
             <PasswordInput
-              value={formData.password || ""}
-              error={errors?.find((e) => e.name === "password")?.text}
+              value={formData.password || ''}
+              error={errors?.find((e) => e.name === 'password')?.text}
               onChange={handleInputChange}
               onBlur={onInputBlur}
             />
@@ -116,7 +111,7 @@ const PersonalDataForm: React.FC<PersonalDataFormProps> = () => {
       <Spacer height={20} />
       <div className="personal-data-save-btn-wrapper">
         <button className="personal-data-save-btn" type="submit">
-          {t("saveBtn")}
+          {t('saveBtn')}
         </button>
       </div>
     </form>

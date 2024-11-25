@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
-import "./index.css";
-import Button from "../Button";
-import { useTranslation } from "react-i18next";
+import React, { useEffect, useState } from 'react';
+
+import './index.css';
+import { useTranslation } from 'react-i18next';
+
+import Button from '../Button';
 
 const ScrollToTop: React.FC = () => {
   const { t } = useTranslation();
 
   const [isScroll, setScroll] = useState(false);
   const onClick = () => {
-    //@ts-ignore
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -23,20 +24,18 @@ const ScrollToTop: React.FC = () => {
 
   useEffect(() => {
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <div
       id="scroll-top"
-      className={
-        isScroll ? "scroll-to-top-wrapper" : "scroll-to-top-wrapper-hide"
-      }
+      className={isScroll ? 'scroll-to-top-wrapper' : 'scroll-to-top-wrapper-hide'}
     >
-      <span className="scroll-to-top-tooltip">{t("scrollToTop")}</span>
+      <span className="scroll-to-top-tooltip">{t('scrollToTop')}</span>
       <Button
         onClick={onClick}
         className="scroll-to-top"

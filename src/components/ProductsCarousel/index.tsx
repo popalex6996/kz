@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import "./index.css";
-import Button from "../Button";
-import { Product } from "../../utilities/types";
-import ProductCard from "../ProductCard";
+import React, { useEffect, useState } from 'react';
+
+import './index.css';
+import { Product } from '../../utilities/types';
+import Button from '../Button';
+import ProductCard from '../ProductCard';
 
 const PRODUCT_CARD_WIDTH = 200;
 
@@ -12,7 +13,7 @@ const ProductsCarousel = ({ products }: { products: Product[] }) => {
   const [slidesToDisplay, setSlides] = useState(1);
 
   const handleResize = () => {
-    const slidesEl = document.getElementById("slides");
+    const slidesEl = document.getElementById('slides');
     if (slidesEl) {
       setSlides(Math.floor(slidesEl.offsetWidth / PRODUCT_CARD_WIDTH) - 1 || 1);
     }
@@ -23,8 +24,8 @@ const ProductsCarousel = ({ products }: { products: Product[] }) => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize, false);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize, false);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (

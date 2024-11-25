@@ -1,5 +1,5 @@
-import React from "react";
-import "./index.css";
+import React from 'react';
+import './index.css';
 
 const Privacy = () => {
   return <div className="privacy-wrapper">PRIVACY</div>;

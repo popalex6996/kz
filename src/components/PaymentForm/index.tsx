@@ -1,8 +1,10 @@
-import React from "react";
-import "./index.css";
-import { useTranslation } from "react-i18next";
-import Spacer from "../Spacer";
-import { Payment } from "../../utilities/types";
+import React from 'react';
+
+import './index.css';
+import { useTranslation } from 'react-i18next';
+
+import { Payment } from '../../utilities/types';
+import Spacer from '../Spacer';
 
 interface PaymentFormProps {
   payment: Payment;
@@ -15,10 +17,8 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ payment, setPayment }) => {
   return (
     <div className="payment-form">
       <div
-        className={`payment-option ${
-          payment === "uponReceipt" && "active-payment-option"
-        }`}
-        onClick={() => setPayment("uponReceipt")}
+        className={`payment-option ${payment === 'uponReceipt' && 'active-payment-option'}`}
+        onClick={() => setPayment('uponReceipt')}
       >
         <div className="payment-option-input">
           <input
@@ -26,21 +26,17 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ payment, setPayment }) => {
             id="uponReceipt"
             name="payment"
             value="uponReceipt"
-            checked={payment === "uponReceipt"}
+            checked={payment === 'uponReceipt'}
           />
           <Spacer width={10} />
           <label htmlFor="uponReceipt" className="payment-option-label">
-            <span className="payment-option-label-text">
-              {t("uponReceipt")}
-            </span>
+            <span className="payment-option-label-text">{t('uponReceipt')}</span>
           </label>
         </div>
       </div>
       <div
-        className={`payment-option ${
-          payment === "payNow" && "active-payment-option"
-        }`}
-        onClick={() => setPayment("payNow")}
+        className={`payment-option ${payment === 'payNow' && 'active-payment-option'}`}
+        onClick={() => setPayment('payNow')}
       >
         <div className="payment-option-input">
           <input
@@ -48,11 +44,11 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ payment, setPayment }) => {
             id="payNow"
             name="payment"
             value="payNow"
-            checked={payment === "payNow"}
+            checked={payment === 'payNow'}
           />
           <Spacer width={10} />
           <label htmlFor="payNow" className="payment-option-label">
-            <span className="payment-option-label-text">{t("payNow")}</span>
+            <span className="payment-option-label-text">{t('payNow')}</span>
           </label>
         </div>
       </div>

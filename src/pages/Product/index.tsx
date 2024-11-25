@@ -1,23 +1,22 @@
-import React, { ChangeEvent, useState } from "react";
-import "./index.css";
-import Spacer from "../../components/Spacer";
-import Button from "../../components/Button";
-import { useTranslation } from "react-i18next";
-import ImageCarousel from "../../components/ImageCarousel ";
-import images from "../../assets/images/index";
-import {
-  FEEDBACK,
-  FEEDBACKS,
-  INITIAL_USER,
-  PRODUCT,
-} from "../../utilities/constants";
-import StarsRate from "../../components/StarsRate";
-import { Feedback } from "../../utilities/types";
+import React, { ChangeEvent, useState } from 'react';
+
+import './index.css';
+import { useTranslation } from 'react-i18next';
+
+import apple from '../../assets/images/apple.png';
+import apple2 from '../../assets/images/apple2.png';
+import apple3 from '../../assets/images/apple3.png';
+import Button from '../../components/Button';
+import ImageCarousel from '../../components/ImageCarousel ';
+import Spacer from '../../components/Spacer';
+import StarsRate from '../../components/StarsRate';
+import { FEEDBACK, FEEDBACKS, INITIAL_USER, PRODUCT } from '../../utilities/constants';
+import { Feedback } from '../../utilities/types';
 
 const imagesCarousel = [
-  { src: images.apple, title: "apple" },
-  { src: images.apple2, title: "apple2" },
-  { src: images.apple3, title: "apple3" },
+  { src: apple, title: 'apple' },
+  { src: apple2, title: 'apple2' },
+  { src: apple3, title: 'apple3' },
 ];
 
 const Product = () => {
@@ -40,7 +39,7 @@ const Product = () => {
                 onClick={() => {}}
                 icon="heart"
                 color="#711d1d"
-                iconClassName={PRODUCT.isFavorite ? "fa-solid" : "fa-regular"}
+                iconClassName={PRODUCT.isFavorite ? 'fa-solid' : 'fa-regular'}
               />
             </div>
           </div>
@@ -48,7 +47,7 @@ const Product = () => {
           <StarsRate rate={PRODUCT.rate} />
           <Spacer height={20} />
           <div className="product-seller">
-            <span className="seller-label">{t("seller")}:</span>
+            <span className="seller-label">{t('seller')}:</span>
             <Button
               onClick={() => {}}
               label={PRODUCT.seller}
@@ -61,25 +60,19 @@ const Product = () => {
           <Spacer height={20} />
           <div className="product-details">
             <div className="details-label">
-              {t("product-details")}:
+              {t('product-details')}:
               {PRODUCT.details.length > 170 && (
                 <i
                   className={
                     isVisibleDetails
-                      ? "fa-solid fa-chevron-up more-text"
-                      : "fa-solid fa-chevron-down more-text"
+                      ? 'fa-solid fa-chevron-up more-text'
+                      : 'fa-solid fa-chevron-down more-text'
                   }
                   onClick={() => setDetails(!isVisibleDetails)}
                 />
               )}
             </div>
-            <span
-              className={
-                isVisibleDetails
-                  ? "details-text opened-details"
-                  : "details-text"
-              }
-            >
+            <span className={isVisibleDetails ? 'details-text opened-details' : 'details-text'}>
               {PRODUCT.details}
             </span>
           </div>
@@ -87,13 +80,13 @@ const Product = () => {
           <div className="product-price-buy">
             <div className="product-price">
               {PRODUCT.price}
-              {t("grn")}
+              {t('grn')}
             </div>
             <Button
               onClick={() => {}}
               icon="cart-plus"
               color="#711d1d"
-              label={t("buy")}
+              label={t('buy')}
               className="product-buy-btn"
               iconClassName="fa-solid"
             />
@@ -107,7 +100,7 @@ const Product = () => {
         {!feedbackForm && !!FEEDBACKS.length && (
           <Button
             onClick={() => setFeedbackForm(true)}
-            label={t("commentBtn")}
+            label={t('commentBtn')}
             color="white"
             icon="comment-medical"
             iconClassName="fa-solid"
@@ -117,7 +110,7 @@ const Product = () => {
       </div>
       <Spacer height={5} />
       <div className="feedback-wrapper">
-        {!!FEEDBACKS.length ? (
+        {FEEDBACKS.length ? (
           FEEDBACKS.map((f) => {
             return (
               <div key={f.id} className="feedback">
@@ -138,14 +131,14 @@ const Product = () => {
             );
           })
         ) : (
-          <div className="no-feedback">{t("no-feedback")}</div>
+          <div className="no-feedback">{t('no-feedback')}</div>
         )}
       </div>
       <Spacer height={5} />
       {!feedbackForm && (
         <Button
           onClick={() => setFeedbackForm(true)}
-          label={t("commentBtn")}
+          label={t('commentBtn')}
           color="white"
           icon="comment-medical"
           iconClassName="fa-solid"
@@ -156,9 +149,7 @@ const Product = () => {
       {feedbackForm && (
         <div className="feedback  user-feedback-wrapper">
           <div className="feedback-user-avatar-wrapper">
-            <div className="user-feedback-user-avatar">
-              [Current User Image]
-            </div>
+            <div className="user-feedback-user-avatar">[Current User Image]</div>
           </div>
           <Spacer width={10} />
           <div className="feedback-details">
@@ -166,8 +157,8 @@ const Product = () => {
             <Spacer height={5} />
             <div className="feedback-rate">
               <StarsRate
-                color={"white"}
-                activeColor={"#c60f0f"}
+                color={'white'}
+                activeColor={'#c60f0f'}
                 rate={feedback.rate}
                 changeRate={(rate: number) => {
                   setFeedback({ ...feedback, rate });
@@ -189,7 +180,7 @@ const Product = () => {
             <div className="feedback-btns">
               <Button
                 onClick={() => setFeedbackForm(true)}
-                label={t("send-feedback")}
+                label={t('send-feedback')}
                 color="white"
                 icon="comment-medical"
                 iconClassName="fa-solid"
@@ -198,9 +189,9 @@ const Product = () => {
               <Button
                 onClick={() => {
                   setFeedbackForm(false);
-                  setFeedback({ ...feedback, rate: 0, text: "" });
+                  setFeedback({ ...feedback, rate: 0, text: '' });
                 }}
-                label={t("cancel")}
+                label={t('cancel')}
                 color="white"
                 icon="ban"
                 iconClassName="fa-solid"

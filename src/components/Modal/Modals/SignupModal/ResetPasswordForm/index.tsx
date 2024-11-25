@@ -1,23 +1,22 @@
-import React, { useState } from "react";
-import "./index.css";
-import EmailInput from "../../../../Inputs/EmailInput";
-import { sendPasswordResetEmail } from "firebase/auth";
+import React, { useState } from 'react';
 
-import { updateErrors, validation } from "../../../../../utilities/validation";
-import Spacer from "../../../../Spacer";
-import { auth } from "../../../../../firebase";
+import './index.css';
+import { sendPasswordResetEmail } from 'firebase/auth';
+
+import { auth } from '../../../../../firebase';
+import { updateErrors, validation } from '../../../../../utilities/validation';
+import EmailInput from '../../../../Inputs/EmailInput';
+import Spacer from '../../../../Spacer';
 
 interface ResetPasswordFormProps {
   setResetPasswordView: (value: boolean) => void;
 }
 
-const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
-  setResetPasswordView,
-}) => {
+const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ setResetPasswordView }) => {
   const [isMailSent, setSent] = useState(false);
 
   const [formData, setFormData] = useState<{ email: string }>({
-    email: "",
+    email: '',
   });
   const [errors, setErrors] = useState<{ name: string; text: string }[]>([]);
 
@@ -31,7 +30,7 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
 
   const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    validation(formData, errors, setErrors, name as "email");
+    validation(formData, errors, setErrors, name as 'email');
   };
 
   const resetPassword = async (event: React.FormEvent) => {
@@ -43,7 +42,7 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
         setSent(true);
       })
       .catch((e) => {
-        updateErrors(setErrors, "email", e.code);
+        updateErrors(setErrors, 'email', e.code);
       });
   };
 
@@ -52,14 +51,11 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
       <h1 className="reset-title">Перевірте вашу електронну пошту</h1>
       <Spacer height={50} />
       <span className="reset-text">
-        На вказану Ваму елекронну пошту ({formData.email}) було відправлено
-        листа з подальшими інструкціями з відновлення паролю
+        На вказану Ваму елекронну пошту ({formData.email}) було відправлено листа з подальшими
+        інструкціями з відновлення паролю
       </span>
       <Spacer height={50} />
-      <button
-        className="submit-btn"
-        onClick={() => setResetPasswordView(false)}
-      >
+      <button className="submit-btn" onClick={() => setResetPasswordView(false)}>
         Вхід
       </button>
     </div>
@@ -69,14 +65,14 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
       <Spacer height={50} />
       <EmailInput
         value={formData.email}
-        error={errors?.find((e) => e.name === "email")?.text}
+        error={errors?.find((e) => e.name === 'email')?.text}
         onChange={handleInputChange}
         onBlur={onInputBlur}
       />
       <Spacer height={25} />
       <span className="reset-text">
-        Для відновлення паролю введіть будь ласка вашу електронну пошту, на неї
-        буде надіслано листа з подальшими інструкціями для оновлення паролю.
+        Для відновлення паролю введіть будь ласка вашу електронну пошту, на неї буде надіслано листа
+        з подальшими інструкціями для оновлення паролю.
       </span>
       <Spacer height={50} />
       <button className="submit-btn" type="submit">

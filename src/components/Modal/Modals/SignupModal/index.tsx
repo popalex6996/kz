@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useState } from 'react';
 
-import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
-import Spacer from "../../../Spacer";
+import { useTranslation } from 'react-i18next';
 
-import "./index.css";
-import { Modal } from "../../../../utilities/types";
-import Button from "../../../Button";
-import ResetPasswordForm from "./ResetPasswordForm";
+import LoginForm from './LoginForm';
+import ResetPasswordForm from './ResetPasswordForm';
+import SignupForm from './SignupForm';
+import { Modal } from '../../../../utilities/types';
+import Button from '../../../Button';
+import Spacer from '../../../Spacer';
+
+import './index.css';
 
 interface SignupModalProps {
   hide: (modal: Modal) => void;
@@ -16,11 +17,7 @@ interface SignupModalProps {
   setLoginTab: (value: boolean) => void;
 }
 
-const SignupModal: React.FC<SignupModalProps> = ({
-  hide,
-  isLoginTab,
-  setLoginTab,
-}) => {
+const SignupModal: React.FC<SignupModalProps> = ({ hide, isLoginTab, setLoginTab }) => {
   const { t } = useTranslation();
 
   const [resetPasswordView, setResetPasswordView] = useState(false);
@@ -38,7 +35,7 @@ const SignupModal: React.FC<SignupModalProps> = ({
       )}
       {/* Modal close button */}
       <Button
-        onClick={() => hide("signup")}
+        onClick={() => hide('signup')}
         icon="xmark"
         iconClassName="fa-solid"
         color="#711d1d"
@@ -47,36 +44,29 @@ const SignupModal: React.FC<SignupModalProps> = ({
       {!resetPasswordView && (
         <div className="tabs">
           <button
-            className={`login-tab tab-name ${isLoginTab && "active-tab"}`}
+            className={`login-tab tab-name ${isLoginTab && 'active-tab'}`}
             onClick={() => setLoginTab(true)}
           >
-            {t("login")}
+            {t('login')}
           </button>
           <Spacer width={10} />
           <div className="signup-border-line" />
           <Spacer width={10} />
           <button
-            className={`signup-tab  tab-name ${!isLoginTab && "active-tab"}`}
+            className={`signup-tab  tab-name ${!isLoginTab && 'active-tab'}`}
             onClick={() => setLoginTab(false)}
           >
-            {t("signup")}
+            {t('signup')}
           </button>
         </div>
       )}
 
       {!resetPasswordView && <Spacer height={50} />}
-      {resetPasswordView && (
-        <ResetPasswordForm setResetPasswordView={setResetPasswordView} />
-      )}
+      {resetPasswordView && <ResetPasswordForm setResetPasswordView={setResetPasswordView} />}
       {isLoginTab && !resetPasswordView && (
-        <LoginForm
-          hide={hide}
-          setResetPasswordView={() => setResetPasswordView(true)}
-        />
+        <LoginForm hide={hide} setResetPasswordView={() => setResetPasswordView(true)} />
       )}
-      {!isLoginTab && !resetPasswordView && (
-        <SignupForm hide={hide} setLoginForm={() => setLoginTab(true)} />
-      )}
+      {!isLoginTab && !resetPasswordView && <SignupForm hide={hide} />}
     </div>
   );
 };

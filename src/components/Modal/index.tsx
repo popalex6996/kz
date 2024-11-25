@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
 
-import CartModal from "./Modals/CartModal";
-import CatalogModal from "./Modals/CatalogModal";
-import HamburgerModal from "./Modals/HamburgerModal";
-import SignupModal from "./Modals/SignupModal";
+import ReactDOM from 'react-dom';
 
-import "./index.css";
-import { Modal as ModalType } from "../../utilities/types";
-import AccountModal from "./Modals/AccountModal";
+import AccountModal from './Modals/AccountModal';
+import CartModal from './Modals/CartModal';
+import CatalogModal from './Modals/CatalogModal';
+import HamburgerModal from './Modals/HamburgerModal';
+import SignupModal from './Modals/SignupModal';
+import './index.css';
+import { Modal as ModalType } from '../../utilities/types';
 
 interface ModalProps {
   hide: (modal: ModalType) => void;
@@ -18,46 +18,32 @@ interface ModalProps {
   setLoginTab: (isLoginTab: boolean) => void;
 }
 
-const Modal: React.FC<ModalProps> = ({
-  hide,
-  changeModal,
-  modal,
-  isLoginTab,
-  setLoginTab,
-}) => {
+const Modal: React.FC<ModalProps> = ({ hide, changeModal, modal, isLoginTab, setLoginTab }) => {
   return ReactDOM.createPortal(
     <div onClick={() => hide(modal)} className="modal-wrapper">
       <div id={modal} className={modal} onClick={(e) => e.stopPropagation()}>
         {/* Hamburger modal content */}
-        {modal === "hamburger" && (
-          <HamburgerModal
-            changeModal={changeModal}
-            hide={hide}
-            setLoginTab={setLoginTab}
-          />
+        {modal === 'hamburger' && (
+          <HamburgerModal changeModal={changeModal} hide={hide} setLoginTab={setLoginTab} />
         )}
 
         {/* Cart modal content */}
-        {modal === "cart" && <CartModal hide={hide} />}
+        {modal === 'cart' && <CartModal hide={hide} />}
 
         {/* Cart modal content */}
-        {modal === "account" && <AccountModal hide={hide} />}
+        {modal === 'account' && <AccountModal hide={hide} />}
 
         {/* Catalog modal content */}
-        {modal === "catalog" && <CatalogModal hide={hide} />}
+        {modal === 'catalog' && <CatalogModal hide={hide} />}
 
         {/* Signup modal content */}
-        {modal === "signup" && (
-          <SignupModal
-            hide={hide}
-            isLoginTab={isLoginTab}
-            setLoginTab={setLoginTab}
-          />
+        {modal === 'signup' && (
+          <SignupModal hide={hide} isLoginTab={isLoginTab} setLoginTab={setLoginTab} />
         )}
       </div>
     </div>,
 
-    document.getElementById("modal-root")!,
+    document.getElementById('modal-root')!,
   );
 };
 

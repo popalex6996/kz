@@ -1,20 +1,21 @@
-import React from "react";
-import "./index.css";
-import { useTranslation } from "react-i18next";
-import LanguageSwitch from "../LanguageSwitch";
-import Spacer from "../Spacer";
-import SocialLinks from "../SocialLinks";
-import ModalButton from "../Modal/ModalButton";
+import React from 'react';
+
+import './index.css';
+import { useTranslation } from 'react-i18next';
+
+import LanguageSwitch from '../LanguageSwitch';
+import ModalButton from '../Modal/ModalButton';
+import SocialLinks from '../SocialLinks';
+import Spacer from '../Spacer';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
 
   const toggleCatalog = () => {
-    // @ts-ignore
-    const catalogShadow = document.getElementById("catalog-shadow");
-    catalogShadow?.classList.toggle("catalog-shadow-visible");
-    const cart = document.getElementById("catalog");
-    cart?.classList.toggle("catalog-open");
+    const catalogShadow = document.getElementById('catalog-shadow');
+    catalogShadow?.classList.toggle('catalog-shadow-visible');
+    const cart = document.getElementById('catalog');
+    cart?.classList.toggle('catalog-open');
   };
 
   return (
@@ -33,13 +34,13 @@ const Footer: React.FC = () => {
             <ModalButton type="footerSignup" />
           </div>
           <a className="nav-link" href="/platform">
-            {t("platform")}
+            {t('platform')}
           </a>
         </div>
         <div className="nav-links">
           <div className="nav-links">
             <button onClick={toggleCatalog} className="nav-link">
-              {t("store")}
+              {t('store')}
             </button>
           </div>
         </div>
@@ -51,13 +52,13 @@ const Footer: React.FC = () => {
       </div>
       <div className="copyright-wrapper">
         <div className="copyright">
-          {t("copyright")}{" "}
+          {t('copyright')}{' '}
           <a href="/privacy" target="_blank" className="copyright-terms-link">
-            {t("terms2")}
-            {", "}
+            {t('terms2')}
+            {', '}
           </a>
           <a href="/terms" target="_blank" className="copyright-terms-link">
-            {t("userAgreement")}
+            {t('userAgreement')}
           </a>
         </div>
       </div>

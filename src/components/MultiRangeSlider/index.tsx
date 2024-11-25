@@ -1,5 +1,5 @@
-import React, { ChangeEvent, FC, useCallback, useEffect, useRef } from "react";
-import "./index.css";
+import React, { ChangeEvent, FC, useCallback, useEffect, useRef } from 'react';
+import './index.css';
 
 interface MultiRangeSliderProps {
   min: number;
@@ -8,12 +8,7 @@ interface MultiRangeSliderProps {
   setRange: ({ from, to }: { from: number; to: number }) => void;
 }
 
-const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
-  min,
-  max,
-  range,
-  setRange,
-}) => {
+const MultiRangeSlider: FC<MultiRangeSliderProps> = ({ min, max, range, setRange }) => {
   const minValRef = useRef(min);
   const maxValRef = useRef(max);
   const rangeEL = useRef<HTMLDivElement>(null);
@@ -59,8 +54,7 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           minValRef.current = value;
         }}
         className="thumb thumb--left"
-        // @ts-ignore
-        style={{ zIndex: range.from > max - 100 && "5" }}
+        // style={{ zIndex: range.from > max - 100 && '5' }}
       />
       <input
         type="range"

@@ -1,26 +1,20 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import React, { useState } from 'react';
 
-import Button from "../../../Button";
-import Spacer from "../../../Spacer";
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
-import "./index.css";
-import {
-  Category,
-  CategoryName,
-  Modal,
-  SubCategory,
-} from "../../../../utilities/types";
-import { CATEGORIES, SUB_CATEGORIES } from "../../../../utilities/constants";
+import { CATEGORIES, SUB_CATEGORIES } from '../../../../utilities/constants';
+import { Category, CategoryName, Modal, SubCategory } from '../../../../utilities/types';
+import Button from '../../../Button';
+import Spacer from '../../../Spacer';
+
+import './index.css';
 
 const CatalogModal = ({ hide }: { hide: (modal: Modal) => void }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const [selectedCategory, setCategory] = useState<CategoryName>(
-    "fruits-vegetables-pickles",
-  );
+  const [selectedCategory, setCategory] = useState<CategoryName>('fruits-vegetables-pickles');
 
   //Catalog categories menu item
   const CategoryItem = ({ category, icon, available }: Category) => {
@@ -29,7 +23,7 @@ const CatalogModal = ({ hide }: { hide: (modal: Modal) => void }) => {
         key={category}
         onClick={() => {
           if (selectedCategory === category) {
-            hide("catalog");
+            hide('catalog');
             navigate(`category/${selectedCategory}`);
           } else {
             setCategory(category);
@@ -37,55 +31,36 @@ const CatalogModal = ({ hide }: { hide: (modal: Modal) => void }) => {
         }}
         disabled={!available}
         className={
-          selectedCategory === category
-            ? "catalog-menu-active-button"
-            : "catalog-menu-button"
+          selectedCategory === category ? 'catalog-menu-active-button' : 'catalog-menu-button'
         }
       >
         <i className={`category-icon fa-solid fa-${icon}`} />
         <Spacer width={10} />
         <div className="category-name-wrapper">
-          <span className={!available ? "no-category-name" : "category-name"}>
-            {t(category)}
-          </span>
-          {!available && (
-            <span className="no-category-text">{t("no-category")}</span>
-          )}
+          <span className={!available ? 'no-category-name' : 'category-name'}>{t(category)}</span>
+          {!available && <span className="no-category-text">{t('no-category')}</span>}
         </div>
       </button>
     );
   };
 
   //Catalog SubCategory item
-  const SubCategoryItem = ({
-    subCategory,
-    category,
-    image,
-    available,
-  }: SubCategory) => {
+  const SubCategoryItem = ({ subCategory, category, available }: SubCategory) => {
     return (
       <button
         key={subCategory}
-        className={available ? "product-variety-card" : "no-subcategory"}
+        className={available ? 'product-variety-card' : 'no-subcategory'}
         onClick={() => {
-          hide("catalog");
+          hide('catalog');
           navigate(`category/${category}/sub-category/${subCategory}`);
         }}
         disabled={!available}
       >
         {/*todo: Subcategory image and titles block*/}
-        <span
-          className={
-            available ? "subcategory-title" : "empty-subcategory-title"
-          }
-        >
+        <span className={available ? 'subcategory-title' : 'empty-subcategory-title'}>
           {t(subCategory)}
         </span>
-        {!available && (
-          <span className="empty-subcategory-text">
-            {t("empty-subcategory")}
-          </span>
-        )}
+        {!available && <span className="empty-subcategory-text">{t('empty-subcategory')}</span>}
       </button>
     );
   };
@@ -96,7 +71,7 @@ const CatalogModal = ({ hide }: { hide: (modal: Modal) => void }) => {
       <div className="catalog-menu">
         {CATEGORIES.map(({ category, icon, available }: Category) => (
           <CategoryItem
-            key={"catalog-menu" + category}
+            key={'catalog-menu' + category}
             category={category}
             icon={icon}
             available={available}
@@ -112,7 +87,7 @@ const CatalogModal = ({ hide }: { hide: (modal: Modal) => void }) => {
 
           {/* Catalog modal close button */}
           <Button
-            onClick={() => hide("catalog")}
+            onClick={() => hide('catalog')}
             icon="xmark"
             iconClassName="fa-solid"
             color="#711d1d"
@@ -140,11 +115,11 @@ const CatalogModal = ({ hide }: { hide: (modal: Modal) => void }) => {
           <button
             className="product-variety-card"
             onClick={() => {
-              hide("catalog");
+              hide('catalog');
               navigate(`category/${selectedCategory}`);
             }}
           >
-            <span>{t("lookAtAll")}</span>
+            <span>{t('lookAtAll')}</span>
           </button>
         </div>
       </div>

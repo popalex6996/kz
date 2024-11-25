@@ -1,15 +1,16 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import React from 'react';
 
-import Button from "../../../Button";
-import SocialLinks from "../../../SocialLinks";
-import Spacer from "../../../Spacer";
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import "./index.css";
-import { MENU_LINKS } from "../../../../utilities/constants";
-import { Modal } from "../../../../utilities/types";
-import { useAuth } from "../../../../hooks/useAuth";
+import { useAuth } from '../../../../hooks/useAuth';
+import { MENU_LINKS } from '../../../../utilities/constants';
+import { Modal } from '../../../../utilities/types';
+import Button from '../../../Button';
+import SocialLinks from '../../../SocialLinks';
+import Spacer from '../../../Spacer';
+
+import './index.css';
 
 const HamburgerModal = ({
   hide,
@@ -28,9 +29,9 @@ const HamburgerModal = ({
 
   //Menu link component
   const MenuLink = ({ link, icon }: { link: string; icon: string }) => {
-    if (link === "account" && !isAuth) return;
+    if (link === 'account' && !isAuth) return;
     const onNavigate = (link: string) => () => {
-      hide("hamburger");
+      hide('hamburger');
       navigate(`/${link}`);
     };
 
@@ -40,11 +41,9 @@ const HamburgerModal = ({
         <Spacer width={5} />
         {t(link)}
         <Spacer width={10} />
-        {(link === "home"
-          ? location.pathname === "/" || location.pathname === "/home"
-          : location.pathname === `/${link}`) && (
-          <div className="hamburger-active-link" />
-        )}
+        {(link === 'home'
+          ? location.pathname === '/' || location.pathname === '/home'
+          : location.pathname === `/${link}`) && <div className="hamburger-active-link" />}
       </button>
     );
   };
@@ -56,7 +55,7 @@ const HamburgerModal = ({
         icon="bars"
         iconClassName="fa-solid"
         className="hamburger-menu-close-btn"
-        onClick={() => hide("hamburger")}
+        onClick={() => hide('hamburger')}
       />
 
       {/* Login button */}
@@ -64,13 +63,13 @@ const HamburgerModal = ({
         <button
           onClick={() => {
             setLoginTab(true);
-            changeModal("signup");
+            changeModal('signup');
           }}
           className="link link-btn"
         >
           <i className="fa-solid fa-right-to-bracket link-icon" />
           <Spacer width={5} />
-          {t("login")}
+          {t('login')}
         </button>
       )}
 
@@ -79,21 +78,21 @@ const HamburgerModal = ({
         <button
           onClick={() => {
             setLoginTab(false);
-            changeModal("signup");
+            changeModal('signup');
           }}
           className="link link-btn"
         >
           <i className="fa-solid fa-user-plus link-icon" />
           <Spacer width={5} />
-          {t("signup")}
+          {t('signup')}
         </button>
       )}
 
       {/* Catalog button */}
-      <button onClick={() => changeModal("catalog")} className="link link-btn">
+      <button onClick={() => changeModal('catalog')} className="link link-btn">
         <i className="fa-solid fa-store link-icon" />
         <Spacer width={5} />
-        {t("store")}
+        {t('store')}
       </button>
 
       {/* Menu nav links */}

@@ -1,27 +1,22 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import "./index.css";
+import React from 'react';
+
+import { useTranslation } from 'react-i18next';
+import './index.css';
 
 interface NameInputProps {
-  name: "displayName" | "name" | "lastName";
+  name: 'displayName' | 'name' | 'lastName';
   value: string;
   error: string | undefined;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const NameInput: React.FC<NameInputProps> = ({
-  name,
-  value,
-  error,
-  onChange,
-  onBlur,
-}) => {
+const NameInput: React.FC<NameInputProps> = ({ name, value, error, onChange, onBlur }) => {
   const { t } = useTranslation();
   return (
-    <div className={`name-input-wrapper ${error && "input-error"}`}>
+    <div className={`name-input-wrapper ${error && 'input-error'}`}>
       <label htmlFor={name} className="name-input-label">
-        {error || t("nameInputPlaceholder")}
+        {error || t('nameInputPlaceholder')}
       </label>
       <input
         id={name}

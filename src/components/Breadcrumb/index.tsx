@@ -1,25 +1,22 @@
-import "./index.css";
-import { useLocation, useParams } from "react-router-dom";
-import Spacer from "../Spacer";
-import React from "react";
-import { useTranslation } from "react-i18next";
+import './index.css';
+import React from 'react';
+
+import { useTranslation } from 'react-i18next';
+import { useLocation, useParams } from 'react-router-dom';
+
+import Spacer from '../Spacer';
 
 const Breadcrumb = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  let { categoryId, subCategoryId, productId } = useParams();
+  const { categoryId, subCategoryId, productId } = useParams();
 
-  if (pathname === "/home" || pathname === "/") return;
+  if (pathname === '/home' || pathname === '/') return;
 
   const breadcrumbs = pathname
-    .split("/")
+    .split('/')
     .filter(
-      (b) =>
-        !!b &&
-        b !== "category" &&
-        b !== "sub-category" &&
-        b !== "product" &&
-        b !== "home",
+      (b) => !!b && b !== 'category' && b !== 'sub-category' && b !== 'product' && b !== 'home',
     )
     .map((b) => {
       return {
@@ -40,7 +37,7 @@ const Breadcrumb = () => {
       <a href="/home" className="breadcrumb-link ">
         <i className="fa-solid fa-house" />
         <Spacer width={5} />
-        {t("home")}
+        {t('home')}
       </a>
       {breadcrumbs.map((b) => {
         return (

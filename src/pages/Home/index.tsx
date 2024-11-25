@@ -1,13 +1,15 @@
-import React from "react";
-import "./index.css";
-import { useTranslation } from "react-i18next";
-import images from "../../assets/images";
-import Spacer from "../../components/Spacer";
-import { useNavigate } from "react-router-dom";
-import ProductsCarousel from "../../components/ProductsCarousel";
-import { CATEGORIES, PRODUCTS } from "../../utilities/constants";
-import { Category } from "../../utilities/types";
-import { useAuth } from "../../hooks/useAuth";
+import React from 'react';
+
+import './index.css';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
+import redLogo from '../../assets/images/logo-red.png';
+import ProductsCarousel from '../../components/ProductsCarousel';
+import Spacer from '../../components/Spacer';
+import { useAuth } from '../../hooks/useAuth';
+import { CATEGORIES, PRODUCTS } from '../../utilities/constants';
+import { Category } from '../../utilities/types';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -17,8 +19,8 @@ const Home = () => {
   return (
     <div className="home-wrapper">
       <div className="logo-slogan-wrapper">
-        <img src={images.redLogo} alt="logo" className="home-logo" />
-        <h1 className="slogan">{t("slogan")}</h1>
+        <img src={redLogo} alt="logo" className="home-logo" />
+        <h1 className="slogan">{t('slogan')}</h1>
       </div>
       <Spacer height={10} />
       <div className="home-catalog-wrapper">
@@ -40,21 +42,21 @@ const Home = () => {
       </div>
       <div className="home-carousel">
         <Spacer height={10} />
-        <h3 className="home-carousel-title">{t("popularProducts")}</h3>
+        <h3 className="home-carousel-title">{t('popularProducts')}</h3>
         <ProductsCarousel products={PRODUCTS} />
       </div>
       <Spacer height={10} />
       {!!PRODUCTS.length && (
         <div className="home-carousel">
           <Spacer height={10} />
-          <h3 className="home-carousel-title">{t("viewedProducts")}</h3>
+          <h3 className="home-carousel-title">{t('viewedProducts')}</h3>
           <ProductsCarousel products={PRODUCTS} />
         </div>
       )}
       {!!PRODUCTS.length && isAuth && (
         <div className="home-carousel">
           <Spacer height={10} />
-          <h3 className="home-carousel-title">{t("favouritesProducts")}</h3>
+          <h3 className="home-carousel-title">{t('favouritesProducts')}</h3>
           <ProductsCarousel products={PRODUCTS} />
         </div>
       )}

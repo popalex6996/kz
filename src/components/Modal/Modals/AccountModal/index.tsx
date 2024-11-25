@@ -1,31 +1,32 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react';
 
-import "./index.css";
-import { Modal } from "../../../../utilities/types";
-import Spacer from "../../../Spacer";
-import { useNavigate } from "react-router-dom";
-import { removeUser } from "../../../../store/slices/userSlice";
-import { useAppDispatch } from "../../../../hooks/redux-hooks";
-import { useAuth } from "../../../../hooks/useAuth";
-import Avatar from "../../../Avatar";
+import { useTranslation } from 'react-i18next';
+import './index.css';
+import { useNavigate } from 'react-router-dom';
+
+import { useAppDispatch } from '../../../../hooks/redux-hooks';
+import { useAuth } from '../../../../hooks/useAuth';
+import { removeUser } from '../../../../store/slices/userSlice';
+import { Modal } from '../../../../utilities/types';
+import Avatar from '../../../Avatar';
+import Spacer from '../../../Spacer';
 
 const links = [
   {
-    tab: "favourites",
-    icon: "heart",
+    tab: 'favourites',
+    icon: 'heart',
   },
   {
-    tab: "cart",
-    icon: "shopping-cart",
+    tab: 'cart',
+    icon: 'shopping-cart',
   },
   {
-    tab: "my-products",
-    icon: "hand-holding-dollar",
+    tab: 'my-products',
+    icon: 'hand-holding-dollar',
   },
   {
-    tab: "orders",
-    icon: "receipt",
+    tab: 'orders',
+    icon: 'receipt',
   },
 ];
 
@@ -37,8 +38,8 @@ const AccountModal = ({ hide }: { hide: (modal: Modal) => void }) => {
 
   const { photoURL, name, lastName } = useAuth();
   const onNavigate = (tab?: string) => () => {
-    hide("account");
-    navigate("/account", { state: { activeTab: tab || "personal-data" } });
+    hide('account');
+    navigate('/account', { state: { activeTab: tab || 'personal-data' } });
   };
 
   //Menu link component
@@ -54,19 +55,11 @@ const AccountModal = ({ hide }: { hide: (modal: Modal) => void }) => {
 
   return (
     <div className="account-modal">
-      <button
-        className="close-account-modal-btn"
-        onClick={() => hide("account")}
-      >
+      <button className="close-account-modal-btn" onClick={() => hide('account')}>
         <i className="fa-solid fa-chevron-right" />
       </button>
       <button className="account-name-image" onClick={onNavigate()}>
-        <Avatar
-          src={photoURL || ""}
-          name={name?.[0]}
-          lastName={lastName?.[0]}
-          onClick={() => {}}
-        />
+        <Avatar src={photoURL || ''} name={name?.[0]} lastName={lastName?.[0]} onClick={() => {}} />
         <Spacer width={10} />
         <div>
           <span className="initials-text">
@@ -84,7 +77,7 @@ const AccountModal = ({ hide }: { hide: (modal: Modal) => void }) => {
       <button className="account-link" onClick={() => {}}>
         <i className="fa-circle-plus fa-solid link-icon" />
         <Spacer width={5} />
-        {t("add-product")}
+        {t('add-product')}
       </button>
 
       <Spacer height={10} />
@@ -92,13 +85,13 @@ const AccountModal = ({ hide }: { hide: (modal: Modal) => void }) => {
       <button
         className="exit-btn"
         onClick={() => {
-          hide("account");
+          hide('account');
           dispatch(removeUser());
         }}
       >
-        <i className={`fa-right-from-bracket fa-solid link-icon`} />
+        <i className={'fa-right-from-bracket fa-solid link-icon'} />
         <Spacer width={5} />
-        {t("logout")}
+        {t('logout')}
       </button>
     </div>
   );

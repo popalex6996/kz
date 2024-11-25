@@ -1,34 +1,27 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { Product } from "../../utilities/types";
-import Button from "../Button";
-import NumberInput from "../NumberInput";
-import Spacer from "../Spacer";
-import "./index.css";
+import React from 'react';
+
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
+import { Product } from '../../utilities/types';
+import Button from '../Button';
+import NumberInput from '../NumberInput';
+import Spacer from '../Spacer';
+import './index.css';
 
 interface CartProductProps {
   product: Product;
   hideDetails?: boolean;
 }
 
-const CartProduct: React.FC<CartProductProps> = ({
-  product,
-  hideDetails = false,
-}) => {
+const CartProduct: React.FC<CartProductProps> = ({ product, hideDetails = false }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
   return (
     <div className="cart-product" key={product.name}>
       <div className="cart-product-image-name-amount">
-        <div
-          className={
-            hideDetails ? "cart-product-image-sm" : "cart-product-image"
-          }
-        >
-          image
-        </div>
+        <div className={hideDetails ? 'cart-product-image-sm' : 'cart-product-image'}>image</div>
         <Spacer width={10} />
         <div className="cart-product-name-amount">
           <Button
@@ -44,7 +37,7 @@ const CartProduct: React.FC<CartProductProps> = ({
           <span className="cart-product-amount">
             {product.amountStep}
             {product.measurement} | {product.price}
-            {t("grn")}
+            {t('grn')}
           </span>
         </div>
       </div>
@@ -59,7 +52,7 @@ const CartProduct: React.FC<CartProductProps> = ({
       <Spacer width={20} />
       <span className="cart-product-total-price">
         {product.price * product.amount}
-        {t("grn")}
+        {t('grn')}
       </span>
       {!hideDetails && <Spacer width={20} />}
       {!hideDetails && (

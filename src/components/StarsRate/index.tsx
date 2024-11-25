@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./index.css";
+import React, { useState } from 'react';
+import './index.css';
 
 interface StarsRateProps {
   rate: number;
@@ -11,8 +11,8 @@ interface StarsRateProps {
 const StarsRate: React.FC<StarsRateProps> = ({
   rate,
   changeRate,
-  color = "#eee",
-  activeColor = "#711d1d",
+  color = '#eee',
+  activeColor = '#711d1d',
 }) => {
   const [hover, setHover] = useState<number | null>(null);
   return (
@@ -35,7 +35,7 @@ const StarsRate: React.FC<StarsRateProps> = ({
                   : rate >= index + 1
                     ? activeColor
                     : color,
-                cursor: "pointer",
+                cursor: 'pointer',
               }}
             />
           </div>

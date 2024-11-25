@@ -1,13 +1,14 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
 
-import Breadcrumb from "../Breadcrumb";
-import LanguageSwitch from "../LanguageSwitch";
-import ModalButton from "../Modal/ModalButton";
-import SearchBar from "../SearchBar";
-import Spacer from "../Spacer";
+import { useNavigate } from 'react-router-dom';
 
-import "./index.css";
+import Breadcrumb from '../Breadcrumb';
+import LanguageSwitch from '../LanguageSwitch';
+import ModalButton from '../Modal/ModalButton';
+import SearchBar from '../SearchBar';
+import Spacer from '../Spacer';
+
+import './index.css';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Header: React.FC = () => {
           <Spacer width={15} />
 
           {/*todo: logo button with surprise like goose from the right side*/}
-          <button onClick={() => navigate("/home")} className="logo-btn" />
+          <button onClick={() => navigate('/home')} className="logo-btn" />
         </div>
 
         {/* Global search input in the center */}

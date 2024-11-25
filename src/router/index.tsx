@@ -1,75 +1,78 @@
-import { createBrowserRouter } from "react-router-dom";
-import Privacy from "../pages/PrivacyPolicy";
-import Terms from "../pages/Terms";
-import Platform from "../pages/Platform";
-import Home from "../pages/Home";
-import Payment from "../pages/Payment";
-import Exchange from "../pages/Exchange";
-import Cart from "../pages/Cart";
-import Contacts from "../pages/Contacts";
-import Layout from "../layouts";
-import Category from "../pages/Category";
-import Product from "../pages/Product";
-import Account from "../pages/Account";
+import React from 'react';
+
+import { createBrowserRouter } from 'react-router-dom';
+
+import Layout from '../layouts';
+import Account from '../pages/Account';
+import Cart from '../pages/Cart';
+import Category from '../pages/Category';
+import Contacts from '../pages/Contacts';
+import Exchange from '../pages/Exchange';
+import Home from '../pages/Home';
+import Payment from '../pages/Payment';
+import Platform from '../pages/Platform';
+import Privacy from '../pages/PrivacyPolicy';
+import Product from '../pages/Product';
+import Terms from '../pages/Terms';
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
       {
-        path: "*",
+        path: '*',
         element: <p>Path not resolved</p>,
       },
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "home",
+        path: 'home',
         element: <Home />,
       },
       {
-        path: "payment",
+        path: 'payment',
         element: <Payment />,
       },
       {
-        path: "exchange",
+        path: 'exchange',
         element: <Exchange />,
       },
       {
-        path: "cart",
+        path: 'cart',
         element: <Cart />,
       },
       {
-        path: "contacts",
+        path: 'contacts',
         element: <Contacts />,
       },
       {
-        path: "privacy",
+        path: 'privacy',
         element: <Privacy />,
       },
       {
-        path: "terms",
+        path: 'terms',
         element: <Terms />,
       },
       {
-        path: "platform",
+        path: 'platform',
         element: <Platform />,
       },
       {
-        path: "account",
+        path: 'account',
         element: <Account />,
       },
       {
-        path: "category/:categoryId",
+        path: 'category/:categoryId',
         element: <Category />,
       },
       {
-        path: "category/:categoryId/sub-category/:subCategoryId",
+        path: 'category/:categoryId/sub-category/:subCategoryId',
         element: <Category />,
       },
       {
-        path: "category/:categoryId/sub-category/:subCategoryId/product/:productId",
+        path: 'category/:categoryId/sub-category/:subCategoryId/product/:productId',
         element: <Product />,
       },
     ],

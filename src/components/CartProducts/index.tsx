@@ -1,7 +1,8 @@
-import "./index.css";
-import React from "react";
-import CartProduct from "../CartProduct";
-import { Product } from "../../utilities/types";
+import './index.css';
+import React from 'react';
+
+import { Product } from '../../utilities/types';
+import CartProduct from '../CartProduct';
 
 interface CartProductProps {
   products: Product[];
@@ -15,7 +16,7 @@ const CartProducts: React.FC<CartProductProps> = ({
   hideDetails = false,
 }) => {
   return (
-    <div className={`${isModal ? "modal-cart-products" : "cart-products"}`}>
+    <div className={`${isModal ? 'modal-cart-products' : 'cart-products'}`}>
       {products.map((p) => (
         <CartProduct product={p} key={p.name} hideDetails={hideDetails} />
       ))}

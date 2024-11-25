@@ -1,11 +1,11 @@
-import React from "react";
-import "./index.css";
+import React from 'react';
+import './index.css';
 
 interface SocialLinksProps {
   color?: string;
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ color = "white" }) => {
+const SocialLinks: React.FC<SocialLinksProps> = ({ color = 'white' }) => {
   return (
     <div className="social-links">
       <button onClick={() => {}} className="social-link">

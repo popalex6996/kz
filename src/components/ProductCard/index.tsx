@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { Product } from "../../utilities/types";
-import "./index.css";
-import Spacer from "../Spacer";
-import StarsRate from "../StarsRate";
-import Button from "../Button";
-import NumberInput from "../NumberInput";
+import React, { useState } from 'react';
+
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
+import { Product } from '../../utilities/types';
+import './index.css';
+import Button from '../Button';
+import NumberInput from '../NumberInput';
+import Spacer from '../Spacer';
+import StarsRate from '../StarsRate';
 
 interface ProductCardProps {
   product: Product;
@@ -19,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, hide = false }) => {
   const [value, setValue] = useState(0);
   return (
     <div
-      className={hide ? "hide-product-card" : "product-card"}
+      className={hide ? 'hide-product-card' : 'product-card'}
       onClick={() => {
         navigate(
           `/category/${product.category}/sub-category/${product.subCategory}/product/${product.id}`,
@@ -30,16 +32,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, hide = false }) => {
         <Button
           onClick={() => {}}
           icon="heart"
-          iconClassName={product.isFavorite ? "fa-solid" : "fa-regular"}
+          iconClassName={product.isFavorite ? 'fa-solid' : 'fa-regular'}
           className="favourite-btn"
         />
       </div>
       <div className="product-card-img-wrapper">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="product-card-img"
-        />
+        <img src={product.image} alt={product.name} className="product-card-img" />
       </div>
       <Spacer height={15} />
       <div className="product-card-title">{product.name}</div>
@@ -49,7 +47,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, hide = false }) => {
       <div className="product-card-price-buy">
         <div className="product-card-price">
           {product.price}
-          {t("grn")} ({product.amountStep}
+          {t('grn')} ({product.amountStep}
           {t(product.measurement)})
         </div>
         {value ? (

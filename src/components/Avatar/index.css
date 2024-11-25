@@ -5,6 +5,17 @@
   cursor: pointer;
 }
 
+.l-account-img {
+  border: 2px solid #711d1d;
+  width: 140px;
+  height: 140px;
+  border-radius: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+
 .account-img {
   width: 40px;
   height: 40px;
@@ -26,6 +37,20 @@
   color: white;
   background-color: #c60f0f;
   border: 1px solid white;
+  font-size: 10px;
+}
+
+.l-initials {
+  border: 2px solid #711d1d;
+  width: 140px;
+  height: 140px;
+  border-radius: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #711d1d;
+  background-color: white;
+  font-size: 30px;
 }
 
 .initials:hover {

@@ -1,0 +1,48 @@
+.personal-data-wrapper {
+  margin-left: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.personal-data-avatar-wrapper {
+  width: 30%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 2px solid #711d1d;
+}
+
+.personal-data-save-btn-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.personal-data-save-btn {
+  cursor: pointer;
+  border: none;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  background: #c60f0f;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.personal-data-save-btn:hover {
+  background: #711d1d;
+}
+
+.personal-data-save-btn:active {
+  background: #c60f0f;
+}

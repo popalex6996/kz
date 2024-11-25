@@ -1,0 +1,28 @@
+.favourites-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.favourites {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.no-favourites-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.no-favourites-title {
+  font-size: 18px;
+  color: #711d1d;
+  font-weight: bold;
+  margin: 0;
+}

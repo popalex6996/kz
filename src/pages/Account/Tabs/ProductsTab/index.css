@@ -1,0 +1,139 @@
+.user-products-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.user-no-products-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.user-no-products-title {
+  font-size: 18px;
+  color: #711d1d;
+  font-weight: bold;
+  margin: 0;
+}
+
+.user-add-products-btn {
+  min-width: 200px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: #c60f0f;
+  color: white;
+  min-height: 35px;
+}
+
+.user-products {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.user-product-wrapper {
+  cursor: pointer;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  margin: 0 10px 20px 10px;
+  width: 200px;
+}
+
+.user-product-wrapper:hover {
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+}
+
+.user-product-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+}
+
+.user-product-title {
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  cursor: default;
+}
+
+.user-product-price-buy {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-product-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #711d1d;
+  cursor: default;
+}
+
+.user-product-btns {
+  display: flex;
+}
+
+.user-product-edit-btn {
+  color: #711d1d;
+  font-size: 16px;
+  right: 40px;
+  top: 10px;
+}
+
+.user-product-delete-btn {
+  color: #711d1d;
+  font-size: 16px;
+  right: 10px;
+  top: 10px;
+}
+
+.product-stat-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.product-stat {
+  margin: 5px 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 14px;
+  border-bottom: dotted 1px;
+}
+
+.product-stat-title {
+  font-weight: 400;
+  cursor: default;
+}
+
+.product-stat-value {
+  color: #711d1d;
+  font-weight: bold;
+  text-align: right;
+  cursor: default;
+}
+
+.product-stat-category:hover {
+  color: #c60f0f;
+  cursor: pointer;
+}

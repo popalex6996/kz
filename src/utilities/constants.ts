@@ -1,4 +1,4 @@
-import { Category, Feedback, Order, Product, SubCategories, User } from './types';
+import { AccountTabs, Category, Feedback, Order, Product, SubCategories, User } from './types';
 import apple from '../assets/images/apple.png';
 
 export const MENU_LINKS = [
@@ -531,5 +531,32 @@ export const CONTACTS = [
     icon: 'fa-hand-point-down',
     btnText: 'follow',
     socials: true,
+  },
+];
+
+export const ACCOUNT_TABS: { name: AccountTabs; icon: string }[] = [
+  {
+    name: 'personal-data',
+    icon: 'user',
+  },
+  {
+    name: 'favourites',
+    icon: 'heart',
+  },
+  {
+    name: 'cart',
+    icon: 'shopping-cart',
+  },
+  {
+    name: 'orders',
+    icon: 'receipt',
+  },
+  {
+    name: 'my-products',
+    icon: 'hand-holding-dollar',
+  },
+  {
+    name: 'add-product',
+    icon: 'circle-plus',
   },
 ];

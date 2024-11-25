@@ -149,3 +149,11 @@ export type Modal =
   | 'signup'
   | 'footerLogin'
   | 'footerSignup';
+
+export type AccountTabs =
+  | 'personal-data'
+  | 'favourites'
+  | 'cart'
+  | 'orders'
+  | 'my-products'
+  | 'add-product';

@@ -44,6 +44,7 @@ const Account = () => {
   }, [isAuth, navigate]);
 
   //Set active tab form route(from account modal)
+
   useEffect(() => {
     if (state?.activeTab) {
       setTab(state?.activeTab);

@@ -24,15 +24,15 @@ const Home = () => {
       </div>
       <Spacer height={10} />
       <div className="home-catalog-wrapper">
-        {CATEGORIES.map(({ category, icon }: Category) => (
+        {CATEGORIES.map(({ name, icon }: Category) => (
           <button
-            key={category}
+            key={name}
             className="home-category"
-            onClick={() => navigate(`category/${category}`)}
+            onClick={() => navigate(`/category/${name}`)}
           >
             <i className={`fa-solid fa-${icon}`} />
             <Spacer width={5} />
-            <span>{t(category)}</span>
+            <span>{t(name)}</span>
           </button>
         ))}
       </div>

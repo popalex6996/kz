@@ -8,7 +8,7 @@ import { auth } from '../../../../../firebase';
 import { useAppDispatch } from '../../../../../hooks/redux-hooks';
 import { setUser } from '../../../../../store/slices/userSlice';
 import { Modal } from '../../../../../utilities/types';
-import { updateErrors, validation } from '../../../../../utilities/validation';
+import { updateErrors, validation, ValidationNameType } from '../../../../../utilities/validation';
 import EmailInput from '../../../../Inputs/EmailInput';
 import PasswordInput from '../../../../Inputs/PasswordInput';
 import Socials from '../../../../Socials';
@@ -40,7 +40,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ hide, setResetPasswordView }) => 
 
   const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    validation(formData, errors, setErrors, name as 'email' | 'password');
+    validation(formData, errors, setErrors, name as ValidationNameType);
   };
 
   const onLogin = async (event: React.FormEvent) => {

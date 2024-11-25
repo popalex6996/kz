@@ -4,7 +4,7 @@ import './index.css';
 import { sendPasswordResetEmail } from 'firebase/auth';
 
 import { auth } from '../../../../../firebase';
-import { updateErrors, validation } from '../../../../../utilities/validation';
+import { updateErrors, validation, ValidationNameType } from '../../../../../utilities/validation';
 import EmailInput from '../../../../Inputs/EmailInput';
 import Spacer from '../../../../Spacer';
 
@@ -30,7 +30,7 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ setResetPasswordV
 
   const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    validation(formData, errors, setErrors, name as 'email');
+    validation(formData, errors, setErrors, name as ValidationNameType);
   };
 
   const resetPassword = async (event: React.FormEvent) => {

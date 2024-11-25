@@ -7,28 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../../hooks/redux-hooks';
 import { useAuth } from '../../../../hooks/useAuth';
 import { removeUser } from '../../../../store/slices/userSlice';
-import { Modal } from '../../../../utilities/types';
+import { ACCOUNT_TABS } from '../../../../utilities/constants';
+import { AccountTabType, Modal } from '../../../../utilities/types';
 import Avatar from '../../../Avatar';
 import Spacer from '../../../Spacer';
-
-const links = [
-  {
-    tab: 'favourites',
-    icon: 'heart',
-  },
-  {
-    tab: 'cart',
-    icon: 'shopping-cart',
-  },
-  {
-    tab: 'my-products',
-    icon: 'hand-holding-dollar',
-  },
-  {
-    tab: 'orders',
-    icon: 'receipt',
-  },
-];
 
 const AccountModal = ({ hide }: { hide: (modal: Modal) => void }) => {
   const { t } = useTranslation();
@@ -39,11 +21,11 @@ const AccountModal = ({ hide }: { hide: (modal: Modal) => void }) => {
   const { photoURL, name, lastName } = useAuth();
   const onNavigate = (tab?: string) => () => {
     hide('account');
-    navigate('/account', { state: { activeTab: tab || 'personal-data' } });
+    navigate(`/account/${tab}`);
   };
 
   //Menu link component
-  const Link = ({ tab, icon }: { tab: string; icon: string }) => {
+  const Link = ({ tab, icon }: { tab: AccountTabType; icon: string }) => {
     return (
       <button className="account-link" onClick={onNavigate(tab)}>
         <i className={`fa-${icon} fa-solid link-icon`} />
@@ -69,16 +51,10 @@ const AccountModal = ({ hide }: { hide: (modal: Modal) => void }) => {
       </button>
       <div className="links">
         {/* Nav links */}
-        {links.map(({ tab, icon }) => (
-          <Link key={tab} tab={tab} icon={icon} />
+        {ACCOUNT_TABS.map(({ name, icon }) => (
+          <Link key={name} tab={name} icon={icon} />
         ))}
       </div>
-
-      <button className="account-link" onClick={() => {}}>
-        <i className="fa-circle-plus fa-solid link-icon" />
-        <Spacer width={5} />
-        {t('add-product')}
-      </button>
 
       <Spacer height={10} />
 

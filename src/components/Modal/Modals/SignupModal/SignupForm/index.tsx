@@ -8,7 +8,7 @@ import { auth } from '../../../../../firebase';
 import { useAppDispatch } from '../../../../../hooks/redux-hooks';
 import { setUser } from '../../../../../store/slices/userSlice';
 import { Modal } from '../../../../../utilities/types';
-import { updateErrors, validation } from '../../../../../utilities/validation';
+import { updateErrors, validation, ValidationNameType } from '../../../../../utilities/validation';
 import EmailInput from '../../../../Inputs/EmailInput';
 import NameInput from '../../../../Inputs/NameInput';
 import PasswordInput from '../../../../Inputs/PasswordInput';
@@ -41,7 +41,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ hide }) => {
 
   const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    validation(formData, errors, setErrors, name as 'email' | 'password' | 'displayName');
+    validation(formData, errors, setErrors, name as ValidationNameType);
   };
 
   const onSignUp = (event: React.FormEvent) => {

@@ -8,7 +8,7 @@ import { auth } from '../../firebase';
 import { useAppDispatch } from '../../hooks/redux-hooks';
 import { useAuth } from '../../hooks/useAuth';
 import { setUser } from '../../store/slices/userSlice';
-import { validation } from '../../utilities/validation';
+import { validation, ValidationNameType } from '../../utilities/validation';
 import EmailInput from '../Inputs/EmailInput';
 import NameInput from '../Inputs/NameInput';
 import PasswordInput from '../Inputs/PasswordInput';
@@ -38,7 +38,7 @@ const PersonalDataForm: React.FC = () => {
 
   const onInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
-    validation(formData, errors, setErrors, name as 'email' | 'password' | 'name' | 'lastName');
+    validation(formData, errors, setErrors, name as ValidationNameType);
   };
 
   const onSave = async (event: React.FormEvent) => {

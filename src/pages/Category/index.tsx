@@ -71,32 +71,32 @@ const Category = () => {
           {category && (
             <div className="type-filter-wrapper">
               {SUB_CATEGORIES[category as keyof typeof SUB_CATEGORIES].map((sc, index) => (
-                <div className="type-option" key={sc.subCategory + index}>
+                <div className="type-option" key={sc.name + index}>
                   <label
                     className={
-                      checked.includes(sc.subCategory)
+                      checked.includes(sc.name)
                         ? 'active-type-option-label container'
                         : 'type-option-label container'
                     }
-                    htmlFor={sc.subCategory}
+                    htmlFor={sc.name}
                   >
                     <input
                       type="checkbox"
                       className="checkbox-input"
-                      id={sc.subCategory}
-                      checked={checked.includes(sc.subCategory)}
+                      id={sc.name}
+                      checked={checked.includes(sc.name)}
                       onChange={() => {
-                        if (checked.includes(sc.subCategory)) {
-                          const newChecked = checked.filter((c) => c !== sc.subCategory);
+                        if (checked.includes(sc.name)) {
+                          const newChecked = checked.filter((c) => c !== sc.name);
                           setChecked(newChecked);
                         } else {
-                          setChecked([...checked, sc.subCategory]);
+                          setChecked([...checked, sc.name]);
                         }
                       }}
                     />
                     <div className="checkmark" />
                     <Spacer width={10} />
-                    {t(sc.subCategory)}
+                    {t(sc.name)}
                     <Spacer width={10} />
                     <div>[count]</div>
                   </label>

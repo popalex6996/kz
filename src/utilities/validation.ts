@@ -5,9 +5,23 @@ export const passwordValidation = (password: string) =>
   password.length > 0 &&
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/.test(password);
 
+export type ValidationNameType =
+  | 'email'
+  | 'password'
+  | 'displayName'
+  | 'name'
+  | 'lastName'
+  | 'phoneNumber'
+  | 'birth'
+  | 'category'
+  | 'subCategory'
+  | 'description'
+  | 'price'
+  | 'productName';
+
 export const updateErrors = (
   setErrors: React.Dispatch<React.SetStateAction<{ name: string; text: string }[]>>,
-  name: 'email' | 'password' | 'displayName' | 'name' | 'lastName' | 'phoneNumber' | 'birth',
+  name: ValidationNameType,
   text?: string,
 ) => {
   if (text) {
@@ -31,7 +45,7 @@ export const validation = (
   },
   errors: { name: string; text: string }[],
   setErrors: React.Dispatch<React.SetStateAction<{ name: string; text: string }[]>>,
-  name?: 'email' | 'password' | 'displayName' | 'name' | 'lastName' | 'phoneNumber' | 'birth',
+  name?: ValidationNameType,
 ) => {
   if (!name || name === 'email') {
     // Validate email
